@@ -13,17 +13,15 @@ import org.osgi.service.component.annotations.Component;
 import javax.jcr.RepositoryException;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import java.io.IOException;
 import java.util.Iterator;
 
-@Component(
-    service = Servlet.class,
-    property = {
+@Component(service = Servlet.class, property = {
         Constants.SERVICE_DESCRIPTION + "=Post Login Redirect Servlet",
         "sling.servlet.paths=/bin/honda/post-login",
         "sling.servlet.methods=GET"
-    }
-)
+})
 public class PostLoginRedirectServlet extends SlingAllMethodsServlet {
 
     @Override
@@ -65,6 +63,13 @@ public class PostLoginRedirectServlet extends SlingAllMethodsServlet {
                 }
             }
 
+            // Set logged-in user info as a cookie
+            Cookie userCookie = new Cookie("hondaUserId", userId);
+            userCookie.setPath("/");
+            userCookie.setMaxAge(60 * 60); // 1 hour
+            userCookie.setHttpOnly(false); // true if not accessed by client-side JS
+            response.addCookie(userCookie);
+
             response.sendRedirect(redirectPath);
 
         } catch (RepositoryException e) {
@@ -72,4 +77,3 @@ public class PostLoginRedirectServlet extends SlingAllMethodsServlet {
         }
     }
 }
-
