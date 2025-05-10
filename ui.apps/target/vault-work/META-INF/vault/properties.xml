@@ -4,7 +4,7 @@
 <comment>Honda - UI apps</comment>
 <entry key="allowIndexDefinitions">false</entry>
 <entry key="dependencies-locations">adobe/cq60:core.wcm.components.content:2.28.0=maven:com.adobe.cq:core.wcm.components.content:2.28.0:zip,adobe/cq60:core.wcm.components.config:2.28.0=maven:com.adobe.cq:core.wcm.components.config:2.28.0:zip</entry>
-<entry key="created">2025-05-10T11:30:53.938Z</entry>
+<entry key="created">2025-05-10T11:58:08.503Z</entry>
 <entry key="groupId">com.honda</entry>
 <entry key="description">UI apps package for Honda</entry>
 <entry key="version">1.0.0-SNAPSHOT</entry>
