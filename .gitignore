@@ -1,0 +1,14 @@
+# Ignore Maven target directories
+**/target/
+
+# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# IntelliJ / Eclipse / VS Code
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
