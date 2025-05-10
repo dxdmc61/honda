@@ -14,13 +14,13 @@
                     <input type="text" name="dealerNumber" placeholder="Dealer Number" required />
                     <input type="text" name="userId" placeholder="User ID" required />
                     <input type="password" name="password" placeholder="Password" required />
-                   <!-- <div class="remember-forgot">
+                    <!--  <div class="remember-forgot">
                         <label>
                             <input type="checkbox" name="rememberMe" />
                             Remember Me
                         </label>
                         <a href="/forgot-password">Forgot Password?</a>
-                    </div>-->
+                    </div> -->
                     <button type="submit">Login</button>
                 </form>
             </div>
@@ -40,32 +40,41 @@
         font-family: Arial, sans-serif;
         background-color: #f7f7f7;
         padding: 2rem;
+        min-height: 100vh;
+        box-sizing: border-box;
     }
 
     .honda-logo {
         width: 150px;
-        margin-bottom: 1rem;
+        display: block;
+        margin: 0 auto 1rem auto;
     }
 
     .login-header h2 {
         color: #cc0000;
         text-align: center;
+        font-size: 1.8rem;
     }
 
     .login-content {
         display: flex;
-        justify-content: space-between;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
         margin-top: 2rem;
     }
 
     .login-form-container {
-        flex: 1;
-        padding: 1rem;
+        flex: 1 1 400px;
+        display: flex;
+        justify-content: center;
     }
 
     .login-container {
+        width: 100%;
         max-width: 400px;
-        margin: 0 auto;
         background: #fff;
         padding: 2rem;
         border-radius: 8px;
@@ -78,6 +87,7 @@
         margin-bottom: 1rem;
         border: 1px solid #ccc;
         border-radius: 4px;
+        box-sizing: border-box;
     }
 
     .login-form button {
@@ -88,15 +98,24 @@
         border: none;
         border-radius: 4px;
         font-weight: bold;
+        cursor: pointer;
+    }
+
+    .login-side-image {
+        flex: 1 1 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .login-side-image img {
         max-width: 100%;
         height: auto;
+        border-radius: 10px;
     }
 
     .login-footer {
-        margin-top: 2rem;
+        margin-top: 3rem;
         text-align: center;
         font-size: 0.9rem;
         color: #555;
