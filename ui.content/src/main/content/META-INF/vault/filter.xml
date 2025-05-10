@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/honda" mode="merge"/>
+    <filter root="/content/honda" mode="merge"/>
+    <filter root="/content/dam/honda" mode="merge">
+        <exclude pattern="/content/dam/honda(/.*)?"/>
+        <include pattern="/content/dam/honda/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/honda/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/honda" mode="merge"/>
+</workspaceFilter>

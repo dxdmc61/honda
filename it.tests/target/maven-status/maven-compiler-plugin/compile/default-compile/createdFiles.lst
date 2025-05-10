@@ -1,0 +1,4 @@
+com/honda/aem/it/tests/PublishPageValidationIT.class
+com/honda/aem/it/tests/HtmlUnitClient.class
+com/honda/aem/it/tests/CreatePageIT.class
+com/honda/aem/it/tests/GetPageIT.class

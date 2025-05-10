@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Honda - UI apps</comment>
+<entry key="allowIndexDefinitions">false</entry>
+<entry key="dependencies-locations">adobe/cq60:core.wcm.components.content:2.28.0=maven:com.adobe.cq:core.wcm.components.content:2.28.0:zip,adobe/cq60:core.wcm.components.config:2.28.0=maven:com.adobe.cq:core.wcm.components.config:2.28.0:zip</entry>
+<entry key="created">2025-05-10T09:56:07.835Z</entry>
+<entry key="groupId">com.honda</entry>
+<entry key="description">UI apps package for Honda</entry>
+<entry key="version">1.0.0-SNAPSHOT</entry>
+<entry key="packageType">application</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="dependencies">adobe/cq60:core.wcm.components.content:2.28.0,adobe/cq60:core.wcm.components.config:2.28.0</entry>
+<entry key="cloudManagerTarget">none</entry>
+<entry key="name">honda.ui.apps</entry>
+<entry key="artifactId">honda.ui.apps</entry>
+<entry key="group">com.honda</entry>
+</properties>

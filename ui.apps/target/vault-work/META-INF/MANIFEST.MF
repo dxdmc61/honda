@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Created-By: Apache Jackrabbit FileVault - Package Maven Plugin 1.3.6
+Build-Jdk-Spec: 21
+Implementation-Title: Honda - UI apps
+Implementation-Version: 1.0.0-SNAPSHOT
+Content-Package-Type: application
+Content-Package-Id: com.honda:honda.ui.apps:1.0.0-SNAPSHOT
+Content-Package-Description: UI apps package for Honda
+Content-Package-Dependencies: adobe/cq60:core.wcm.components.content:2.2
+ 8.0,adobe/cq60:core.wcm.components.config:2.28.0
+Content-Package-Dependencies-Locations: adobe/cq60:core.wcm.components.c
+ ontent:2.28.0=maven:com.adobe.cq:core.wcm.components.content:2.28.0:zip
+ ,adobe/cq60:core.wcm.components.config:2.28.0=maven:com.adobe.cq:core.w
+ cm.components.config:2.28.0:zip
+Content-Package-Roots: /apps/honda/clientlibs,/apps/honda/components,/ap
+ ps/honda/i18n,/apps/msm/honda_blueprint
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Honda - UI config</comment>
+<entry key="cloudManagerTarget">none</entry>
+<entry key="allowIndexDefinitions">false</entry>
+<entry key="created">2025-05-10T09:56:04.584Z</entry>
+<entry key="groupId">com.honda</entry>
+<entry key="name">honda.ui.config</entry>
+<entry key="description">UI config package for Honda</entry>
+<entry key="artifactId">honda.ui.config</entry>
+<entry key="version">1.0.0-SNAPSHOT</entry>
+<entry key="packageType">container</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">com.honda</entry>
+</properties>

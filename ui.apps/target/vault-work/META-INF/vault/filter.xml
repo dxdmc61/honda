@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/honda/clientlibs"/>
+    <filter root="/apps/honda/components"/>
+    <filter root="/apps/honda/i18n"/>
+    <filter root="/apps/msm/honda_blueprint" mode="merge"/>
+</workspaceFilter>

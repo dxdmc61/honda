@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Honda - All</comment>
+<entry key="allowIndexDefinitions">false</entry>
+<entry key="created">2025-05-10T09:55:52.815Z</entry>
+<entry key="groupId">com.honda</entry>
+<entry key="name">honda.all</entry>
+<entry key="description">All content package for Honda</entry>
+<entry key="artifactId">honda.all</entry>
+<entry key="version">1.0.0-SNAPSHOT</entry>
+<entry key="packageType">container</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">com.honda</entry>
+</properties>
