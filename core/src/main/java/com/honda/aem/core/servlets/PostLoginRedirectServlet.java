@@ -53,14 +53,14 @@ public class PostLoginRedirectServlet extends SlingAllMethodsServlet {
                 String groupId = group.getID();
 
                 switch (groupId) {
-                    case "dealer-admin":
-                        redirectPath = "/content/honda/us/en/dealer-admin.html";
+                    case "honda-admin":
+                        redirectPath = "/content/honda/us/en/honda-admin.html";
                         break;
-                    case "dealer-pc":
-                        redirectPath = "/content/honda/us/en/dealer-pc.html";
+                    case "honda-auto":
+                        redirectPath = "/content/honda/us/en/honda-auto.html";
                         break;
-                    case "dealer-ac":
-                        redirectPath = "/content/honda/us/en/dealer-ac.html";
+                    case "mc-pe":
+                        redirectPath = "/content/honda/us/en/mc-pe.html";
                         break;
                 }
             }
