@@ -4,7 +4,7 @@
 <comment>Honda - Repository Structure Package</comment>
 <entry key="cloudManagerTarget">none</entry>
 <entry key="allowIndexDefinitions">false</entry>
-<entry key="created">2025-05-10T09:12:18.152Z</entry>
+<entry key="created">2025-05-10T10:43:37.074Z</entry>
 <entry key="groupId">com.honda</entry>
 <entry key="name">honda.ui.apps.structure</entry>
 <entry key="description">Empty package that defines the structure of the Adobe Experience Manager repository the Code packages in this project deploy into.

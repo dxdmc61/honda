@@ -1,7 +1,0 @@
-{
-    "scripts": [
-        "create path (sling:OrderedFolder) /content/dam/honda",
-        "create path (nt:unstructured) /content/dam/honda/jcr:content",
-        "set properties on /content/dam/honda/jcr:content\n  set cq:conf{String} to /conf/honda\n  set jcr:title{String} to \"Honda\"\nend"
-    ]
-}
