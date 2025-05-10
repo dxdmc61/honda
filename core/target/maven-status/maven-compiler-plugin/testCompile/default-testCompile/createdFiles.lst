@@ -1,7 +1,0 @@
-com/honda/aem/core/models/HelloWorldModelTest.class
-com/honda/aem/core/testcontext/AppAemContext.class
-com/honda/aem/core/listeners/SimpleResourceListenerTest.class
-com/honda/aem/core/schedulers/SimpleScheduledTaskTest.class
-com/honda/aem/core/servlets/SimpleServletTest.class
-com/honda/aem/core/filters/LoggingFilterTest.class
-com/honda/aem/core/testcontext/AppAemContext$1.class
