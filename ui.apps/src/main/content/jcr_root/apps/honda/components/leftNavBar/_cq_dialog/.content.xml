@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Left Navigation"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    >
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <navLinks
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                fieldLabel="Navigation Links"
+                composite="{Boolean}true">
+                <field jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                    name="./navLinks">
+                    <layout jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/layouts/fixedcolumns"
+                        margin="{Boolean}false"/>
+                    <items jcr:primaryType="nt:unstructured">
+                        <linkName jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Link Name"
+                            name="./linkName"/>
+                        <linkUrl jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                            fieldLabel="Link URL"
+                            name="./linkUrl"/>
+                    </items>
+                </field>
+            </navLinks>
+        </items>
+    </content>
+</jcr:root>

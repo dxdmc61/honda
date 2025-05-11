@@ -1,0 +1,41 @@
+<sly data-sly-use.navbar="com.honda.aem.core.models.LeftNavbarModel">
+    <ul>
+        <sly data-sly-list.link="${navbar.navLinks}">
+            <li><a href="${link.linkUrl @ context='uri'}">${link.linkName}</a></li>
+        </sly>
+    </ul>
+</sly>
+<style>
+   .container .leftNavBar {
+    width: 220px !important;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-right: 1px solid #ddd;
+    font-family: Arial, sans-serif;
+}
+
+.leftNavBar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.leftNavBar li {
+    margin-bottom: 10px;
+}
+
+.leftNavBar a {
+    text-decoration: none;
+    color: #0073e6;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.leftNavBar a:hover {
+    background-color: #e2e6ea;
+    color: #0056b3;
+}
+
+</style>
