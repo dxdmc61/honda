@@ -1,0 +1,77 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+ data-sly-use.model="com.honda.aem.core.models.PropellerTestReportModel">
+    <div class="honda-propeller-test-report" 
+         id="${model.id}" 
+         data-api-path="${model.apiPath}" 
+         data-refresh-time="${model.refreshTime}">
+        <div class="content">
+            <div class="content-header">
+                <div>
+                    <h2 class="content-title">${model.title}</h2>
+                    <p class="content-subtitle">${model.subtitle}</p>
+                </div>
+                <button class="btn btn-primary" id="new-report-btn">
+                    <span class="icon">+</span> New Report
+                </button>
+            </div>
+            
+            <div class="search-box">
+                <h3 class="search-box-title">Search Reports</h3>
+                <form class="search-form" id="search-form">
+                    <div class="form-group">
+                        <label class="form-label">Hull Material</label>
+                        <select class="form-select" id="hull-material">
+                            <option value="">&lt;&lt; SELECT &gt;&gt;</option>
+                            <sly data-sly-list.material="${model.hullMaterials}">
+                                <option value="${material}">${material}</option>
+                            </sly>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">HP</label>
+                        <select class="form-select" id="hp">
+                            <option value="">&lt;&lt; SELECT &gt;&gt;</option>
+                            <sly data-sly-list.power="${model.horsepowers}">
+                                <option value="${power}">${power}</option>
+                            </sly>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Boat Type</label>
+                        <select class="form-select" id="boat-type">
+                            <option value="">&lt;&lt; SELECT &gt;&gt;</option>
+                            <sly data-sly-list.type="${model.boatTypes}">
+                                <option value="${type}">${type}</option>
+                            </sly>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Model</label>
+                        <input type="text" class="form-control" id="model" placeholder="Enter model name...">
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="results-container">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>HP</th>
+                            <th>Boat Type</th>
+                            <th>Model</th>
+                            <th>Length</th>
+                            <th>Propeller</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<sly data-sly-call="${clientlib.all @ categories='honda.propeller'}"></sly>
+
+</sly>
