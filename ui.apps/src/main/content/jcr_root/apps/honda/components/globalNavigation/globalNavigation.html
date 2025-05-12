@@ -31,7 +31,7 @@
 
           <div style="width: 1px; height: 1.5rem; background-color: var(--gray-300);"></div>
 
-          <div class="user-profile">
+          <div class="user-profile" id="userProfile">
             <div class="avatar">TM</div>
             <div class="user-info">
               <div class="user-name">Tech Manager</div>
@@ -41,6 +41,13 @@
               viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
+            <div class="dropdown-menu hidden" id="userDropdown">
+              <ul>
+                <li><a href="#">My Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="/bin/honda/logout">Sign Out</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
