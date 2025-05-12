@@ -1,0 +1,212 @@
+/* Side Navigation Component Styles - Matched to Search Claims styling */
+.cmp-side-navigation {
+    margin-bottom: 1.5rem;
+    font-family: inherit;
+    border-radius: 0.25rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    position: relative;
+    border: 1px solid #e6e6e6;
+}
+
+.cmp-side-navigation__header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #f9f9f9;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+.cmp-side-navigation__title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333333;
+    line-height: 1.3;
+}
+
+.cmp-side-navigation__nav {
+    padding: 0.5rem 0;
+}
+
+/* List styling */
+.cmp-side-navigation__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Item styling */
+.cmp-side-navigation__item {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cmp-side-navigation__item:last-child {
+    border-bottom: none;
+}
+
+/* Link styling */
+.cmp-side-navigation__link {
+    display: block;
+    flex: 1;
+    padding: 0.8rem 1.5rem;
+    color: #333333;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    font-size: 1rem;
+    line-height: 1.4;
+    position: relative;
+}
+
+.cmp-side-navigation__link:hover {
+    color: #0066cc;
+    background-color: rgba(0, 102, 204, 0.04);
+}
+
+.cmp-side-navigation__link--active {
+    color: #ffffff;
+    font-weight: 500;
+    background-color: #0066cc;
+}
+
+.cmp-side-navigation__link--active:hover {
+    color: #ffffff;
+    background-color: #0055aa;
+}
+
+.cmp-side-navigation__link--in-path {
+    color: #0066cc;
+    font-weight: 500;
+}
+
+/* Toggle button styling */
+.cmp-side-navigation__toggle-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: auto;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    transition: background-color 0.2s ease;
+}
+
+.cmp-side-navigation__toggle-button:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.cmp-side-navigation__toggle-icon {
+    position: relative;
+    width: 12px;
+    height: 12px;
+}
+
+.cmp-side-navigation__toggle-icon:before,
+.cmp-side-navigation__toggle-icon:after {
+    content: '';
+    position: absolute;
+    background-color: #777777;
+    transition: transform 0.2s ease;
+}
+
+.cmp-side-navigation__toggle-icon:before {
+    top: 5px;
+    left: 0;
+    width: 12px;
+    height: 2px;
+}
+
+.cmp-side-navigation__toggle-icon:after {
+    top: 0;
+    left: 5px;
+    width: 2px;
+    height: 12px;
+}
+
+.cmp-side-navigation__item[data-cmp-expanded="true"] > .cmp-side-navigation__toggle-button .cmp-side-navigation__toggle-icon:after {
+    transform: scaleY(0);
+}
+
+.cmp-side-navigation__item--active > .cmp-side-navigation__toggle-button .cmp-side-navigation__toggle-icon:before,
+.cmp-side-navigation__item--active > .cmp-side-navigation__toggle-button .cmp-side-navigation__toggle-icon:after {
+    background-color: #ffffff;
+}
+
+/* Level-specific styling */
+.cmp-side-navigation__item--level-1 > .cmp-side-navigation__link {
+    font-weight: 500;
+}
+
+.cmp-side-navigation__item--level-2 > .cmp-side-navigation__link {
+    padding-left: 2.5rem;
+    font-size: 0.95rem;
+    background-color: #fafafa;
+}
+
+.cmp-side-navigation__item--level-3 > .cmp-side-navigation__link {
+    padding-left: 3.5rem;
+    font-size: 0.9rem;
+    background-color: #fcfcfc;
+}
+
+.cmp-side-navigation__item--level-4 > .cmp-side-navigation__link {
+    padding-left: 4.5rem;
+    font-size: 0.85rem;
+}
+
+/* Hide nested lists by default */
+.cmp-side-navigation__item > .cmp-side-navigation__list {
+    display: none;
+    width: 100%;
+}
+
+/* Show nested lists when expanded */
+.cmp-side-navigation__item[data-cmp-expanded="true"] > .cmp-side-navigation__list {
+    display: block;
+}
+
+/* Placeholder styling */
+.cmp-side-navigation.cq-placeholder {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 1px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-style: italic;
+}
+
+/* Responsive styling for mobile */
+@media (max-width: 768px) {
+    .cmp-side-navigation__header {
+        padding: 1rem;
+    }
+    
+    .cmp-side-navigation__link {
+        padding: 0.75rem 1rem;
+    }
+    
+    .cmp-side-navigation__item--level-2 > .cmp-side-navigation__link {
+        padding-left: 1.75rem;
+    }
+    
+    .cmp-side-navigation__item--level-3 > .cmp-side-navigation__link {
+        padding-left: 2.5rem;
+    }
+    
+    .cmp-side-navigation__item--level-4 > .cmp-side-navigation__link {
+        padding-left: 3.25rem;
+    }
+}

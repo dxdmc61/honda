@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" 
+          xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Side Navigation"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <title
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Title"
+                                                name="./title"/>
+                                            <showTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                name="./showTitle"
+                                                text="Show Title"
+                                                value="{Boolean}true"/>
+                                            <navigationRoot
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldDescription="Path to the root page for navigation, e.g. /content/mysite. Leave empty to use current page's branch."
+                                                fieldLabel="Navigation Root"
+                                                name="./navigationRoot"
+                                                rootPath="/content"/>
+                                            <showCurrentPageBranch
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                fieldDescription="If no root path is specified, show navigation under a parent page of the current page."
+                                                name="./showCurrentPageBranch"
+                                                text="Show Current Page Branch"
+                                                value="{Boolean}true"
+                                                checked="{Boolean}true"/>
+                                            <structureDepth
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldDescription="Depth of the navigation structure (1 = top level only, etc.)"
+                                                fieldLabel="Structure Depth"
+                                                min="{Long}1"
+                                                name="./structureDepth"
+                                                value="{Long}3"/>
+                                            <excludeCurrentPage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                name="./excludeCurrentPage"
+                                                text="Exclude Current Page"
+                                                value="{Boolean}true"/>
+                                            <expandAll
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                name="./expandAll"
+                                                text="Expand All Levels"
+                                                value="{Boolean}true"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                    <styling
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Styling"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <id
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="HTML ID attribute to apply to the component"
+                                                fieldLabel="ID"
+                                                name="./id"/>
+                                            <cssClass
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Additional CSS class names to apply to the component"
+                                                fieldLabel="CSS Classes"
+                                                name="./cssClass"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </styling>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Propeller Test Report"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <!-- General Settings Tab -->
+                    <general
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <!-- Component ID -->
+                                            <id
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Component ID"
+                                                name="./id"
+                                                value="propeller-test-report"/>
+                                            
+                                            <!-- Component Title -->
+                                            <title
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Title"
+                                                name="./title"
+                                                value="Propeller Test Report"/>
+                                            
+                                            <!-- Component Subtitle -->
+                                            <subtitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Subtitle"
+                                                name="./subtitle"
+                                                value="View and search propeller test reports"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </general>
+                    
+                    <!-- API Settings Tab -->
+                    <api
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="API Settings"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <!-- API Path -->
+                                            <apiPath
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="API Path"
+                                                fieldDescription="Path to the API endpoint for propeller test reports"
+                                                name="./apiPath"
+                                                value="/api/propeller-test-reports"/>
+                                            
+                                            <!-- Refresh Time -->
+                                            <refreshTime
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldLabel="Refresh Time"
+                                                fieldDescription="Time in minutes between automatic data refreshes (0 to disable)"
+                                                min="{Long}0"
+                                                name="./refreshTime"
+                                                value="{Long}30"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </api>
+                    
+                    <!-- Filter Options Tab -->
+                    <filters
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Filter Options"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <!-- Hull Materials -->
+                                            <hullMaterials
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                fieldLabel="Hull Materials"
+                                                fieldDescription="List of hull materials to show in the dropdown">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    name="./hullMaterialsArray"/>
+                                            </hullMaterials>
+                                            
+                                            <!-- Horsepowers -->
+                                            <horsepowers
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                fieldLabel="Horsepowers"
+                                                fieldDescription="List of horsepower options to show in the dropdown">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    name="./horsepowersArray"/>
+                                            </horsepowers>
+                                            
+                                            <!-- Boat Types -->
+                                            <boatTypes
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                fieldLabel="Boat Types"
+                                                fieldDescription="List of boat types to show in the dropdown">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    name="./boatTypesArray"/>
+                                            </boatTypes>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </filters>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
