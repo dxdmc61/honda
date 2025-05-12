@@ -1,0 +1,46 @@
+<section class="globalNav global-searchbar">
+    <div class="component-container vpad-0">
+        <div class="component-offset">
+            <div class="content-container">
+                <div class="header-content">
+                    <div class="searchbar">
+                        <div class="searchmenu">
+                            <div class="searchcontainer">
+                                <form class="menu-search-form navbar-form-nav" action="/search.html" method="GET"
+                                    role="search">
+                                    <a href="/search.html"><img src="${properties.searchIcon}"
+                                            alt="Search bar">
+                                        <div class="searchtext">Search</div>
+                                    </a>
+                                    <input class="globalnav-search" type="hidden" name="plug_cleared"
+                                        value="Search cleared">
+                                    <input class="globalnav-search" type="hidden" name="plug_summary"
+                                        value="There are currently {maxLength} options starting with {searchTerm}">
+                                    <input class="globalnav-search" type="hidden" name="plug_noresult"
+                                        value="No results available for keyword {searchTerm}">
+                                    <input class="globalnav-search" type="hidden" name="plug_resultbelow"
+                                        value="{searchTerm}, options display below as you type">
+                                    <input class="globalnav-search" type="hidden" name="plug_of" value="of">
+                                    <input class="globalnav-search" type="hidden" name="label" value="Search">
+                                    <input class="globalnav-search" type="hidden" name="search_url"
+                                        value="/content/elavon/en-gb/search.html">
+                                </form>
+                            </div>
+                            
+                            <div class="country">
+                                <a href="#" aria-label="UK">
+                                    <span>
+                                        <span class="locationFlag">
+                                            <img src="${properties.cIcon}"
+                                                title="UK" alt="uk">
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
