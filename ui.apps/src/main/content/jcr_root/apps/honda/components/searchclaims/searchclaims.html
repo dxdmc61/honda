@@ -1,0 +1,329 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-use.model="com.honda.aem.core.models.SearchClaimsModel"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html">
+
+    <div class="cmp-search-claims"
+         id="${model.id}"
+         data-cmp-is="searchClaims"
+         data-api-endpoint="${model.apiEndpoint}"
+         data-search-options="${model.searchOptionsJson}"
+         data-sly-test.hasConfig="${model.id}">
+
+        <div class="cmp-search-claims__header">
+            <h2 class="cmp-search-claims__title">${model.title}</h2>
+        </div>
+
+        <!-- Alerts Section -->
+        <div class="cmp-search-claims__alerts">
+            <div class="cmp-search-claims__alert cmp-search-claims__alert--success" data-alert-success>
+                ${model.successMessage}
+            </div>
+            <div class="cmp-search-claims__alert cmp-search-claims__alert--error" data-alert-error>
+                ${model.errorMessage}
+            </div>
+            <div class="cmp-search-claims__alert cmp-search-claims__alert--info" data-alert-no-results>
+                ${model.noResultsMessage}
+            </div>
+        </div>
+
+        <!-- Search Form leveraging AEM 6.5 form foundation -->
+        <form class="cmp-search-claims__form"
+              action="${model.apiEndpoint}"
+              method="POST"
+              id="${model.id}-form"
+              data-search-form>
+
+            <div class="cmp-search-claims__form-row">
+                <!-- Search Type Field -->
+                <div class="cmp-search-claims__form-group">
+                    <label for="${model.id}-searchType" class="cmp-search-claims__form-label">${model.searchTypeLabel}</label>
+                    <select id="${model.id}-searchType" name="searchType" class="cmp-search-claims__form-select" data-field="searchType">
+                        <option value="">&lt;&lt; SELECT &gt;&gt;</option>
+                        <sly data-sly-list.option="${model.searchOptions}">
+                            <option value="${option.value}" data-sly-attribute.selected="${option.default}">${option.text}</option>
+                        </sly>
+                    </select>
+                    <div class="cmp-search-claims__error-message" data-error-message="searchType"></div>
+                </div>
+
+                <!-- Search Value Field -->
+                <div class="cmp-search-claims__form-group">
+                    <label for="${model.id}-searchValue" class="cmp-search-claims__form-label">${model.searchValueLabel}</label>
+                    <input type="text" id="${model.id}-searchValue" name="searchValue" class="cmp-search-claims__form-control"
+                           placeholder="${model.searchValuePlaceholder}" data-field="searchValue">
+                    <div class="cmp-search-claims__error-message" data-error-message="searchValue"></div>
+                </div>
+
+                <!-- Date From Field -->
+                <div class="cmp-search-claims__form-group">
+                    <label for="${model.id}-dateFrom" class="cmp-search-claims__form-label">${model.dateFromLabel}</label>
+                    <input type="date" id="${model.id}-dateFrom" name="dateFrom" class="cmp-search-claims__form-control" data-field="dateFrom">
+                    <div class="cmp-search-claims__error-message" data-error-message="dateFrom"></div>
+                </div>
+
+                <!-- Date To Field -->
+                <div class="cmp-search-claims__form-group">
+                    <label for="${model.id}-dateTo" class="cmp-search-claims__form-label">${model.dateToLabel}</label>
+                    <input type="date" id="${model.id}-dateTo" name="dateTo" class="cmp-search-claims__form-control" data-field="dateTo">
+                    <div class="cmp-search-claims__error-message" data-error-message="dateTo"></div>
+                </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="cmp-search-claims__form-actions">
+                <button type="button" class="cmp-button cmp-button--${model.clearButtonType}" data-action="clear">
+                    ${model.clearButtonText}
+                </button>
+                <button type="submit" class="cmp-button cmp-button--${model.searchButtonType}" data-action="search">
+                    <span class="cmp-search-claims__spinner" data-sly-test="${model.showSpinner}"></span>
+                    ${model.searchButtonText}
+                </button>
+            </div>
+        </form>
+
+        <!-- Debug Console (visible only in author mode or if explicitly enabled) -->
+        <div class="cmp-search-claims__console" data-sly-test="${model.showDebugConsole}"></div>
+                  
+          <!-- Toolbar -->
+          <div class="toolbar">
+            <div class="toolbar-group">
+              <div class="checkbox-wrapper">
+                <input type="checkbox" id="select-all" class="checkbox">
+                <label for="select-all" class="checkbox-label">Select All</label>
+              </div>
+              
+              <button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+                <svg class="icon" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+                Delete
+              </button>
+              
+              <button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+                <svg class="icon spin-on-hover" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                Refresh
+              </button>
+            </div>
+            
+            <button class="btn btn-primary" style="display: flex; align-items: center; gap: 0.5rem;">
+              <svg class="icon" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+              Skip to Claim Entry
+            </button>
+          </div>
+          
+          <!-- Table -->
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="width: 3rem;">
+                    <input type="checkbox" class="checkbox">
+                  </th>
+                  <th>Repair Order</th>
+                  <th>Dates</th>
+                  <th>VIN</th>
+                  <th>Failed Part</th>
+                  <th>Complaint / Service</th>
+                  <th>Amount</th>
+                  <th style="width: 6rem;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input type="checkbox" class="checkbox">
+                  </td>
+                  <td>
+                    <span style="color: var(--primary); font-weight: 500;">570624</span>
+                  </td>
+                  <td>
+                    <div style="font-size: 0.875rem;">04/23/2016</div>
+                    <div style="font-size: 0.75rem; color: var(--gray-500);">Completed: 04/23/2016</div>
+                  </td>
+                  <td>
+                    <div class="tooltip-container">
+                      <span style="font-size: 0.875rem; color: var(--gray-500);">1HGCR2F31FA242364</span>
+                      <div class="tooltip">2016 Honda Accord EX</div>
+                    </div>
+                  </td>
+                  <td style="font-size: 0.875rem; color: var(--gray-500);">
+                    36920-T2A-A04
+                  </td>
+                  <td>
+                    <span class="tag tag-danger">SAFETY RECALL</span>
+                    <div style="font-size: 0.875rem; margin-top: 0.25rem;">INSPECT AND REPLACE BATTERY SENSOR</div>
+                  </td>
+                  <td>
+                    <span class="amount">$100.89</span>
+                  </td>
+                  <td>
+                    <div class="actions">
+                      <div class="tooltip-container">
+                        <button class="action-btn">
+                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                        </button>
+                        <div class="tooltip">View</div>
+                      </div>
+                      
+                      <div class="tooltip-container">
+                        <button class="action-btn">
+                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                          </svg>
+                        </button>
+                        <div class="tooltip">Edit</div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    <input type="checkbox" class="checkbox">
+                  </td>
+                  <td>
+                    <span style="color: var(--primary); font-weight: 500;">570625</span>
+                  </td>
+                  <td>
+                    <div style="font-size: 0.875rem;">04/23/2016</div>
+                    <div style="font-size: 0.75rem; color: var(--gray-500);">Completed: 04/23/2016</div>
+                  </td>
+                  <td>
+                    <div class="tooltip-container">
+                      <span style="font-size: 0.875rem; color: var(--gray-500);">1HGCR2F76CA236218</span>
+                      <div class="tooltip">2015 Honda Accord LX</div>
+                    </div>
+                  </td>
+                  <td style="font-size: 0.875rem; color: var(--gray-500);">
+                    36920-T2A-A04
+                  </td>
+                  <td>
+                    <span class="tag tag-danger">SAFETY RECALL</span>
+                    <div style="font-size: 0.875rem; margin-top: 0.25rem;">INSPECT AND REPLACE BATTERY SENSOR</div>
+                  </td>
+                  <td>
+                    <span class="amount">$100.89</span>
+                  </td>
+                  <td>
+                    <div class="actions">
+                      <div class="tooltip-container">
+                        <button class="action-btn">
+                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                        </button>
+                        <div class="tooltip">View</div>
+                      </div>
+                      
+                      <div class="tooltip-container">
+                        <button class="action-btn">
+                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                          </svg>
+                        </button>
+                        <div class="tooltip">Edit</div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>
+                    <input type="checkbox" class="checkbox">
+                  </td>
+                  <td>
+                    <span style="color: var(--primary); font-weight: 500;">570002</span>
+                  </td>
+                  <td>
+                    <div style="font-size: 0.875rem;">04/23/2016</div>
+                    <div style="font-size: 0.75rem; color: var(--gray-500);">Completed: 04/23/2016</div>
+                  </td>
+                  <td>
+                    <div class="tooltip-container">
+                      <span style="font-size: 0.875rem; color: var(--gray-500);">5FPYK3F59HB032621</span>
+                      <div class="tooltip">2017 Honda Pilot EX-L</div>
+                    </div>
+                  </td>
+                  <td style="font-size: 0.875rem; color: var(--gray-500);">
+                    81310-T2A-305
+                  </td>
+                  <td>
+                    <span class="tag tag-info">SERVICE BULLETIN</span>
+                    <div style="font-size: 0.875rem; margin-top: 0.25rem;">INSTALL BRACKET TO STRIKER OF SECOND SEAT S/B 16-021</div>
+                  </td>
+                  <td>
+                    <span class="amount">$72.91</span>
+                  </td>
+                  <td>
+                    <div class="actions">
+                      <div class="tooltip-container">
+                        <button class="action-btn">
+                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                        </button>
+                        <div class="tooltip">View</div>
+                      </div>
+                      
+                      <div class="tooltip-container">
+                        <button class="action-btn">
+                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                          </svg>
+                        </button>
+                        <div class="tooltip">Edit</div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+                    
+          <!-- Pagination -->
+          <div style="padding: 1rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--gray-200);">
+            <div style="font-size: 0.875rem; color: var(--gray-500);">
+              Showing 1 to 5 of 37 entries
+            </div>
+            
+            <div style="display: flex;">
+              <a href="#" style="display: flex; align-items: center; padding: 0.25rem 0.5rem; border: 1px solid var(--gray-300); border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem; font-size: 0.875rem; color: var(--gray-500);">
+                <svg style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                Prev
+              </a>
+              
+              <a href="#" style="display: flex; align-items: center; justify-content: center; width: 2rem; border-top: 1px solid var(--primary); border-bottom: 1px solid var(--primary); background-color: var(--primary); color: white; font-size: 0.875rem; font-weight: 500;">1</a>
+              
+              <a href="#" style="display: flex; align-items: center; justify-content: center; width: 2rem; border-top: 1px solid var(--gray-300); border-bottom: 1px solid var(--gray-300); font-size: 0.875rem; color: var(--gray-700);">2</a>
+              
+              <a href="#" style="display: flex; align-items: center; justify-content: center; width: 2rem; border-top: 1px solid var(--gray-300); border-bottom: 1px solid var(--gray-300); font-size: 0.875rem; color: var(--gray-700);">3</a>
+              
+              <a href="#" style="display: flex; align-items: center; justify-content: center; width: 2rem; border-top: 1px solid var(--gray-300); border-bottom: 1px solid var(--gray-300); font-size: 0.875rem; color: var(--gray-700);">4</a>
+              
+              <a href="#" style="display: flex; align-items: center; padding: 0.25rem 0.5rem; border: 1px solid var(--gray-300); border-top-right-radius: 0.25rem; border-bottom-right-radius: 0.25rem; font-size: 0.875rem; color: var(--gray-500);">
+                Next
+                <svg style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+    </div>
+    <sly data-sly-call="${clientlib.all @ categories='honda.searchclaims'}"></sly>
+
+    <sly data-sly-test="${!hasConfig}">
+        <div class="cmp-search-claims cq-placeholder" data-emptytext="Search Claims Component"></div>
+    </sly>
+</sly>
+

@@ -1,100 +1,48 @@
+
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-     data-sly-use.model="com.honda.aem.core.models.SideNavigation"
+data-sly-use.model="com.honda.aem.core.models.SideNavigation"
      data-sly-use.templates="core/wcm/components/commons/v1/templates.html">
 
-    <div class="cmp-side-navigation ${model.cssClass}"
-         id="${model.id}"
-         data-cmp-is="sunbeltSideNavigation"
-         data-sly-test.hasConfig="${model.items.size > 0}">
-        
-        <div class="cmp-side-navigation__header" data-sly-test="${model.showTitle && model.title}">
-            <h2 class="cmp-side-navigation__title">${model.title}</h2>
-        </div>
-        
-        <nav class="cmp-side-navigation__nav" aria-label="${model.title}">
-            <ul class="cmp-side-navigation__list">
+    <div class="subnav-container" data-sly-test.hasConfig="${model.items.size > 0}">
+        <div class="container">
+            <ul class="subnav" aria-label="${model.title}">
+                <!-- Iterate through top level items -->
                 <sly data-sly-list.item="${model.items}">
-                    <sly data-sly-call="${renderNavItemLevel1 @ item=item}"></sly>
+                    <li class="subnav-item">
+                        <a href="${item.url}" class="subnav-link ${item.active ? 'active' : ''}">
+                            ${item.title}
+                        </a>
+                        
+                        <!-- First level dropdown -->
+                        <sly data-sly-test="${item.hasChildren && item.children.size > 0}">
+                            <div class="dropdown">
+                                <sly data-sly-list.childItem="${item.children}">
+                                    <a href="${childItem.url}" class="dropdown-item ${childItem.active ? 'active' : ''} ${childItem.hasChildren ? 'has-children' : ''}">
+                                        ${childItem.title}
+                                    </a>
+                                    
+                                    <!-- Second level dropdown (if needed) -->
+                                    <sly data-sly-test="${childItem.hasChildren && childItem.children.size > 0}">
+                                        <div class="sub-dropdown">
+                                            <sly data-sly-list.grandChildItem="${childItem.children}">
+                                                <a href="${grandChildItem.url}" class="sub-dropdown-item ${grandChildItem.active ? 'active' : ''}">
+                                                    ${grandChildItem.title}
+                                                </a>
+                                            </sly>
+                                        </div>
+                                    </sly>
+                                </sly>
+                            </div>
+                        </sly>
+                    </li>
                 </sly>
             </ul>
-        </nav>
+        </div>
     </div>
-
+    
     <sly data-sly-call="${clientlib.all @ categories='honda.subnavigation'}"></sly>
 </sly>
 
-<!-- Placeholder when component is not configured -->
 <sly data-sly-test="${!hasConfig}">
-    <div class="cmp-side-navigation cq-placeholder" data-emptytext="Side Navigation Component"></div>
+    <div class="subnav-container cq-placeholder" data-emptytext="Horizontal Navigation - No Items"></div>
 </sly>
-
-<!-- Level 1 Navigation Item Template -->
-<template data-sly-template.renderNavItemLevel1="${@ item}">
-    <li class="cmp-side-navigation__item cmp-side-navigation__item--level-1 ${item.active ? 'cmp-side-navigation__item--active' : ''} ${item.inPath ? 'cmp-side-navigation__item--in-path' : ''}"
-        data-cmp-expanded="${item.expanded}">
-        <a href="${item.url}" class="cmp-side-navigation__link ${item.active ? 'cmp-side-navigation__link--active' : ''} ${item.inPath ? 'cmp-side-navigation__link--in-path' : ''}">
-            ${item.title}
-        </a>
-        <sly data-sly-test="${item.hasChildren}">
-            <button class="cmp-side-navigation__toggle-button" aria-expanded="${item.expanded}" aria-label="Toggle submenu">
-                <span class="cmp-side-navigation__toggle-icon"></span>
-            </button>
-            <ul class="cmp-side-navigation__list">
-                <sly data-sly-list.childItem="${item.children}">
-                    <sly data-sly-call="${renderNavItemLevel2 @ item=childItem}"></sly>
-                </sly>
-            </ul>
-        </sly>
-    </li>
-</template>
-
-<!-- Level 2 Navigation Item Template -->
-<template data-sly-template.renderNavItemLevel2="${@ item}">
-    <li class="cmp-side-navigation__item cmp-side-navigation__item--level-2 ${item.active ? 'cmp-side-navigation__item--active' : ''} ${item.inPath ? 'cmp-side-navigation__item--in-path' : ''}"
-        data-cmp-expanded="${item.expanded}">
-        <a href="${item.url}" class="cmp-side-navigation__link ${item.active ? 'cmp-side-navigation__link--active' : ''} ${item.inPath ? 'cmp-side-navigation__link--in-path' : ''}">
-            ${item.title}
-        </a>
-        <sly data-sly-test="${item.hasChildren}">
-            <button class="cmp-side-navigation__toggle-button" aria-expanded="${item.expanded}" aria-label="Toggle submenu">
-                <span class="cmp-side-navigation__toggle-icon"></span>
-            </button>
-            <ul class="cmp-side-navigation__list">
-                <sly data-sly-list.childItem="${item.children}">
-                    <sly data-sly-call="${renderNavItemLevel3 @ item=childItem}"></sly>
-                </sly>
-            </ul>
-        </sly>
-    </li>
-</template>
-
-<!-- Level 3 Navigation Item Template -->
-<template data-sly-template.renderNavItemLevel3="${@ item}">
-    <li class="cmp-side-navigation__item cmp-side-navigation__item--level-3 ${item.active ? 'cmp-side-navigation__item--active' : ''} ${item.inPath ? 'cmp-side-navigation__item--in-path' : ''}"
-        data-cmp-expanded="${item.expanded}">
-        <a href="${item.url}" class="cmp-side-navigation__link ${item.active ? 'cmp-side-navigation__link--active' : ''} ${item.inPath ? 'cmp-side-navigation__link--in-path' : ''}">
-            ${item.title}
-        </a>
-        <sly data-sly-test="${item.hasChildren}">
-            <button class="cmp-side-navigation__toggle-button" aria-expanded="${item.expanded}" aria-label="Toggle submenu">
-                <span class="cmp-side-navigation__toggle-icon"></span>
-            </button>
-            <ul class="cmp-side-navigation__list">
-                <sly data-sly-list.childItem="${item.children}">
-                    <sly data-sly-call="${renderNavItemLevel4 @ item=childItem}"></sly>
-                </sly>
-            </ul>
-        </sly>
-    </li>
-</template>
-
-<!-- Level 4 Navigation Item Template -->
-<template data-sly-template.renderNavItemLevel4="${@ item}">
-    <li class="cmp-side-navigation__item cmp-side-navigation__item--level-4 ${item.active ? 'cmp-side-navigation__item--active' : ''} ${item.inPath ? 'cmp-side-navigation__item--in-path' : ''}"
-        data-cmp-expanded="${item.expanded}">
-        <a href="${item.url}" class="cmp-side-navigation__link ${item.active ? 'cmp-side-navigation__link--active' : ''} ${item.inPath ? 'cmp-side-navigation__link--in-path' : ''}">
-            ${item.title}
-        </a>
-        <!-- At level 4, no more nested levels -->
-    </li>
-</template>
