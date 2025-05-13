@@ -1,5 +1,38 @@
 <!-- /apps/honda/components/login/login.html -->
-<cq:includeClientLib categories="honda.login" />
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+    data-sly-use.model="com.honda.aem.core.models.LoginModel">
+
+    <div class="login-page" data-cq-path="${resource.path}">
+        <img src="${model.logoPath @ context='uri'}" alt="Honda Logo" class="honda-logo" />
+        <header class="login-header">
+            <h2>${model.headingText}</h2>
+        </header>
+
+        <div class="login-content">
+            <div class="login-form-container">
+                <div class="login-container">
+                    <!-- action="${model.formAction}" -->
+                    <form method="POST" action="/j_security_check" class="login-form">
+                        <!-- value="${model.resourcePath}" -->
+                        <input type="hidden" name="resource" value="/bin/honda/post-login" />
+                        <input type="text" name="j_username" placeholder="${model.usernamePlaceholder}" required />
+                        <input type="password" name="j_password" placeholder="${model.passwordPlaceholder}" required />
+                        <button type="submit">${model.submitButtonText}</button>
+                    </form>
+                </div>
+            </div>
+            <div class="login-side-image">
+                <img src="${model.sideImagePath @ context='uri'}" alt="${model.sideImageAltText}" />
+            </div>
+        </div>
+    </div>
+    <sly data-sly-call="${clientlib.all @ categories='honda.login'}"></sly>
+</sly>
+
+
+
+<!-- <cq:includeClientLib categories="honda.login" />
 <div class="login-page" data-cq-path="${currentNode.path}">
     <img src="${properties.hondaLogo @ context='uri'}" alt="Honda Logo" class="honda-logo" />
     <header class="login-header">
@@ -23,3 +56,6 @@
         </div>
     </div>
 </div>
+</sly>
+
+ -->

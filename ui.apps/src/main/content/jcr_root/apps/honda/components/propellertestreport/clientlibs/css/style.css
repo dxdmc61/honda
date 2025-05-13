@@ -1,0 +1,262 @@
+
+.honda-propeller-test-report {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f7;
+  color: #333;
+}
+
+/* Header styling */
+.honda-propeller-test-report .header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.honda-propeller-test-report .logo {
+  display: flex;
+  align-items: center;
+}
+
+.honda-propeller-test-report .logo img {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.honda-propeller-test-report .logo h1 {
+  color: #333;
+  font-size: 24px;
+  margin: 0;
+}
+
+.honda-propeller-test-report .logo h1 span {
+  color: #e73130;
+  font-weight: bold;
+}
+
+.honda-propeller-test-report .nav {
+  margin-left: 40px;
+  display: flex;
+}
+
+.honda-propeller-test-report .nav-item {
+  margin: 0 15px;
+  padding: 15px 0;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+}
+
+.honda-propeller-test-report .nav-item.active {
+  color: #e73130;
+}
+
+.honda-propeller-test-report .nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #e73130;
+}
+
+.honda-propeller-test-report .user-info {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.honda-propeller-test-report .user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+/* Tabs styling */
+/* .honda-propeller-test-report .tabs {
+  display: flex;
+  margin: 20px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.honda-propeller-test-report .tab {
+  padding: 10px 20px;
+  color: #666;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.honda-propeller-test-report .tab.active {
+  color: #e73130;
+  border-bottom: 3px solid #e73130;
+} */
+
+/* Content styling */
+.honda-propeller-test-report .content {
+  padding: 0 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.honda-propeller-test-report .content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.honda-propeller-test-report .content-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.honda-propeller-test-report .content-subtitle {
+  color: #666;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.honda-propeller-test-report .btn {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.honda-propeller-test-report .btn-primary {
+  background-color: #e73130;
+  color: white;
+}
+
+.honda-propeller-test-report .btn .icon {
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+/* Search box styling */
+.honda-propeller-test-report .search-box {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.honda-propeller-test-report .search-box-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.honda-propeller-test-report .search-form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.honda-propeller-test-report .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.honda-propeller-test-report .form-label {
+  margin-bottom: 10px;
+  color: #666;
+  font-weight: 500;
+}
+
+.honda-propeller-test-report .form-control {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.honda-propeller-test-report .form-select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.honda-propeller-test-report .form-actions {
+  grid-column: 4;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* Table styling */
+.honda-propeller-test-report .results-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.honda-propeller-test-report .results-table th {
+  background-color: #f0f0f0;
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+}
+
+.honda-propeller-test-report .results-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.honda-propeller-test-report .results-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.honda-propeller-test-report .results-table tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .honda-propeller-test-report .search-form {
+      grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .honda-propeller-test-report .form-actions {
+      grid-column: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .honda-propeller-test-report .search-form {
+      grid-template-columns: 1fr;
+  }
+  
+  .honda-propeller-test-report .form-actions {
+      grid-column: 1;
+  }
+  
+  .honda-propeller-test-report .nav {
+      display: none;
+  }
+}

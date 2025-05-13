@@ -1,0 +1,125 @@
+.login-page {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f7;
+  padding: 2rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.honda-logo {
+  width: 150px;
+  display: block;
+  margin: 0 auto 2rem auto;
+}
+
+.login-header h2 {
+  color: #e73130;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.login-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.login-form-container {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #999;
+  box-shadow: 0 0 0 2px rgba(231, 49, 48, 0.1);
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #e73130;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.login-form button:hover {
+  background-color: #d62b2a;
+}
+
+.login-form button:active {
+  background-color: #c42826;
+}
+
+.login-side-image {
+  flex: 1 1 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-side-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-footer {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .login-content {
+    flex-direction: column-reverse;
+  }
+  
+  .login-form-container,
+  .login-side-image {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+  
+  .login-side-image img {
+    max-width: 80%;
+  }
+}

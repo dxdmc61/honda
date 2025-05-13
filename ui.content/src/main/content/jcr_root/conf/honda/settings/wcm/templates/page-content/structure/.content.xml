@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:lastModified="{Date}2025-05-12T16:54:58.479+05:30"
+        cq:lastModified="{Date}2025-05-13T17:56:29.277+05:30"
         cq:lastModifiedBy="admin"
         cq:template="/conf/honda/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
@@ -58,11 +58,14 @@
                     sling:resourceType="honda/components/container"
                     editable="{Boolean}true"
                     layout="responsiveGrid"/>
+                <footer
+                    jcr:created="{Date}2025-05-13T17:55:52.327+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2025-05-13T17:55:52.327+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="honda/components/footer"/>
             </container>
-            <experiencefragment-footer
-                jcr:primaryType="nt:unstructured"
-                sling:resourceType="honda/components/experiencefragment"
-                fragmentVariationPath="/content/experience-fragments/honda/language-masters/en/site/footer/master"/>
         </root>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
