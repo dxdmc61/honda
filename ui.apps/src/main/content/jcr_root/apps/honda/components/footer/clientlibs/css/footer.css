@@ -1,0 +1,221 @@
+/* Footer Container */
+.dealer-footer {
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  padding: 3rem 0 1.5rem;
+  margin-top: 3rem;
+  color: #4a5568;
+}
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+/* Footer Grid Layout */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+/* Footer Column */
+.footer-column {
+  min-width: 0;
+}
+/* Footer Headings */
+.footer-heading {
+  color: #2d3748;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.01em;
+}
+/* Footer Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+.footer-links a {
+  color: #4a5568;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: #e60012;
+}
+/* Dealer Support */
+.dealer-support {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+.support-label {
+  display: block;
+  font-size: 0.875rem;
+  color: #718096;
+  margin-bottom: 0.25rem;
+}
+.support-phone {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e60012;
+  text-decoration: none;
+}
+.support-phone:hover {
+  text-decoration: underline;
+}
+
+/* Social Media Icons */
+.social-media-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #718096;
+  color: white;
+  transition: background-color 0.2s;
+}
+.social-icon:hover {
+  background-color: #e60012;
+}
+/* Icon placeholders - would use actual icons in production */
+.icon-twitter:before { content: ""; }
+.icon-instagram:before { content: ""; }
+.icon-snapchat:before { content: ""; }
+.icon-youtube:before { content: ""; }
+.icon-facebook:before { content: ""; }
+.icon-pinterest:before { content: ""; }
+.icon-linkedin:before { content: ""; }
+.icon-tiktok:before { content: ""; }
+
+/* Footer Bottom */
+.footer-bottom {
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.footer-copyright {
+  flex: 1;
+}
+.footer-copyright p {
+  font-size: 0.75rem;
+  color: #718096;
+  margin: 0;
+}
+/* Legal Links */
+.legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.legal-links a {
+  color: #4a5568;
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.legal-links a:hover {
+  color: #e60012;
+}
+
+/* Site Links (at the very bottom) */
+.site-links {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.site-nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1rem;
+}
+.site-nav-links li {
+  display: inline-block;
+}
+.site-nav-links a {
+  color: #4a5568;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.site-nav-links a:hover {
+  color: #e60012;
+}
+.site-nav-links li:not(:last-child):after {
+  content: "|";
+  margin-left: 1rem;
+  color: #cbd5e0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .legal-links {
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+  
+  .social-media-icons {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 576px) {
+  .dealer-footer {
+    padding: 2rem 0 1rem;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .footer-column {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .footer-column:last-child {
+    border-bottom: none;
+  }
+  
+  .site-nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .site-nav-links li:not(:last-child):after {
+    display: none;
+  }
+}
