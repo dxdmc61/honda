@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Hero Component"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    >
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <imageField
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                name="./heroImage"
+                fieldLabel="Hero Image"
+                rootPath="/content/dam"/>
+            <altText
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                name="./altText"
+                fieldLabel="Image Alt Text"/>
+            <update1Text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                name="./update1Text"
+                fieldLabel="Update 1 Text"/>
+            <update1Link
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                name="./update1Link"
+                fieldLabel="Update 1 Link"/>
+
+            <update2Text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                name="./update2Text"
+                fieldLabel="Update 2 Text"/>
+            <update2Link
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                name="./update2Link"
+                fieldLabel="Update 2 Link"/>
+            <update3Text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                name="./update3Text"
+                fieldLabel="Update 3 Text"/>
+            <update3Link
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                name="./update3Link"
+                fieldLabel="Update 3 Link"/>
+            <!-- Repeat for Update 2 and 3 -->
+        </items>
+    </content>
+</jcr:root>
