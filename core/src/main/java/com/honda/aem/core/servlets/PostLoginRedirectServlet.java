@@ -65,7 +65,7 @@ public class PostLoginRedirectServlet extends SlingAllMethodsServlet {
                     case "honda-auto":
                         createCookie(response, "currentGroup", "honda-auto");
                         break;
-                    case "mc-pe":
+                    case "honda-mc-pe":
                         createCookie(response, "currentGroup", "honda-mc-pe");
                         break;
                 }
