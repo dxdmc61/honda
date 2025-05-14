@@ -246,16 +246,7 @@
     padding: 0 1rem;
   }
   
-  /* Enable proper wrapping for navigation */
-  .subnav {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-  
+  /* Enable proper wrapping for navigation */ 
   .subnav-item {
     position: relative;
     /* Add this to ensure proper wrapping */
@@ -384,7 +375,7 @@
     left: auto;
     right: 100%;
   }
-  
+
   .dropdown-item:hover + .sub-dropdown,
   .sub-dropdown:hover {
     display: block;

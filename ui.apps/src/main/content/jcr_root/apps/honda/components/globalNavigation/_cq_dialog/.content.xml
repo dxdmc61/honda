@@ -42,8 +42,15 @@
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                                                 fieldDescription="Browse to the logo."
-                                                fieldLabel="Logo"
+                                                fieldLabel="Logo Link"
                                                 name="./linkURL"
+                                                rootPath="/content/honda"/>
+                                            <nav
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldDescription="Browse to the logo."
+                                                fieldLabel="Navigation Root"
+                                                name="./rootPage"
                                                 rootPath="/content/honda"/>
                                             <id
                                                 jcr:primaryType="nt:unstructured"
@@ -58,9 +65,9 @@
                             </columns>
                         </items>
                     </properties>
-                    <menu
+                    <search
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Primary Menu"
+                        jcr:title="Search"
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
@@ -73,53 +80,40 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <menu
-                                                granite:class="cmp-list__editor-static-multifield"
+                                            <logo
                                                 jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                                                composite="{Boolean}true">
-                                                <field
-                                                    granite:class="cmp-list__editor-static-link"
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
-                                                    name="./primaryMenu">
-                                                    <items jcr:primaryType="nt:unstructured">
-                                                        <fset
-                                                            jcr:primaryType="nt:unstructured"
-                                                            jcr:title="Menu item"
-                                                            sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"/>
-                                                        <text
-                                                            granite:class="cmp-list__editor-static-multifield-linkText"
-                                                            jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                            emptyText="Text"
-                                                            name="linkText"
-                                                            required="{Boolean}true"/>
-                                                        <link
-                                                            granite:class="cmp-list__editor-static-multifield-linkURL"
-                                                            jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="cq/gui/components/coral/common/form/pagefield"
-                                                            emptyText="Link"
-                                                            name="linkURL"
-                                                            rootPath="/content/honda"/>
-                                                        <target
-                                                            granite:class="cmp-list__editor-static-multifield-linkTarget"
-                                                            jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                                            fieldDescription="If checked the link will be opened in a new browser tab."
-                                                            name="linkTarget"
-                                                            text=""
-                                                            uncheckedValue="_self"
-                                                            value="_blank"/>
-                                                    </items>
-                                                </field>
-                                            </menu>
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldDescription="Browse to the logo."
+                                                fieldLabel="Search Icon"
+                                                name="./searchIcon"/>
+                                            <clogo
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldDescription="Browse to the logo."
+                                                fieldLabel="Country Logo"
+                                                name="./cIcon"/>
+                                            <searchRoot
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/coral/common/form/pagefield"
+                                                fieldDescription="The root page from which to search in. Can be a blueprint master, language master or regular page."
+                                                fieldLabel="Search Root"
+                                                name="./searchRoot"
+                                                required="{Boolean}true"
+                                                rootPath="/content"
+                                                value="${not empty cqDesign.searchRoot ? cqDesign.searchRoot : ''}"/>
+                                            <id
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="HTML ID attribute to apply to the component."
+                                                fieldLabel="ID"
+                                                name="./id"
+                                                validation="html-unique-id-validator"/>
                                         </items>
                                     </column>
                                 </items>
                             </columns>
                         </items>
-                    </menu>
+                    </search>
                     <accessibility
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Accessibility"

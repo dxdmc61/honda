@@ -1,0 +1,150 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-use.model="com.honda.aem.core.models.EnhancedROIModel"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html">
+
+    <div class="cmp-enhanced-roi"
+         id="${model.id}"
+         data-cmp-is="enhancedROI"
+         data-api-endpoint="${model.apiEndpoint}"
+         data-search-options="${model.searchOptionsJson}"
+         data-sly-test.hasConfig="${model.id}">
+
+        <div class="cmp-enhanced-roi__header">
+            <p class="cmp-enhanced-roi__subtitle">${model.subtitle}</p>
+        </div>
+
+        <!-- Alerts Section -->
+        <div class="cmp-enhanced-roi__alerts">
+            <div class="cmp-enhanced-roi__alert cmp-enhanced-roi__alert--success" data-alert-success>
+                ${model.successMessage}
+            </div>
+            <div class="cmp-enhanced-roi__alert cmp-enhanced-roi__alert--error" data-alert-error>
+                ${model.errorMessage}
+            </div>
+            <div class="cmp-enhanced-roi__alert cmp-enhanced-roi__alert--info" data-alert-no-results>
+                ${model.noResultsMessage}
+            </div>
+        </div>
+
+        <!-- Search Form -->
+        <div class="cmp-enhanced-roi__search-box">
+            <h3 class="cmp-enhanced-roi__search-title">${model.searchBoxTitle}</h3>
+            
+            <form class="cmp-enhanced-roi__form"
+                  action="${model.apiEndpoint}"
+                  method="POST"
+                  id="${model.id}-form"
+                  data-search-form>
+
+                <div class="cmp-enhanced-roi__form-labels">
+                    <div class="cmp-enhanced-roi__form-label-wrap">${model.searchByLabel}</div>
+                    <div class="cmp-enhanced-roi__form-label-wrap">${model.searchValueLabel}</div>
+                    <div class="cmp-enhanced-roi__form-label-wrap">${model.dateFromLabel}</div>
+                    <div class="cmp-enhanced-roi__form-label-wrap">${model.dateToLabel}</div>
+                </div>
+
+                <div class="cmp-enhanced-roi__form-row">
+                    <!-- Search Type Field -->
+                    <div class="cmp-enhanced-roi__form-group">
+                        <select id="${model.id}-searchType" name="searchType" class="cmp-enhanced-roi__form-select" data-field="searchType">
+                            <option value="">&lt;&lt; SELECT &gt;&gt;</option>
+                            <sly data-sly-list.option="${model.searchOptions}">
+                                <option value="${option.value}" data-sly-attribute.selected="${option.default}">${option.text}</option>
+                            </sly>
+                        </select>
+                        <div class="cmp-enhanced-roi__error-message" data-error-message="searchType"></div>
+                    </div>
+
+                    <!-- Search Value Field -->
+                    <div class="cmp-enhanced-roi__form-group">
+                        <input type="text" id="${model.id}-searchValue" name="searchValue" class="cmp-enhanced-roi__form-control"
+                               placeholder="${model.searchValuePlaceholder}" data-field="searchValue">
+                        <div class="cmp-enhanced-roi__error-message" data-error-message="searchValue"></div>
+                    </div>
+
+                    <!-- Date From Field -->
+                    <div class="cmp-enhanced-roi__form-group">
+                        <input type="text" id="${model.id}-dateFrom" name="dateFrom" class="cmp-enhanced-roi__form-control cmp-enhanced-roi__datepicker" 
+                               placeholder="${model.dateFormat}" data-field="dateFrom">
+                        <div class="cmp-enhanced-roi__error-message" data-error-message="dateFrom"></div>
+                    </div>
+
+                    <!-- Date To Field -->
+                    <div class="cmp-enhanced-roi__form-group">
+                        <input type="text" id="${model.id}-dateTo" name="dateTo" class="cmp-enhanced-roi__form-control cmp-enhanced-roi__datepicker" 
+                               placeholder="${model.dateFormat}" data-field="dateTo">
+                        <div class="cmp-enhanced-roi__error-message" data-error-message="dateTo"></div>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="cmp-enhanced-roi__form-actions">
+                    <button type="button" class="cmp-button cmp-button--${model.clearButtonType}" data-action="clear">
+                        ${model.clearButtonText}
+                    </button>
+                    <button type="submit" class="cmp-button cmp-button--${model.searchButtonType}" data-action="search">
+                        <span class="cmp-enhanced-roi__spinner" data-sly-test="${model.showSpinner}"></span>
+                        ${model.searchButtonText}
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Debug Console -->
+        <div class="cmp-enhanced-roi__console" data-sly-test="${model.showDebugConsole}"></div>
+        
+        <!-- Results Table -->
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="cmp-enhanced-roi__table-header">${model.printingColumnLabel}</th>
+                        <th class="cmp-enhanced-roi__table-header">${model.yesNoColumnLabel}</th>
+                        <th class="cmp-enhanced-roi__table-header">${model.batchNumberColumnLabel}</th>
+                        <th class="cmp-enhanced-roi__table-header">${model.dealerInfoColumnLabel}</th>
+                        <th class="cmp-enhanced-roi__table-header">${model.orderTimeColumnLabel}</th>
+                        <th class="cmp-enhanced-roi__table-header">${model.itemColumnLabel}</th>
+                        <th class="cmp-enhanced-roi__table-header">${model.levelColumnLabel}</th>
+                        <th class="cmp-enhanced-roi__table-header">${model.priceColumnLabel}</th>
+                        <th class="cmp-enhanced-roi__table-header">${model.itemCodeColumnLabel}</th>
+                        <th class="cmp-enhanced-roi__table-header">${model.itemNameColumnLabel}</th>
+                        <th class="cmp-enhanced-roi__table-header">${model.colorCodeColumnLabel}</th>
+                        <th class="cmp-enhanced-roi__table-header">${model.colorNameColumnLabel}</th>
+                    </tr>
+                </thead>
+                <tbody id="${model.id}-results" class="cmp-enhanced-roi__table-body">
+                    <!-- Results will be populated dynamically -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="cmp-enhanced-roi__pagination">
+            <div class="cmp-enhanced-roi__pagination-info" data-pagination-info>
+                Showing 1 to 5 of 37 entries
+            </div>
+            
+            <div class="cmp-enhanced-roi__pagination-controls" data-pagination-controls>
+                <a href="#" class="cmp-enhanced-roi__pagination-link cmp-enhanced-roi__pagination-prev" data-pagination-prev>
+                    <span class="cmp-enhanced-roi__pagination-icon">‹</span>
+                    Prev
+                </a>
+                
+                <a href="#" class="cmp-enhanced-roi__pagination-link cmp-enhanced-roi__pagination-page cmp-enhanced-roi__pagination-page--active" data-pagination-page="1">1</a>
+                <a href="#" class="cmp-enhanced-roi__pagination-link cmp-enhanced-roi__pagination-page" data-pagination-page="2">2</a>
+                <a href="#" class="cmp-enhanced-roi__pagination-link cmp-enhanced-roi__pagination-page" data-pagination-page="3">3</a>
+                <a href="#" class="cmp-enhanced-roi__pagination-link cmp-enhanced-roi__pagination-page" data-pagination-page="4">4</a>
+                
+                <a href="#" class="cmp-enhanced-roi__pagination-link cmp-enhanced-roi__pagination-next" data-pagination-next>
+                    Next
+                    <span class="cmp-enhanced-roi__pagination-icon">›</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <sly data-sly-call="${clientlib.all @ categories='honda.enhancedroi'}"></sly>
+
+    <sly data-sly-test="${!hasConfig}">
+        <div class="cmp-enhanced-roi cq-placeholder" data-emptytext="Enhanced ROI Interface Component"></div>
+    </sly>
+</sly>

@@ -3,4 +3,4 @@
     jcr:primaryType="cq:ClientLibraryFolder"
     allowProxy="{Boolean}true"
     categories="[honda.base]"
-    embed="[honda.grid,honda.searchbar,honda.globalNavigation,honda.login,honda.hero,honda.footer]"/>
+    embed="[honda.grid,honda.searchbar,honda.globalNavigation,honda.login,honda.subnavigation,honda.footer]"/>
