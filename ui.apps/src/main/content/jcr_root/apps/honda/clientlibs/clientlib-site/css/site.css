@@ -9,8 +9,8 @@
     grid-template-columns: repeat(16,minmax(0,1fr));
     margin: auto;
     max-width: 105pc;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
+    padding-bottom: .25rem;
+    padding-top: .25rem;
     position: relative;
     width: calc(100% - 2rem)
 }
@@ -229,34 +229,6 @@
   .user-role {
     font-size: 0.75rem;
     color: var(--gray-500);
-  }
-
-  /* Sub Navigation */
-  .subnav {
-    display: flex;
-    gap: 0.25rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.25rem;
-    border-bottom: 1px solid var(--gray-300);
-    overflow-x: auto;
-  }
-
-  .subnav-item {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--gray-600);
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  .subnav-item:hover {
-    color: var(--primary);
-  }
-
-  .subnav-item.active {
-    color: var(--primary);
-    border-bottom: 2px solid var(--primary);
   }
 
   /* Main Content */
@@ -685,28 +657,87 @@
     width: 1.25rem;
     height: 1.25rem;
   }
-.breadcrumb {
-    display: inline-block;
-    list-style: none;
-    padding: 0;
 
-    & .breadcrumb-item {
-        float: left;
-
-        & + .breadcrumb-item:before {
-            display: inline-block;
-            padding: 0 5px;
-            content: "/\00a0";
-        }
-    }
-}
-.cmp-breadcrumb {
-    display: inline-block;
-    list-style: none;
-    padding: 0;
-}
 
 .cmp-breadcrumb__item {
     display: inline-block;
     vertical-align: top;
+}
+.cmp-breadcrumb .subnav-link {
+    display: block;
+    padding: 1rem 1.25rem;
+    color: #e60012;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    position: relative;
+  }
+  
+ .cmp-breadcrumb .subnav-link:hover {
+    color: #4a5568;
+  }
+  
+ .cmp-breadcrumb .active {
+    color: #4a5568;
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    position: relative;
+  }
+  
+ .cmp-breadcrumb .subnav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #e60012;
+  }
+.header .vpad-0 {
+    padding-bottom: 0;
+    padding-top: 0
+}
+
+.header .menubar .button-container,
+.header .searchcontainer {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: flex-end
+}
+
+.header .searchcontainer .searchtext {
+    color: #e60012;
+    display: inline-block;
+    font-size: 1pc;
+    font-weight: 700;
+    line-height: 23px;
+    padding-left: 8px;
+    vertical-align: middle
+}
+
+.header  .country,
+.header  .country img,
+.header  .searchmenu .loginicon,
+.header  .searchmenu .loginicon img,
+.header  .searchmenu .searchcontainer,
+.header  .searchmenu .searchcontainer img {
+    display: inline-block;
+    vertical-align: middle
+}
+
+.countryLogo,
+.countryLogo img {
+    height: 20px;
+    width: 30px
 }
