@@ -2,5 +2,4 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:ClientLibraryFolder"
     allowProxy="{Boolean}true"
-    categories="[honda.base]"
-    embed="[honda.grid,honda.searchbar,honda.globalNavigation,honda.login,honda.subnavigation,honda.footer,honda.globalSearch]"/>
+    categories="[honda.globalSearch]"/>

@@ -1,0 +1,31 @@
+.global-search {
+  border: 1px solid #ccc;
+  padding: 15px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.global-search input {
+  padding: 10px;
+  width: 70%;
+  margin-right: 10px;
+}
+
+.global-search button {
+  padding: 10px 15px;
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.global-search .search-result {
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.global-search .search-result a {
+  color: #0073e6;
+  text-decoration: none;
+}
