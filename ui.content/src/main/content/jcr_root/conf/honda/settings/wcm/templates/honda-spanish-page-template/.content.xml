@@ -2,14 +2,10 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Template">
     <jcr:content
-        cq:lastModified="{Date}2025-05-13T11:32:57.411+05:30"
+        cq:lastModified="{Date}2025-05-12T10:50:50.721+05:30"
         cq:lastModifiedBy="admin"
-        cq:lastReplicated="{Date}2025-05-11T15:30:16.809+05:30"
-        cq:lastReplicatedBy="admin"
-        cq:lastReplicationAction="Activate"
         cq:templateType="/conf/honda/settings/wcm/template-types/page"
-        jcr:description="My Site Page Template"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Honda Content Page template"
+        jcr:title="Honda Spanish Page Template"
         status="enabled"/>
 </jcr:root>

@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:template="/conf/honda/settings/wcm/templates/page-content"
+        cq:template="/conf/honda/settings/wcm/templates/honda-spanish-page-template"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="honda/components/page">
         <cq:responsive jcr:primaryType="nt:unstructured">
@@ -19,6 +19,8 @@
             </breakpoints>
         </cq:responsive>
         <root
+            jcr:lastModified="{Date}2025-05-12T10:44:20.754+05:30"
+            jcr:lastModifiedBy="admin"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid"
             editable="{Boolean}true">
