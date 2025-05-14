@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
               data.results.forEach(item => {
                   const div = document.createElement('div');
                   div.classList.add('search-result');
-                  div.innerHTML = `<a href="${item.path}">${item.title}</a>`;
+                  div.innerHTML = `<a href="${item.path}.html">${item.title}</a>`;
                   resultsContainer.appendChild(div);
               });
           });
