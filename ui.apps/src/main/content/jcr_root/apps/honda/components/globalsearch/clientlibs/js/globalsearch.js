@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
     searchBtn.addEventListener('click', () => {
         const query = input.value.trim();
         if (query.length >= 3) {
-            window.location.href = `/content/mysite/en/search.html?q=${encodeURIComponent(query)}`;
+            window.location.href = `/content/honda/us/en/search.html?q=${encodeURIComponent(query)}`;
         }
     });
 
