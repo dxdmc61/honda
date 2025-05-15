@@ -46,17 +46,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchTrigger = document.getElementById('searchTrigger');
   const searchOverlay = document.getElementById('searchOverlay');
   const searchInput = document.getElementById('searchInputOverlay');
+  const closeBtn = document.getElementById('closeSearchOverlay');
+  if (window.location.pathname.includes('/search.html')) {
+    if (searchTrigger) {
+      searchTrigger.style.display = 'none';
+    }
+  }
 
-  // Show search bar
+  // Show overlay
   searchTrigger.addEventListener('click', () => {
-    searchOverlay.classList.remove('hidden');
+    searchOverlay.classList.add('active');
     searchInput.focus();
   });
 
-  // Hide on outside click or Esc
+  // Close overlay
+  closeBtn.addEventListener('click', () => {
+    searchOverlay.classList.remove('active');
+  });
+
+  // Close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      searchOverlay.classList.add('hidden');
+      searchOverlay.classList.remove('active');
     }
   });
 
@@ -69,17 +80,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
-
-  document.addEventListener('click', (e) => {
-    // Don't hide if the click is inside the overlay or on the search trigger
-    if (
-        !searchOverlay.contains(e.target) &&
-        !searchTrigger.contains(e.target) &&  // in case trigger has child elements
-        e.target.id !== 'search-input' &&      // allow typing
-        !document.getElementById('search-results')?.contains(e.target) // allow clicking results
-    ) {
-        searchOverlay.classList.add('hidden');
-    }
 });
 
-});

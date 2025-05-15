@@ -56,23 +56,8 @@
   color: #333;
 }
 
-.search-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 1rem 2rem;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .search-overlay input {
   width: 100%;
-  max-width: 800px;
   padding: 1rem;
   font-size: 1.25rem;
   border: 1px solid #ccc;
@@ -80,6 +65,46 @@
   outline: none;
 }
 
-.hidden {
-  display: none;
+
+/* Initial Hidden Overlay */
+.search-overlay {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  background-color: #ef101b; /* FedEx Purple */
+  height: 100%;
+  width: 0;
+  overflow: hidden;
+  transition: width 0.4s ease;
+  display: flex;
+  align-items: center;
+  padding: 0 0;
+  z-index: 1000;
+}
+
+/* Expanded State */
+.search-overlay.active {
+  width: 100%;
+}
+
+/* Search Input Styles */
+#searchInputOverlay {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  color: #000;
+  background: #fff;
+  border-radius: 20px;
+}
+
+/* Close Button */
+#closeSearchOverlay {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
 }
