@@ -58,7 +58,6 @@
 
 .search-overlay input {
   width: 100%;
-  max-width: 800px;
   padding: 1rem;
   font-size: 1.25rem;
   border: 1px solid #ccc;

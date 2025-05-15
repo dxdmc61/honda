@@ -47,6 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchOverlay = document.getElementById('searchOverlay');
   const searchInput = document.getElementById('searchInputOverlay');
   const closeBtn = document.getElementById('closeSearchOverlay');
+  if (window.location.pathname.includes('/search.html')) {
+    if (searchTrigger) {
+      searchTrigger.style.display = 'none';
+    }
+  }
 
   // Show overlay
   searchTrigger.addEventListener('click', () => {
