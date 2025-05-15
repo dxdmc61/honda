@@ -1,49 +1,85 @@
 .user-profile {
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    margin-top: 0.5rem;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 160px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-  }
-  
-  .dropdown-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .dropdown-menu ul li {
-    border-bottom: 1px solid #eee;
-  }
-  
-  .dropdown-menu ul li:last-child {
-    border-bottom: none;
-  }
-  
-  .dropdown-menu ul li a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .dropdown-menu ul li a:hover {
-    background-color: #f7f7f7;
-  }
-  
-  .hidden {
-    display: none;
-  }
+  position: relative;
+  cursor: pointer;
+}
 
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 160px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
 
-  
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu ul li {
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-menu ul li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu ul li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu ul li a:hover {
+  background-color: #f7f7f7;
+}
+
+.hidden {
+  display: none;
+}
+
+.search-trigger {
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.search-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #333;
+}
+
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-overlay input {
+  width: 100%;
+  max-width: 800px;
+  padding: 1rem;
+  font-size: 1.25rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+.hidden {
+  display: none;
+}

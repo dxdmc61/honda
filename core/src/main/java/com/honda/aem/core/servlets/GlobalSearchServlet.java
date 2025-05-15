@@ -43,7 +43,7 @@ public class GlobalSearchServlet extends SlingAllMethodsServlet {
         Session session = resolver.adaptTo(Session.class);
 
         Map<String, String> params = new HashMap<>();
-        params.put("path", "/content");
+        params.put("path", "/content/honda"); // Limit search to Honda content
         params.put("type", "cq:Page");
         params.put("fulltext", searchTerm);
         params.put("p.limit", "10");
@@ -54,18 +54,26 @@ public class GlobalSearchServlet extends SlingAllMethodsServlet {
         JsonArray jsonResults = new JsonArray();
         try {
             for (Hit hit : result.getHits()) {
-                Resource res = hit.getResource();
-                String title = res.getValueMap().get("jcr:title", res.getName());
-                String path = res.getPath();
+                Resource pageRes = hit.getResource();
+                Resource contentRes = pageRes.getChild("jcr:content");
 
-                JsonObject obj = new JsonObject();
-                obj.addProperty("title", title);
-                obj.addProperty("path", path);
-                jsonResults.add(obj);
+                if (contentRes != null) {
+                    ValueMap vm = contentRes.getValueMap();
+                    String title = vm.get("jcr:title", pageRes.getName());
+                    String description = vm.get("jcr:description", "");
+
+                    JsonObject obj = new JsonObject();
+                    obj.addProperty("title", title);
+                    obj.addProperty("description", description);
+                    obj.addProperty("path", pageRes.getPath());
+
+                    jsonResults.add(obj);
+                }
             }
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
+
         JsonObject responseJson = new JsonObject();
         responseJson.add("results", jsonResults);
 
