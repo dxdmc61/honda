@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 .global-searchbar {
-    background: #f2f6ff;
+    background: #ffded6;
     height: 3rem;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .globalNav .searchbar .searchmenu .searchtext {
-    color: #0c2074;
+    color: #e60012;
     display: inline-block;
     font-size: 1pc;
     font-weight: 700;

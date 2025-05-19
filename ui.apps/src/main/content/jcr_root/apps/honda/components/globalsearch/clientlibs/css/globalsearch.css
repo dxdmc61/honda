@@ -1,0 +1,97 @@
+.global-search {
+  border: 1px solid #ccc;
+  padding: 15px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.global-search input {
+  padding: 10px;
+  width: 70%;
+  margin-right: 10px;
+}
+
+.global-search button {
+  padding: 10px 15px;
+  background-color: #e65100;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.global-search .search-result {
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.global-search .search-result a {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+.search-suggestion {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+
+.search-suggestion a {
+  text-decoration: none;
+  display: block;
+  color: #333;
+}
+
+.search-suggestion strong {
+  font-size: 14px;
+}
+
+.search-suggestion small {
+  font-size: 12px;
+  color: #777;
+}
+/* Container for all results */
+#search-results {
+  margin-top: 2rem;
+  padding: 0 1rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Each individual search result */
+.search-suggestion {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Title link */
+.search-suggestion a {
+  text-decoration: none;
+  color: #0070c9;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+/* Hover effect */
+.search-suggestion a:hover {
+  text-decoration: underline;
+}
+
+/* Description */
+.search-suggestion small {
+  display: block;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Optional: show path or source link */
+.search-suggestion .url {
+  display: block;
+  font-size: 0.85rem;
+  color: #999;
+  font-style: italic;
+  margin-top: 0.3rem;
+}

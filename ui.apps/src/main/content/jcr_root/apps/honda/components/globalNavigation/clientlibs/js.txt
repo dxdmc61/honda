@@ -18,3 +18,4 @@
 
 header.js
 profileDropDown.js
+#iconAndNumber.js

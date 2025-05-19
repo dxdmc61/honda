@@ -7,12 +7,23 @@
         sling:resourceType="honda/components/page">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="honda/components/container"
-            layout="responsiveGrid">
-            <container
+            sling:resourceType="wcm/foundation/components/responsivegrid"
+            editable="{Boolean}true">
+            <experiencefragment-header
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="honda/components/container"
+                sling:resourceType="honda/components/experiencefragment"
+                editable="{Boolean}true"/>
+            <responsivegrid
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid"
+                editable="{Boolean}true"
                 layout="responsiveGrid"/>
+            <experiencefragment-footer
+                jcr:lastModified="{Date}2025-05-11T15:29:33.664+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="honda/components/experiencefragment"
+                editable="{Boolean}true"/>
         </root>
     </jcr:content>
 </jcr:root>

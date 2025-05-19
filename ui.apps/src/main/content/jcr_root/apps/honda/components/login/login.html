@@ -16,7 +16,8 @@
                     <form method="POST" action="/j_security_check" class="login-form">
                         <!-- value="${model.resourcePath}" -->
                         <input type="hidden" name="resource" value="/bin/honda/post-login" />
-                        <input type="text" name="j_username" placeholder="${model.usernamePlaceholder}" required />
+                        <input type="text" name="dealerId" placeholder="DealerId" required />
+                        <input type="text" name="j_username" placeholder="User Name" required />
                         <input type="password" name="j_password" placeholder="${model.passwordPlaceholder}" required />
                         <button type="submit">${model.submitButtonText}</button>
                     </form>
