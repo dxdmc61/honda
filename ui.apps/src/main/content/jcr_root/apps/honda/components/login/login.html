@@ -20,6 +20,7 @@
                         <input type="text" name="j_username" placeholder="User Name" required />
                         <input type="password" name="j_password" placeholder="${model.passwordPlaceholder}" required />
                         <button type="submit">${model.submitButtonText}</button>
+                        <a href="https://global.honda/en/" target="_blank">Forgot Password</a>
                     </form>
                 </div>
             </div>
@@ -30,33 +31,3 @@
     </div>
     <sly data-sly-call="${clientlib.all @ categories='honda.login'}"></sly>
 </sly>
-
-
-
-<!-- <cq:includeClientLib categories="honda.login" />
-<div class="login-page" data-cq-path="${currentNode.path}">
-    <img src="${properties.hondaLogo @ context='uri'}" alt="Honda Logo" class="honda-logo" />
-    <header class="login-header">
-        <h2>${properties.headingText}</h2>
-    </header>
-
-    <div class="login-content">
-        <div class="login-form-container">
-            <div class="login-container">
-                <form method="POST" action="/j_security_check" class="login-form">
-                    <input type="hidden" name="resource" value="/bin/honda/post-login" />
-                    <input type="text" name="j_username" placeholder="Dealer ID" required />
-                    <input type="password" name="j_password" placeholder="Password" required />
-                    <button type="submit">Login</button>
-                </form>
-
-            </div>
-        </div>
-        <div class="login-side-image">
-            <img src="${properties.sideImage @ context='uri'}" alt="Login Visual" />
-        </div>
-    </div>
-</div>
-</sly>
-
- -->
