@@ -344,15 +344,15 @@
   </div>
   
   <!-- Navigation Tabs -->
-  <div class="nav-tabs" style="display: flex; gap: 0.25rem; margin-bottom: 1.5rem; overflow-x: auto; padding-bottom: 0.5rem;">
-    <button class="nav-button active" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--primary, #e60012); color: white; border: 1px solid var(--primary, #e60012); border-radius: 0.25rem; cursor: pointer;">Create Claim</button>
-    <button class="nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Claim Status</button>
-    <button class="nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Controlled Part Serial No.</button>
-    <button class="nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Claim Attachments</button>
-    <button class="nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Unpaid Claim Deletion</button>
-    <button class="nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Powertrain & Emissions/HV Inquiry</button>
-    <button class="nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Parts Return List</button>
-    <button class="nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Reference Guide</button>
+  <div class="nav-tabs" style="display: flex; gap: 0.25rem; overflow-inline: revert; margin-bottom: 1.5rem; padding: 0.5rem;">
+    <button class="cmp-button cmp-button--outline nav-button active" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--primary, #e60012); color: white; border: 1px solid var(--primary, #e60012); border-radius: 0.25rem; cursor: pointer;">Create Claim</button>
+    <button class="cmp-button cmp-button--outline nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Claim Status</button>
+    <button class="cmp-button cmp-button--outline nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Controlled Part Serial No.</button>
+    <button class="cmp-button cmp-button--outline nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Claim Attachments</button>
+    <button class="cmp-button cmp-button--outline nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Unpaid Claim Deletion</button>
+    <button class="cmp-button cmp-button--outline nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Powertrain & Emissions/HV Inquiry</button>
+    <button class="cmp-button cmp-button--outline nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Parts Return List</button>
+    <!-- <button class="cmp-button cmp-button--outline nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Reference Guide</button> -->
   </div>
 
   <!-- Warranty Information Claim Screen -->
@@ -998,13 +998,13 @@
         
         <!-- Action Buttons -->
         <div class="flex justify-end gap-2 mt-6">
-          <button class="btn btn-blue">
+          <button class="cmp-button cmp-button--primary">
             Submit
           </button>
-          <button class="btn btn-blue">
+          <button class="cmp-button cmp-button--outline">
             Save
           </button>
-          <button class="btn btn-blue">
+          <button class="cmp-button cmp-button--outline">
             View Claim
           </button>
           <button id="quick-back-btn" class="btn btn-blue">
