@@ -57,7 +57,7 @@
 }
 
 .search-overlay input {
-  width: 100%;
+  width: 50%;
   padding: 1rem;
   font-size: 1.25rem;
   border: 1px solid #ccc;
@@ -71,7 +71,8 @@
   position: absolute;
   top: 0px;
   right: 0;
-  background-color: #ef101b; /* FedEx Purple */
+  /*background-color: #ef101b;  FedEx Purple 4a5568*/
+  /*background-color: #4a5568; /* FedEx Purple 4a5568*/
   height: 100%;
   width: 0;
   overflow: hidden;
@@ -84,7 +85,7 @@
 
 /* Expanded State */
 .search-overlay.active {
-  width: 100%;
+  width: 50%;
 }
 
 /* Search Input Styles */
@@ -93,17 +94,22 @@
   border: none;
   outline: none;
   font-size: 1rem;
-  padding: 0.5rem 1rem;
-  color: #000;
-  background: #fff;
+  /*padding: 0.5rem 1rem;*/
+  color: #fff;
+  /*background: #4a5568; */
   border-radius: 20px;
+    border : #4a5568;
+    border-style: solid;
 }
-
+.XDyW0e {
+    width: 40px;
+    height: 44px;
+}
 /* Close Button */
 #closeSearchOverlay {
   background: none;
   border: none;
-  color: white;
+  color: #4a5568;
   font-size: 1.5rem;
   margin-left: 0.5rem;
   cursor: pointer;

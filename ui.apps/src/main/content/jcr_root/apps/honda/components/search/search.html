@@ -1,46 +1,30 @@
-<section class="globalNav global-searchbar">
-    <div class="component-container vpad-0">
-        <div class="component-offset">
-            <div class="content-container">
-                <div class="header-content">
-                    <div class="searchbar">
-                        <div class="searchmenu">
-                            <div class="searchcontainer">
-                                <form class="menu-search-form navbar-form-nav" action="/search.html" method="GET"
-                                    role="search">
-                                    <a href="/content/honda/us/en/search.html"><img src="${properties.searchIcon}"
-                                            alt="Search bar">
-                                        <div class="searchtext">Search</div>
-                                    </a>
-                                    <input class="globalnav-search" type="hidden" name="plug_cleared"
-                                        value="Search cleared">
-                                    <input class="globalnav-search" type="hidden" name="plug_summary"
-                                        value="There are currently {maxLength} options starting with {searchTerm}">
-                                    <input class="globalnav-search" type="hidden" name="plug_noresult"
-                                        value="No results available for keyword {searchTerm}">
-                                    <input class="globalnav-search" type="hidden" name="plug_resultbelow"
-                                        value="{searchTerm}, options display below as you type">
-                                    <input class="globalnav-search" type="hidden" name="plug_of" value="of">
-                                    <input class="globalnav-search" type="hidden" name="label" value="Search">
-                                    <input class="globalnav-search" type="hidden" name="search_url"
-                                        value="/content/elavon/en-gb/search.html">
-                                </form>
-                            </div>
-                            
-                            <div class="country">
-                                <a href="#" aria-label="US">
-                                    <span>
-                                        <span class="locationFlag">
-                                            <img src="${properties.cIcon}"
-                                                title="US" alt="us">
-                                        </span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+
+<div class="component-container vpad-0">
+    <div class="component-offset">
+
+        <div class="header-container">
+            <div class="brand">
+
+            </div>
+            <!-- Search Icon Trigger -->
+            <div class="search-trigger" id="searchTrigger">
+                <svg class="icon search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
+                </svg>
+            </div>
+
+            <!-- Expanding Search Bar -->
+            <div class="search-overlay" id="searchOverlay">
+                <input type="text" id="searchInputOverlay" placeholder="Search......" />
+                <div class="XDyW0e">
+                    <svg class="goxjub" focusable="false" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="var(--bbQxAb)" d="M480-400q-50 0-85-35t-35-85v-240q0-50 35-85t85-35q50 0 85 35t35 85v240q0 50-35 85t-85 35Zm-40 280v-123q-104-14-172-93t-68-184h80q0 83 58.5 141.5T480-320q83 0 141.5-58.5T680-520h80q0 105-68 184t-172 93v123h-80Z">
+                        </path></svg>
                 </div>
+                <button id="closeSearchOverlay" title="Close">✕</button>
             </div>
         </div>
     </div>
-</section>
+</div>
