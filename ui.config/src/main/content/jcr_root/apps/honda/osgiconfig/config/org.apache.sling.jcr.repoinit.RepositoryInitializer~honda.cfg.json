@@ -1,8 +1,13 @@
 {
     "scripts": [
-        "create path (sling:OrderedFolder) /content/dam/honda",
-        "create path (nt:unstructured) /content/dam/honda/jcr:content",
-        "set properties on /content/dam/honda/jcr:content\n  set cq:conf{String} to /conf/honda\n  set jcr:title{String} to \"Honda\"\nend",
-        "set ACL for anonymous"," allow jcr:read on /content/honda/us/en/login","  allow jcr:read on /content/dam/honda","\nend"
+      "create path (sling:OrderedFolder) /content/dam/honda",
+      "create path (nt:unstructured) /content/dam/honda/jcr:content",
+      "set properties on /content/dam/honda/jcr:content\n  set cq:conf{String} to /conf/honda\n  set jcr:title{String} to \"Honda\"\nend",
+      "set ACL for anonymous\n  allow jcr:read on /content/honda/us/en/login\n  allow jcr:read on /content/dam/honda\nend",
+      "set ACL for honda-mc-pe\n  allow jcr:read on /content/honda/us/en/home\n  allow jcr:read on /content/dam/honda\nend",
+      "set ACL for honda-admin\n  allow jcr:read on /content/honda/us/en/home\n  allow jcr:read on /content/dam/honda\nend",
+      "set ACL for honda-auto\n  allow jcr:read on /content/honda/us/en/home\n  allow jcr:read on /content/dam/honda\nend"
+
     ]
-}
+  }
+  
