@@ -1,0 +1,1166 @@
+
+  <style>
+    :root {
+      --primary: #e60012;
+      --primary-hover: #cc0010;
+      --blue-light: #e6f0f9;
+      --blue-border: #c5d9e8;
+      --blue-text: #0e4f8b;
+      --gray-100: #f7fafc;
+      --gray-200: #edf2f7;
+      --gray-300: #e2e8f0;
+      --gray-400: #cbd5e0;
+      --gray-500: #a0aec0;
+      --gray-600: #718096;
+      --gray-700: #4a5568;
+      --gray-800: #2d3748;
+      --gray-900: #1a202c;
+      --success-light: #d1fae5;
+      --success-border: #a7f3d0;
+      --success-text: #065f46;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .warranty-claims {
+      width: 100%;
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 0.25rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      margin-bottom: 1rem;
+    }
+
+    .title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gray-800);
+    }
+
+    /* Navigation Tabs */
+    .nav-tabs {
+      display: flex;
+      gap: 0.25rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    .nav-button {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      text-align: center;
+      white-space: nowrap;
+      background-color: var(--blue-light);
+      color: var(--blue-text);
+      border: 1px solid var(--blue-border);
+      border-radius: 0.25rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .nav-button:hover {
+      background-color: #d9e8f6;
+    }
+
+    .nav-button.active {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Content Panels */
+    .panel {
+      border: 1px solid var(--gray-300);
+      border-radius: 0.25rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .panel-header {
+      background-color: var(--gray-100);
+      padding: 1rem;
+      border-bottom: 1px solid var(--gray-300);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .panel-title {
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+
+    .panel-subtitle {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+      margin-top: 0.25rem;
+    }
+
+    .panel-content {
+      padding: 1rem;
+    }
+
+    /* Section Headers */
+    .section-header {
+      background-color: var(--blue-light);
+      padding: 0.5rem;
+      border: 1px solid var(--blue-border);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-weight: 500;
+    }
+
+    /* Form Groups */
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .grid-cols-1 {
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-between {
+      justify-content: space-between;
+    }
+
+    .justify-end {
+      justify-content: flex-end;
+    }
+
+    .gap-2 {
+      gap: 0.5rem;
+    }
+
+    .gap-4 {
+      gap: 1rem;
+    }
+
+    .w-40 {
+      width: 10rem;
+    }
+
+    .flex-1 {
+      flex: 1;
+    }
+
+    /* Form Controls */
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gray-600);
+      margin-bottom: 0.25rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--gray-800);
+      background-color: white;
+      border: 1px solid var(--gray-300);
+      border-radius: 0.25rem;
+      transition: all 0.2s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(230, 0, 18, 0.25);
+    }
+
+    select.form-control {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+      background-position: right 0.5rem center;
+      background-repeat: no-repeat;
+      background-size: 1.5em 1.5em;
+      padding-right: 2.5rem;
+    }
+
+    .form-text {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      margin-top: 0.25rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1.5;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      user-select: none;
+      border: 1px solid transparent;
+      border-radius: 0.25rem;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      color: white;
+      background-color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      border-color: var(--primary-hover);
+      box-shadow: 0 4px 6px rgba(230, 0, 18, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      color: var(--gray-700);
+      background-color: white;
+      border-color: var(--gray-300);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--gray-100);
+      transform: translateY(-1px);
+    }
+
+    .btn-blue {
+      color: var(--blue-text);
+      background-color: var(--blue-light);
+      border-color: var(--blue-border);
+    }
+
+    .btn-blue:hover {
+      background-color: #d9e8f6;
+    }
+
+    /* Tables */
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table th,
+    .table td {
+      padding: 0.5rem;
+      border: 1px solid var(--gray-300);
+      text-align: left;
+    }
+
+    .table th {
+      background-color: var(--gray-100);
+      font-weight: 500;
+      font-size: 0.75rem;
+      color: var(--gray-600);
+    }
+
+    /* Success Notification */
+    .notification {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.75rem 1rem;
+      background-color: var(--success-light);
+      color: var(--success-text);
+      border: 1px solid var(--success-border);
+      border-radius: 0.25rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 50;
+      transition: all 0.3s;
+      opacity: 0;
+      transform: translateY(-1rem);
+      pointer-events: none;
+    }
+
+    .notification.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Utility Classes */
+    .mb-1 {
+      margin-bottom: 0.25rem;
+    }
+
+    .mb-2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .mb-4 {
+      margin-bottom: 1rem;
+    }
+
+    .mb-6 {
+      margin-bottom: 1.5rem;
+    }
+
+    .mt-2 {
+      margin-top: 0.5rem;
+    }
+
+    .mt-4 {
+      margin-top: 1rem;
+    }
+
+    .mt-6 {
+      margin-top: 1.5rem;
+    }
+
+    .text-sm {
+      font-size: 0.875rem;
+    }
+
+    .text-xs {
+      font-size: 0.75rem;
+    }
+
+    .font-medium {
+      font-weight: 500;
+    }
+
+    .text-gray-500 {
+      color: var(--gray-500);
+    }
+
+    .text-gray-600 {
+      color: var(--gray-600);
+    }
+
+    .text-blue-700 {
+      color: var(--blue-text);
+    }
+
+    .text-red-600 {
+      color: var(--primary);
+    }
+
+    .bg-gray-50 {
+      background-color: var(--gray-100);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Icons */
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .icon-refresh {
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+<body>
+  <div class="container">
+    <div class="warranty-claims">
+      <div id="success-notification" class="notification">
+        Claim submitted successfully!
+      </div>
+      
+      <div class="header mb-4">
+        <h1 class="title">Warranty Claims</h1>
+      </div>
+      
+      <!-- Navigation Tabs -->
+      <div class="nav-tabs">
+        <button class="nav-button">Create Claim</button>
+        <button class="nav-button">Claim Status</button>
+        <button class="nav-button">Controlled Part Serial No.</button>
+        <button class="nav-button">Claim Attachments</button>
+        <button class="nav-button">Unpaid Claim Deletion</button>
+        <button class="nav-button">Powertrain & Emissions/HV Inquiry</button>
+        <button class="nav-button">Parts Return List</button>
+        <button class="nav-button">Reference Guide</button>
+      </div>
+
+      <!-- Warranty Information Claim Screen -->
+      <div id="warranty-info-screen">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Warranty Information Claim</h2>
+              <p class="panel-subtitle">* = Required</p>
+            </div>
+          </div>
+
+          <div class="panel-content">
+            <!-- Repair Order Information -->
+            <div class="mb-6">
+              <div class="section-header">
+                <h3 class="section-title">Repair Order Information</h3>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="form-group">
+                  <label class="form-label">Claim No. *</label>
+                  <input 
+                    type="text" 
+                    id="claim-no"
+                    class="form-control" 
+                    value="232323" 
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Claim Type *</label>
+                  <select id="claim-type" class="form-control">
+                    <option value="QUICK" selected>QUICK</option>
+                    <option value="REGULAR">REGULAR</option>
+                    <option value="GOODWILL">GOODWILL</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Radio/CD Type</label>
+                  <input 
+                    type="text"
+                    id="radio-type"
+                    class="form-control" 
+                  />
+                </div>
+              </div>
+              <p class="form-text mb-4">Please review the Repair Order information below to determine the appropriate claim information above</p>
+              <div class="flex justify-end gap-2">
+                <button class="btn btn-outline">Back</button>
+                <button id="next-btn" class="btn btn-primary">Next</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Claim Screen -->
+      <div id="quick-claim-screen" class="hidden">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Quick Claim</h2>
+              <p class="panel-subtitle">* = Required</p>
+            </div>
+            <button id="back-btn" class="text-blue-700">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+              BACK
+            </button>
+          </div>
+
+          <div class="panel-content">
+            <!-- Repair Order Information -->
+            <div class="mb-6">
+              <div class="section-header">
+                <h3 class="section-title">Repair Order Information</h3>
+              </div>
+              
+              <div class="grid grid-cols-1 gap-2 mb-4">
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">Claim No.*</div>
+                  <div class="flex-1 text-sm">
+                    <input type="text" class="form-control" value="232323" />
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">Claim Type</div>
+                  <div class="flex-1 text-sm">
+                    <input type="text" class="form-control" value="Quick" readonly style="background-color: #f7fafc;" />
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">Radio/CD Type</div>
+                  <div class="flex-1 text-sm">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">Repair Order No.*</div>
+                  <div class="flex-1 text-sm">
+                    <input type="text" class="form-control" value="549544" />
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">VIN*</div>
+                  <div class="flex-1 text-sm flex items-center">
+                    <span class="mr-2 text-xs" style="background-color: #e6f0f9; padding: 0.125rem 0.25rem; border: 1px solid #c5d9e8; border-radius: 0.25rem;">Check VIN Status</span>
+                    <input type="text" class="form-control" style="flex: 1;" value="3CZRE4H51AG702478" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon ml-1" style="color: #a0aec0;">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">Repair Order Date*</div>
+                  <div class="flex-1 text-sm flex">
+                    <div class="flex">
+                      <input type="text" class="form-control" style="width: 2rem;" placeholder="MM" value="09" /> 
+                      <span style="padding: 0.25rem;">/</span>
+                      <input type="text" class="form-control" style="width: 2rem;" placeholder="DD" value="12" />
+                      <span style="padding: 0.25rem;">/</span>
+                      <input type="text" class="form-control" style="width: 3rem;" placeholder="YYYY" value="2017" />
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">Mileage*</div>
+                  <div class="flex-1 text-sm">
+                    <input type="text" class="form-control" value="119255" />
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">Work Completed Date*</div>
+                  <div class="flex-1 text-sm flex">
+                    <div class="flex">
+                      <input type="text" class="form-control" style="width: 2rem;" placeholder="MM" value="09" /> 
+                      <span style="padding: 0.25rem;">/</span>
+                      <input type="text" class="form-control" style="width: 2rem;" placeholder="DD" value="13" />
+                      <span style="padding: 0.25rem;">/</span>
+                      <input type="text" class="form-control" style="width: 3rem;" placeholder="YYYY" value="2017" />
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">Fire Related</div>
+                  <div class="flex-1 text-sm">
+                    <input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contention / Cause / Correction Information -->
+            <div class="mb-6">
+              <div class="section-header flex justify-between">
+                <h3 class="section-title">Contention / Cause / Correction Information</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon" style="color: #718096;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              
+              <div class="grid grid-cols-1 gap-2">
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">Contention/Symptom Code*</div>
+                  <div class="flex-1 text-sm flex items-center">
+                    <input type="text" class="form-control" style="width: 6rem; margin-right: 0.5rem;" value="KA500" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon" style="color: #a0aec0; margin-right: 0.5rem;">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <span class="text-xs">(Exclude Dash)</span>
+                  </div>
+                </div>
+                
+                <div class="flex">
+                  <div class="w-40 text-sm font-medium text-gray-600">Customer Contention /Symptom Description*</div>
+                  <div class="flex-1 text-sm">
+                    <textarea class="form-control" style="height: 5rem;">Perform Safety Recall 16-048: Takata Front Passengers Airbag Inflator</textarea>
+                  </div>
+                </div>
+                
+                <div class="flex">
+                  <div class="w-40 text-sm font-medium text-gray-600">Cause*</div>
+                  <div class="flex-1 text-sm">
+                    <textarea class="form-control" style="height: 5rem;">KA500 aka Front Passengers Airbag Inflator</textarea>
+                  </div>
+                </div>
+                
+                <div class="flex">
+                  <div class="w-40 text-sm font-medium text-gray-600">Correction*</div>
+                  <div class="flex-1 text-sm">
+                    <textarea class="form-control" style="height: 5rem;">119255-RECALL 16-048 COMPLETED. SERIAL # 25202090317159</textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Customer Information -->
+            <div class="mb-6">
+              <div class="section-header">
+                <h3 class="section-title">Customer Information</h3>
+              </div>
+              
+              <div class="grid grid-cols-1 gap-2">
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">Customer Type*</div>
+                  <div class="flex-1 text-sm">
+                    <select class="form-control">
+                      <option value="INDIVIDUAL" selected>INDIVIDUAL</option>
+                      <option value="CORPORATE">CORPORATE</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">Name*</div>
+                  <div class="flex-1 text-sm" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+                    <div>
+                      <span class="text-xs block">First</span>
+                      <input type="text" class="form-control" value="D" />
+                    </div>
+                    <div>
+                      <span class="text-xs block">MI</span>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div>
+                      <span class="text-xs block">Last</span>
+                      <input type="text" class="form-control" value="LEWIS" />
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">Address*</div>
+                  <div class="flex-1 text-sm">
+                    <input type="text" class="form-control" value="186 HEADSBURG AVE #D" />
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">City*</div>
+                  <div class="flex-1 text-sm">
+                    <input type="text" class="form-control" value="CLOVERDALE" />
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">State*</div>
+                  <div class="flex-1 text-sm">
+                    <input type="text" class="form-control" style="width: 5rem;" value="CA" />
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">Zip*</div>
+                  <div class="flex-1 text-sm">
+                    <input type="text" class="form-control" style="width: 6rem;" value="95425" />
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-40 text-sm font-medium text-gray-600">Telephone*</div>
+                  <div class="flex-1 text-sm">
+                    <input type="text" class="form-control" value="7073857037" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Repair Information -->
+            <div class="mb-6">
+              <div class="section-header">
+                <h3 class="section-title">Repair Information</h3>
+              </div>
+              
+              <div class="grid grid-cols-1 gap-3">
+                <div class="flex">
+                  <div class="w-40 text-sm font-medium text-gray-600">Defect Code (Exclude Dash)*</div>
+                  <div class="flex-1 text-sm">
+                    <input type="text" class="form-control" style="width: 6rem;" value="6EA00" />
+                  </div>
+                  
+                  <div class="w-24 text-sm font-medium text-gray-600 ml-4">Test Code</div>
+                  <div class="flex-1 text-sm">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+                
+                <!-- Labor Operations Table -->
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th style="width: 4rem;">Item</th>
+                      <th>Labor Operation No.*</th>
+                      <th>Labor Description</th>
+                      <th style="width: 5rem;">Time*</th>
+                      <th style="width: 4rem;"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>
+                        <input type="text" class="form-control" value="7541C3" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" value="SAFETY RECALL CAMPAIGN (6EA): REPLACE FRONT PASSENGER AIRBAG INFLATOR (PHASE 1)" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" value="0.7" />
+                      </td>
+                      <td>
+                        <button class="text-blue-700 text-xs">Delete</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <button class="text-blue-700 text-xs">Delete</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <button class="text-blue-700 text-xs">Delete</button>
+                      </td>
+                    </tr>
+                    <tr style="background-color: #f7fafc;">
+                      <td style="font-weight: 500;">Total Time</td>
+                      <td></td>
+                      <td></td>
+                      <td>
+                        <input type="text" class="form-control" value="0.7" />
+                      </td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+                <div class="flex mt-2">
+                  <div class="w-40 text-sm font-medium text-gray-600">M.I.L. On</div>
+                  <div class="flex-1 text-sm">
+                    <select class="form-control" style="width: 5rem;">
+                      <option value="NO" selected>NO</option>
+                      <option value="YES">YES</option>
+                    </select>
+                  </div>
+                  
+                  <div class="w-40 text-sm font-medium text-gray-600">Diagnostic Trouble Codes</div>
+                  <div class="flex-1 text-sm" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.25rem;">
+                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" />
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Personnel Information Section -->
+            <div class="mb-6">
+              <div class="section-header">
+                <h3 class="section-title">Personnel Information</h3>
+              </div>
+              
+              <div class="grid grid-cols-1 gap-3">
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; align-items: center;">
+                  <div class="text-sm font-medium text-gray-600">Service Advisor*</div>
+                  <div>
+                    <input type="text" class="form-control" />
+                  </div>
+                  <div style="grid-column: span 2;">
+                    <input type="text" class="form-control" value="PETTY, BILL" />
+                  </div>
+                  <div>
+                    <input type="text" class="form-control" />
+                  </div>
+                  <div style="text-align: right;">
+                    <button class="text-blue-700 text-xs">Delete</button>
+                  </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; align-items: center;">
+                  <div class="text-sm font-medium text-gray-600">Technician*</div>
+                  <div>
+                    <input type="text" class="form-control" />
+                  </div>
+                  <div style="grid-column: span 2;">
+                    <input type="text" class="form-control" value="TANG, KENNY" />
+                  </div>
+                  <div>
+                    <input type="text" class="form-control" value="0432181" />
+                  </div>
+                  <div style="text-align: right;">
+                    <button class="text-blue-700 text-xs">Delete</button>
+                  </div>
+                </div>
+                
+                <div class="mt-2 text-xs text-red-600">* AHM Recall Technical Specialists</div>
+              </div>
+            </div>
+            
+            <!-- Parts Search Bar -->
+            <div class="flex items-center mb-4 justify-end">
+              <div class="mr-2 text-sm font-medium text-gray-600">Search by</div>
+              <select class="form-control" style="width: auto; margin-right: 0.5rem;">
+                <option>PART NUMBER</option>
+                <option>DESCRIPTION</option>
+              </select>
+              <input type="text" class="form-control" style="width: 12rem; margin-right: 0.5rem;" />
+              <button class="btn btn-blue">
+                Search
+              </button>
+            </div>
+            
+            <!-- Parts Information -->
+            <div class="mb-6">
+              <div class="section-header">
+                <h3 class="section-title">Parts Information</h3>
+              </div>
+              
+              <div class="grid grid-cols-1 gap-3">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                  <div class="flex">
+                    <div class="w-40 text-sm font-medium text-gray-600">Failed Part No.*</div>
+                    <div class="flex-1">
+                      <input type="text" class="form-control" value="77820-SWA-A80ZA" />
+                    </div>
+                  </div>
+                  <div class="flex">
+                    <div class="w-40 text-sm font-medium text-gray-600">Failed Part Description*</div>
+                    <div class="flex-1">
+                      <input type="text" class="form-control" value="MOD, PASS *NH167L*" />
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="flex">
+                  <div class="w-40 text-sm font-medium text-gray-600">Replacement Serial No.</div>
+                  <div class="flex-1">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+                
+                <!-- Parts Table -->
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th style="width: 3rem;">Item</th>
+                      <th>Replacement Part No.*</th>
+                      <th style="width: 5rem;">Quantity*</th>
+                      <th style="width: 6rem;">Unit Price</th>
+                      <th style="width: 6rem;">Unit Total</th>
+                      <th>Description</th>
+                      <th style="width: 4rem;"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>
+                        <input type="text" class="form-control" value="04790-SWA-407" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" value="1" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" value="61.21" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" value="61.21" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" value="KIT, INFLATOR COMP" />
+                      </td>
+                      <td>
+                        <button class="text-blue-700 text-xs">Delete</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <button class="text-blue-700 text-xs">Delete</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <input type="text" class="form-control" />
+                      </td>
+                      <td>
+                        <button class="text-blue-700 text-xs">Delete</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <!-- File Attachments -->
+            <div class="mb-6">
+              <div class="flex justify-between items-center mb-4">
+                <div></div>
+                <div class="flex items-center">
+                  <button class="btn btn-blue mr-2">
+                    Upload files
+                  </button>
+                  <div class="text-sm font-medium text-gray-600">File Attachments</div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Goodwill Information -->
+            <div class="mb-6">
+              <div class="section-header">
+                <h3 class="section-title">Goodwill Information</h3>
+              </div>
+              
+              <div class="grid grid-cols-1 gap-3">
+                <div class="flex">
+                  <div class="w-40 text-sm font-medium text-gray-600">Goodwill</div>
+                  <div class="flex-1">
+                    <input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Claim Totals -->
+            <div class="mb-6">
+              <div class="section-header">
+                <h3 class="section-title">Claim Totals</h3>
+              </div>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 1rem;">
+                <div class="flex">
+                  <div class="w-40 text-sm font-medium text-gray-600">Parts Cost</div>
+                  <div class="flex-1">
+                    <input type="text" class="form-control" value="61.21" />
+                  </div>
+                </div>
+                <div class="flex">
+                  <div class="w-40 text-sm font-medium text-gray-600">Calculated Claim Total</div>
+                  <div class="flex-1">
+                    <input type="text" class="form-control" value="161.85" />
+                  </div>
+                </div>
+                
+                <div class="flex">
+                  <div class="w-40 text-sm font-medium text-gray-600">Parts Handling undefined</div>
+                  <div class="flex-1">
+                    <input type="text" class="form-control" value="4.28" />
+                  </div>
+                </div>
+                <div class="flex">
+                  <div class="w-40 text-sm font-medium text-gray-600">Submitted Claim Total</div>
+                  <div class="flex-1">
+                    <input type="text" class="form-control" value="153.86" />
+                  </div>
+                </div>
+                
+                <div class="flex">
+                  <div class="w-40 text-sm font-medium text-gray-600">Labor Amount</div>
+                  <div class="flex-1">
+                    <input type="text" class="form-control" value="96.36" />
+                  </div>
+                </div>
+                <div class="flex">
+                  <div class="w-40 text-sm font-medium text-gray-600">Submitted Percentage</div>
+                  <div class="flex-1">
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+                
+                <div class="flex">
+                  <div class="w-40 text-sm font-medium text-gray-600">Submitted By:</div>
+                  <div class="flex-1 flex" style="gap: 1rem;">
+                    <div class="flex items-center">
+                      <input type="radio" id="percentage" name="submitBy" class="mr-1" style="accent-color: #e60012;" checked />
+                      <label for="percentage" class="text-sm">Percentage</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input type="radio" id="amount" name="submitBy" class="mr-1" style="accent-color: #e60012;" />
+                      <label for="amount" class="text-sm">Amount</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="flex justify-end gap-2 mt-6">
+              <button class="btn btn-blue">
+                Submit
+              </button>
+              <button class="btn btn-blue">
+                Save
+              </button>
+              <button class="btn btn-blue">
+                View Claim
+              </button>
+              <button id="quick-back-btn" class="btn btn-blue">
+                Back
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toolbar (only visible on warranty info screen) -->
+      <div id="toolbar" class="flex justify-between items-center my-6">
+        <div class="flex items-center gap-2">
+          <div class="flex items-center gap-1">
+            <input type="checkbox" id="select-all" style="width: 1rem; height: 1rem; accent-color: #e60012;" />
+            <label for="select-all" class="text-sm">Select All</label>
+          </div>
+          
+          <button class="btn btn-outline flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+            <span>Delete</span>
+          </button>
+          
+          <button class="btn btn-outline flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon refresh-icon">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <span>Refresh</span>
+          </button>
+        </div>
+        
+        <button class="btn btn-primary flex items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          <span>Skip to Claim Entry</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // DOM elements
+    const warrantyInfoScreen = document.getElementById('warranty-info-screen');
+    const quickClaimScreen = document.getElementById('quick-claim-screen');
+    const nextBtn = document.getElementById('next-btn');
+    const backBtn = document.getElementById('back-btn');
+    const quickBackBtn = document.getElementById('quick-back-btn');
+    const toolbar = document.getElementById('toolbar');
+    const notification = document.getElementById('success-notification');
+    const submitBtns = document.querySelectorAll('.btn.btn-blue');
+    const refreshIcon = document.querySelector('.refresh-icon');
+    
+    // Event listeners
+    nextBtn.addEventListener('click', () => {
+      warrantyInfoScreen.classList.add('hidden');
+      quickClaimScreen.classList.remove('hidden');
+      toolbar.classList.add('hidden');
+    });
+    
+    backBtn.addEventListener('click', () => {
+      quickClaimScreen.classList.add('hidden');
+      warrantyInfoScreen.classList.remove('hidden');
+      toolbar.classList.remove('hidden');
+    });
+    
+    quickBackBtn.addEventListener('click', () => {
+      quickClaimScreen.classList.add('hidden');
+      warrantyInfoScreen.classList.remove('hidden');
+      toolbar.classList.remove('hidden');
+    });
+
+    // Refresh icon hover effect
+    const refreshBtn = refreshIcon.closest('button');
+    refreshBtn.addEventListener('mouseenter', () => {
+      refreshIcon.classList.add('icon-refresh');
+    });
+    
+    refreshBtn.addEventListener('mouseleave', () => {
+      refreshIcon.classList.remove('icon-refresh');
+    });
+    
+    // Submit functionality
+    submitBtns.forEach(btn => {
+      if (btn.textContent.trim() === 'Submit') {
+        btn.addEventListener('click', () => {
+          notification.classList.add('show');
+          setTimeout(() => {
+            notification.classList.remove('show');
+          }, 3000);
+        });
+      }
+    });
+  </script>
+</body>
