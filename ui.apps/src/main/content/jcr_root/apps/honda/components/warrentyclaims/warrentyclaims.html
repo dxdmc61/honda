@@ -471,7 +471,7 @@
       </div>
 
       <!-- Quick Claim Screen -->
-      <div id="quick-claim-screen" class="hidden">
+      <div id="quick-claim-screen" class="hidden" style="display: none;">
         <div class="panel">
           <div class="panel-header">
             <div>
@@ -1103,57 +1103,56 @@
       </div>
     </div>
   </div>
-
-  <script>
-    // DOM elements
-    const warrantyInfoScreen = document.getElementById('warranty-info-screen');
-    const quickClaimScreen = document.getElementById('quick-claim-screen');
-    const nextBtn = document.getElementById('next-btn');
-    const backBtn = document.getElementById('back-btn');
-    const quickBackBtn = document.getElementById('quick-back-btn');
-    const toolbar = document.getElementById('toolbar');
-    const notification = document.getElementById('success-notification');
-    const submitBtns = document.querySelectorAll('.btn.btn-blue');
-    const refreshIcon = document.querySelector('.refresh-icon');
-    
-    nextBtn.addEventListener('click', () => {
-      warrantyInfoScreen.classList.add('hidden');
-      quickClaimScreen.classList.remove('hidden');
-      toolbar.classList.add('hidden');
-    });
-    
-    backBtn.addEventListener('click', () => {
-      quickClaimScreen.classList.add('hidden');
-      warrantyInfoScreen.classList.remove('hidden');
-      toolbar.classList.remove('hidden');
-    });
-    
-    quickBackBtn.addEventListener('click', () => {
-      quickClaimScreen.classList.add('hidden');
-      warrantyInfoScreen.classList.remove('hidden');
-      toolbar.classList.remove('hidden');
-    });
-
-    // Refresh icon hover effect
-    const refreshBtn = refreshIcon.closest('button');
-    refreshBtn.addEventListener('mouseenter', () => {
-      refreshIcon.classList.add('icon-refresh');
-    });
-    
-    refreshBtn.addEventListener('mouseleave', () => {
-      refreshIcon.classList.remove('icon-refresh');
-    });
-    
-    // Submit functionality
-    submitBtns.forEach(btn => {
-      if (btn.textContent.trim() === 'Submit') {
-        btn.addEventListener('click', () => {
-          notification.classList.add('show');
-          setTimeout(() => {
-            notification.classList.remove('show');
-          }, 3000);
-        });
-      }
-    });
-  </script>
 </body>
+<script>
+  // DOM elements
+  const warrantyInfoScreen = document.getElementById('warranty-info-screen');
+  const quickClaimScreen = document.getElementById('quick-claim-screen');
+  const nextBtn = document.getElementById('next-btn');
+  const backBtn = document.getElementById('back-btn');
+  const quickBackBtn = document.getElementById('quick-back-btn');
+  const toolbar = document.getElementById('toolbar');
+  const notification = document.getElementById('success-notification');
+  const submitBtns = document.querySelectorAll('.btn.btn-blue');
+  const refreshIcon = document.querySelector('.refresh-icon');
+  
+  nextBtn.addEventListener('click', () => {
+    warrantyInfoScreen.classList.add('hidden');
+    quickClaimScreen.classList.remove('hidden');
+    toolbar.classList.add('hidden');
+  });
+  
+  backBtn.addEventListener('click', () => {
+    quickClaimScreen.classList.add('hidden');
+    warrantyInfoScreen.classList.remove('hidden');
+    toolbar.classList.remove('hidden');
+  });
+  
+  quickBackBtn.addEventListener('click', () => {
+    quickClaimScreen.classList.add('hidden');
+    warrantyInfoScreen.classList.remove('hidden');
+    toolbar.classList.remove('hidden');
+  });
+
+  // Refresh icon hover effect
+  const refreshBtn = refreshIcon.closest('button');
+  refreshBtn.addEventListener('mouseenter', () => {
+    refreshIcon.classList.add('icon-refresh');
+  });
+  
+  refreshBtn.addEventListener('mouseleave', () => {
+    refreshIcon.classList.remove('icon-refresh');
+  });
+  
+  // Submit functionality
+  submitBtns.forEach(btn => {
+    if (btn.textContent.trim() === 'Submit') {
+      btn.addEventListener('click', () => {
+        notification.classList.add('show');
+        setTimeout(() => {
+          notification.classList.remove('show');
+        }, 3000);
+      });
+    }
+  });
+</script>

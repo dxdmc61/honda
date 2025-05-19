@@ -326,4 +326,1778 @@
         <div class="cmp-search-claims cq-placeholder" data-emptytext="Search Claims Component"></div>
     </sly>
 </sly>
+<!-- Warranty Claims Component (initially hidden) -->
+<div id="warranty-claims-component" style="display: none;">
+  <button id="back-to-search" class="back-to-search" style="display: inline-flex; align-items: center; padding: 0.5rem 1rem; margin-bottom: 1rem; font-size: 0.875rem; color: var(--blue-text, #0e4f8b); background-color: var(--gray-100, #e6f0f9); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">
+    <svg style="margin-right: 0.5rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+    Back to Search
+  </button>
 
+  <div id="success-notification" style="position: fixed; top: 1rem; right: 1rem; padding: 0.75rem 1rem; background-color: var(--success-light, #d1fae5); color: var(--success-text, #065f46); border: 1px solid var(--success-border, #a7f3d0); border-radius: 0.25rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 50; transition: all 0.3s; opacity: 0; transform: translateY(-1rem); pointer-events: none;">
+    Claim submitted successfully!
+  </div>
+  
+  <div class="header" style="margin-bottom: 1rem;">
+    <h1 class="title" style="font-size: 1.25rem; font-weight: 600; color: var(--gray-800, #2d3748);">Warranty Claims</h1>
+  </div>
+  
+  <!-- Navigation Tabs -->
+  <div class="nav-tabs" style="display: flex; gap: 0.25rem; margin-bottom: 1.5rem; overflow-x: auto; padding-bottom: 0.5rem;">
+    <button class="nav-button active" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--primary, #e60012); color: white; border: 1px solid var(--primary, #e60012); border-radius: 0.25rem; cursor: pointer;">Create Claim</button>
+    <button class="nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Claim Status</button>
+    <button class="nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Controlled Part Serial No.</button>
+    <button class="nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Claim Attachments</button>
+    <button class="nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Unpaid Claim Deletion</button>
+    <button class="nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Powertrain & Emissions/HV Inquiry</button>
+    <button class="nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Parts Return List</button>
+    <button class="nav-button" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--gray-100); color: var(--gray-600); border: 1px solid var(--blue-border, #c5d9e8); border-radius: 0.25rem; cursor: pointer;">Reference Guide</button>
+  </div>
+
+  <!-- Warranty Information Claim Screen -->
+  <div id="warranty-info-screen">
+    <div class="panel" style="border: 1px solid var(--gray-300, #e2e8f0); border-radius: 0.25rem; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);">
+      <div class="panel-header" style="background-color: var(--gray-100, #f7fafc); padding: 1rem; border-bottom: 1px solid var(--gray-300, #e2e8f0); display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <h2 class="panel-title" style="font-size: 1.125rem; font-weight: 500;">Warranty Information Claim</h2>
+          <p class="panel-subtitle" style="font-size: 0.875rem; color: var(--gray-500, #a0aec0); margin-top: 0.25rem;">* = Required</p>
+        </div>
+      </div>
+
+      <div class="panel-content" style="padding: 1rem;">
+        <!-- Repair Order Information -->
+        <div style="margin-bottom: 1.5rem;">
+          <div class="section-header" style="background-color: var(--gray-100, #e6f0f9); padding: 0.5rem; border: 1px solid var(--blue-border, #c5d9e8); margin-bottom: 1rem;">
+            <h3 class="section-title" style="font-weight: 500;">Repair Order Information</h3>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1rem;">
+            <div style="margin-bottom: 1rem;">
+              <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--gray-600, #718096); margin-bottom: 0.25rem;">Claim No. *</label>
+              <input 
+                type="text" 
+                id="claim-no"
+                style="width: 100%; padding: 0.5rem 0.75rem; font-size: 1rem; line-height: 1.5; color: var(--gray-800, #2d3748); background-color: white; border: 1px solid var(--gray-300, #e2e8f0); border-radius: 0.25rem;"
+                value="232323" 
+              />
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--gray-600, #718096); margin-bottom: 0.25rem;">Claim Type *</label>
+              <select id="claim-type" style="width: 100%; padding: 0.5rem 0.75rem; font-size: 1rem; line-height: 1.5; color: var(--gray-800, #2d3748); background-color: white; border: 1px solid var(--gray-300, #e2e8f0); border-radius: 0.25rem;">
+                <option value="QUICK" selected>QUICK</option>
+                <option value="REGULAR">REGULAR</option>
+                <option value="GOODWILL">GOODWILL</option>
+              </select>
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--gray-600, #718096); margin-bottom: 0.25rem;">Radio/CD Type</label>
+              <input 
+                type="text"
+                id="radio-type"
+                style="width: 100%; padding: 0.5rem 0.75rem; font-size: 1rem; line-height: 1.5; color: var(--gray-800, #2d3748); background-color: white; border: 1px solid var(--gray-300, #e2e8f0); border-radius: 0.25rem;"
+              />
+            </div>
+          </div>
+          <p style="font-size: 0.875rem; color: var(--gray-600, #718096); margin-bottom: 1rem;">Please review the Repair Order information below to determine the appropriate claim information above</p>
+          <div style="display: flex; justify-content: flex-end; gap: 0.5rem;">
+            <button style="display: inline-flex; align-items: center; justify-content: center; padding: 0.5rem 1rem; font-size: 0.875rem; font-weight: 500; line-height: 1.5; text-align: center; white-space: nowrap; vertical-align: middle; cursor: pointer; border: 1px solid var(--gray-300, #e2e8f0); border-radius: 0.25rem; color: var(--gray-700, #4a5568); background-color: white;">Back</button>
+            <button id="next-btn" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.5rem 1rem; font-size: 0.875rem; font-weight: 500; line-height: 1.5; text-align: center; white-space: nowrap; vertical-align: middle; cursor: pointer; border: 1px solid var(--primary, #e60012); border-radius: 0.25rem; color: white; background-color: var(--primary, #e60012);">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Claim Screen -->
+  <div id="quick-claim-screen" class="hidden" style="display: none;">
+    <div class="panel">
+      <div class="panel-header">
+        <div>
+          <h2 class="panel-title">Quick Claim</h2>
+          <p class="panel-subtitle">* = Required</p>
+        </div>
+        <button id="back-btn" class="text-blue-700">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          BACK
+        </button>
+      </div>
+
+      <div class="panel-content">
+        <!-- Repair Order Information -->
+        <div class="mb-6">
+          <div class="section-header">
+            <h3 class="section-title">Repair Order Information</h3>
+          </div>
+          
+          <div class="grid grid-cols-1 gap-2 mb-4">
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">Claim No.*</div>
+              <div class="flex-1 text-sm">
+                <input type="text" class="form-control" value="232323" />
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">Claim Type</div>
+              <div class="flex-1 text-sm">
+                <input type="text" class="form-control" value="Quick" readonly style="background-color: #f7fafc;" />
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">Radio/CD Type</div>
+              <div class="flex-1 text-sm">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">Repair Order No.*</div>
+              <div class="flex-1 text-sm">
+                <input type="text" class="form-control" value="549544" />
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">VIN*</div>
+              <div class="flex-1 text-sm flex items-center">
+                <span class="mr-2 text-xs" style="background-color: #e6f0f9; padding: 0.125rem 0.25rem; border: 1px solid #c5d9e8; border-radius: 0.25rem;">Check VIN Status</span>
+                <input type="text" class="form-control" style="flex: 1;" value="3CZRE4H51AG702478" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon ml-1" style="color: #a0aec0;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">Repair Order Date*</div>
+              <div class="flex-1 text-sm flex">
+                <div class="flex">
+                  <input type="text" class="form-control" style="width: 2rem;" placeholder="MM" value="09" /> 
+                  <span style="padding: 0.25rem;">/</span>
+                  <input type="text" class="form-control" style="width: 2rem;" placeholder="DD" value="12" />
+                  <span style="padding: 0.25rem;">/</span>
+                  <input type="text" class="form-control" style="width: 3rem;" placeholder="YYYY" value="2017" />
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">Mileage*</div>
+              <div class="flex-1 text-sm">
+                <input type="text" class="form-control" value="119255" />
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">Work Completed Date*</div>
+              <div class="flex-1 text-sm flex">
+                <div class="flex">
+                  <input type="text" class="form-control" style="width: 2rem;" placeholder="MM" value="09" /> 
+                  <span style="padding: 0.25rem;">/</span>
+                  <input type="text" class="form-control" style="width: 2rem;" placeholder="DD" value="13" />
+                  <span style="padding: 0.25rem;">/</span>
+                  <input type="text" class="form-control" style="width: 3rem;" placeholder="YYYY" value="2017" />
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">Fire Related</div>
+              <div class="flex-1 text-sm">
+                <input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contention / Cause / Correction Information -->
+        <div class="mb-6">
+          <div class="section-header flex justify-between">
+            <h3 class="section-title">Contention / Cause / Correction Information</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon" style="color: #718096;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          
+          <div class="grid grid-cols-1 gap-2">
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">Contention/Symptom Code*</div>
+              <div class="flex-1 text-sm flex items-center">
+                <input type="text" class="form-control" style="width: 6rem; margin-right: 0.5rem;" value="KA500" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon" style="color: #a0aec0; margin-right: 0.5rem;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <span class="text-xs">(Exclude Dash)</span>
+              </div>
+            </div>
+            
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Customer Contention /Symptom Description*</div>
+              <div class="flex-1 text-sm">
+                <textarea class="form-control" style="height: 5rem;">Perform Safety Recall 16-048: Takata Front Passengers Airbag Inflator</textarea>
+              </div>
+            </div>
+            
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Cause*</div>
+              <div class="flex-1 text-sm">
+                <textarea class="form-control" style="height: 5rem;">KA500 aka Front Passengers Airbag Inflator</textarea>
+              </div>
+            </div>
+            
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Correction*</div>
+              <div class="flex-1 text-sm">
+                <textarea class="form-control" style="height: 5rem;">119255-RECALL 16-048 COMPLETED. SERIAL # 25202090317159</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Customer Information -->
+        <div class="mb-6">
+          <div class="section-header">
+            <h3 class="section-title">Customer Information</h3>
+          </div>
+          
+          <div class="grid grid-cols-1 gap-2">
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">Customer Type*</div>
+              <div class="flex-1 text-sm">
+                <select class="form-control">
+                  <option value="INDIVIDUAL" selected>INDIVIDUAL</option>
+                  <option value="CORPORATE">CORPORATE</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">Name*</div>
+              <div class="flex-1 text-sm" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+                <div>
+                  <span class="text-xs block">First</span>
+                  <input type="text" class="form-control" value="D" />
+                </div>
+                <div>
+                  <span class="text-xs block">MI</span>
+                  <input type="text" class="form-control" />
+                </div>
+                <div>
+                  <span class="text-xs block">Last</span>
+                  <input type="text" class="form-control" value="LEWIS" />
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">Address*</div>
+              <div class="flex-1 text-sm">
+                <input type="text" class="form-control" value="186 HEADSBURG AVE #D" />
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">City*</div>
+              <div class="flex-1 text-sm">
+                <input type="text" class="form-control" value="CLOVERDALE" />
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">State*</div>
+              <div class="flex-1 text-sm">
+                <input type="text" class="form-control" style="width: 5rem;" value="CA" />
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">Zip*</div>
+              <div class="flex-1 text-sm">
+                <input type="text" class="form-control" style="width: 6rem;" value="95425" />
+              </div>
+            </div>
+            
+            <div class="flex items-center">
+              <div class="w-40 text-sm font-medium text-gray-600">Telephone*</div>
+              <div class="flex-1 text-sm">
+                <input type="text" class="form-control" value="7073857037" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repair Information -->
+        <div class="mb-6">
+          <div class="section-header">
+            <h3 class="section-title">Repair Information</h3>
+          </div>
+          
+          <div class="grid grid-cols-1 gap-3">
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Defect Code (Exclude Dash)*</div>
+              <div class="flex-1 text-sm">
+                <input type="text" class="form-control" style="width: 6rem;" value="6EA00" />
+              </div>
+              
+              <div class="w-24 text-sm font-medium text-gray-600 ml-4">Test Code</div>
+              <div class="flex-1 text-sm">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+            
+            <!-- Labor Operations Table -->
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="width: 4rem;">Item</th>
+                  <th>Labor Operation No.*</th>
+                  <th>Labor Description</th>
+                  <th style="width: 5rem;">Time*</th>
+                  <th style="width: 4rem;"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    <input type="text" class="form-control" value="7541C3" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="SAFETY RECALL CAMPAIGN (6EA): REPLACE FRONT PASSENGER AIRBAG INFLATOR (PHASE 1)" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="0.7" />
+                  </td>
+                  <td>
+                    <button class="text-blue-700 text-xs">Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <button class="text-blue-700 text-xs">Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <button class="text-blue-700 text-xs">Delete</button>
+                  </td>
+                </tr>
+                <tr style="background-color: #f7fafc;">
+                  <td style="font-weight: 500;">Total Time</td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <input type="text" class="form-control" value="0.7" />
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <div class="flex mt-2">
+              <div class="w-40 text-sm font-medium text-gray-600">M.I.L. On</div>
+              <div class="flex-1 text-sm">
+                <select class="form-control" style="width: 5rem;">
+                  <option value="NO" selected>NO</option>
+                  <option value="YES">YES</option>
+                </select>
+              </div>
+              
+              <div class="w-40 text-sm font-medium text-gray-600">Diagnostic Trouble Codes</div>
+              <div class="flex-1 text-sm" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.25rem;">
+                <input type="text" class="form-control" />
+                <input type="text" class="form-control" />
+                <input type="text" class="form-control" />
+                <input type="text" class="form-control" />
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Personnel Information Section -->
+        <div class="mb-6">
+          <div class="section-header">
+            <h3 class="section-title">Personnel Information</h3>
+          </div>
+          
+          <div class="grid grid-cols-1 gap-3">
+            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; align-items: center;">
+              <div class="text-sm font-medium text-gray-600">Service Advisor*</div>
+              <div>
+                <input type="text" class="form-control" />
+              </div>
+              <div style="grid-column: span 2;">
+                <input type="text" class="form-control" value="PETTY, BILL" />
+              </div>
+              <div>
+                <input type="text" class="form-control" />
+              </div>
+              <div style="text-align: right;">
+                <button class="text-blue-700 text-xs">Delete</button>
+              </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; align-items: center;">
+              <div class="text-sm font-medium text-gray-600">Technician*</div>
+              <div>
+                <input type="text" class="form-control" />
+              </div>
+              <div style="grid-column: span 2;">
+                <input type="text" class="form-control" value="TANG, KENNY" />
+              </div>
+              <div>
+                <input type="text" class="form-control" value="0432181" />
+              </div>
+              <div style="text-align: right;">
+                <button class="text-blue-700 text-xs">Delete</button>
+              </div>
+            </div>
+            
+            <div class="mt-2 text-xs text-red-600">* AHM Recall Technical Specialists</div>
+          </div>
+        </div>
+        
+        <!-- Parts Search Bar -->
+        <div class="flex items-center mb-4 justify-end">
+          <div class="mr-2 text-sm font-medium text-gray-600">Search by</div>
+          <select class="form-control" style="width: auto; margin-right: 0.5rem;">
+            <option>PART NUMBER</option>
+            <option>DESCRIPTION</option>
+          </select>
+          <input type="text" class="form-control" style="width: 12rem; margin-right: 0.5rem;" />
+          <button class="btn btn-blue">
+            Search
+          </button>
+        </div>
+        
+        <!-- Parts Information -->
+        <div class="mb-6">
+          <div class="section-header">
+            <h3 class="section-title">Parts Information</h3>
+          </div>
+          
+          <div class="grid grid-cols-1 gap-3">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="flex">
+                <div class="w-40 text-sm font-medium text-gray-600">Failed Part No.*</div>
+                <div class="flex-1">
+                  <input type="text" class="form-control" value="77820-SWA-A80ZA" />
+                </div>
+              </div>
+              <div class="flex">
+                <div class="w-40 text-sm font-medium text-gray-600">Failed Part Description*</div>
+                <div class="flex-1">
+                  <input type="text" class="form-control" value="MOD, PASS *NH167L*" />
+                </div>
+              </div>
+            </div>
+            
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Replacement Serial No.</div>
+              <div class="flex-1">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+            
+            <!-- Parts Table -->
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="width: 3rem;">Item</th>
+                  <th>Replacement Part No.*</th>
+                  <th style="width: 5rem;">Quantity*</th>
+                  <th style="width: 6rem;">Unit Price</th>
+                  <th style="width: 6rem;">Unit Total</th>
+                  <th>Description</th>
+                  <th style="width: 4rem;"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    <input type="text" class="form-control" value="04790-SWA-407" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="1" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="61.21" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="61.21" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="KIT, INFLATOR COMP" />
+                  </td>
+                  <td>
+                    <button class="text-blue-700 text-xs">Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <button class="text-blue-700 text-xs">Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" />
+                  </td>
+                  <td>
+                    <button class="text-blue-700 text-xs">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- File Attachments -->
+        <div class="mb-6">
+          <div class="flex justify-between items-center mb-4">
+            <div></div>
+            <div class="flex items-center">
+              <button class="btn btn-blue mr-2">
+                Upload files
+              </button>
+              <div class="text-sm font-medium text-gray-600">File Attachments</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Goodwill Information -->
+        <div class="mb-6">
+          <div class="section-header">
+            <h3 class="section-title">Goodwill Information</h3>
+          </div>
+          
+          <div class="grid grid-cols-1 gap-3">
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Goodwill</div>
+              <div class="flex-1">
+                <input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;" />
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Claim Totals -->
+        <div class="mb-6">
+          <div class="section-header">
+            <h3 class="section-title">Claim Totals</h3>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 1rem;">
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Parts Cost</div>
+              <div class="flex-1">
+                <input type="text" class="form-control" value="61.21" />
+              </div>
+            </div>
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Calculated Claim Total</div>
+              <div class="flex-1">
+                <input type="text" class="form-control" value="161.85" />
+              </div>
+            </div>
+            
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Parts Handling undefined</div>
+              <div class="flex-1">
+                <input type="text" class="form-control" value="4.28" />
+              </div>
+            </div>
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Submitted Claim Total</div>
+              <div class="flex-1">
+                <input type="text" class="form-control" value="153.86" />
+              </div>
+            </div>
+            
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Labor Amount</div>
+              <div class="flex-1">
+                <input type="text" class="form-control" value="96.36" />
+              </div>
+            </div>
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Submitted Percentage</div>
+              <div class="flex-1">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+            
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Submitted By:</div>
+              <div class="flex-1 flex" style="gap: 1rem;">
+                <div class="flex items-center">
+                  <input type="radio" id="percentage" name="submitBy" class="mr-1" style="accent-color: #e60012;" checked />
+                  <label for="percentage" class="text-sm">Percentage</label>
+                </div>
+                <div class="flex items-center">
+                  <input type="radio" id="amount" name="submitBy" class="mr-1" style="accent-color: #e60012;" />
+                  <label for="amount" class="text-sm">Amount</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="flex justify-end gap-2 mt-6">
+          <button class="btn btn-blue">
+            Submit
+          </button>
+          <button class="btn btn-blue">
+            Save
+          </button>
+          <button class="btn btn-blue">
+            View Claim
+          </button>
+          <button id="quick-back-btn" class="btn btn-blue">
+            Back
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add this right after the Sightly template code, just before any existing </sly> or </html> tags -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Get DOM elements from the search interface
+  const searchClaimsComponent = document.querySelector('.cmp-search-claims');
+  const claimTableRows = document.querySelectorAll('.table tbody tr');
+  const viewButtons = document.querySelectorAll('.action-btn');
+  
+  // Get DOM elements from the warranty claims component
+  const warrantyClaimsComponent = document.getElementById('warranty-claims-component');
+  const warrantyInfoScreen = document.getElementById('warranty-info-screen');
+  const quickClaimScreen = document.getElementById('quick-claim-screen');
+  const backToSearchBtn = document.getElementById('back-to-search');
+  const nextBtn = document.getElementById('next-btn');
+  const backBtn = document.getElementById('back-btn');
+  const quickBackBtn = document.getElementById('quick-back-btn');
+  const notification = document.getElementById('success-notification');
+  const submitBtn = document.getElementById('submit-btn');
+  
+  // Function to show the warranty claims form
+  function showWarrantyClaims() {
+    searchClaimsComponent.style.display = 'none';
+    warrantyClaimsComponent.style.display = 'block';
+  }
+  
+  // Function to go back to the search interface
+  function showSearchClaims() {
+    warrantyClaimsComponent.style.display = 'none';
+    searchClaimsComponent.style.display = 'block';
+  }
+  
+  // Add click event to the claim rows
+  claimTableRows.forEach(row => {
+    const repairOrderCell = row.querySelector('td:nth-child(2)');
+    if (repairOrderCell) {
+      const repairOrderText = repairOrderCell.textContent.trim();
+      if (repairOrderText.includes('570624')) {
+        row.addEventListener('click', function(e) {
+          // Only trigger if the click is not on a checkbox
+          if (!e.target.matches('input[type="checkbox"]')) {
+            showWarrantyClaims();
+          }
+        });
+      }
+    }
+  });
+  
+  // Add click events to view and edit buttons
+  viewButtons.forEach(btn => {
+    // Find the row that contains this button
+    const row = btn.closest('tr');
+    if (row) {
+      const repairOrderCell = row.querySelector('td:nth-child(2)');
+      if (repairOrderCell && repairOrderCell.textContent.trim().includes('570624')) {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation(); // Prevent triggering the row click event
+          showWarrantyClaims();
+        });
+      }
+    }
+  });
+  
+  // Back to search button
+  if (backToSearchBtn) {
+    backToSearchBtn.addEventListener('click', showSearchClaims);
+  }
+  
+  // Toggle between warranty info and quick claim screens
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      warrantyInfoScreen.style.display = 'none';
+      quickClaimScreen.style.display = 'block';
+    });
+  }
+  
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      quickClaimScreen.style.display = 'none';
+      warrantyInfoScreen.style.display = 'block';
+    });
+  }
+  
+  if (quickBackBtn) {
+    quickBackBtn.addEventListener('click', () => {
+      quickClaimScreen.style.display = 'none';
+      warrantyInfoScreen.style.display = 'block';
+    });
+  }
+  
+  // Submit button with notification
+  if (submitBtn) {
+    submitBtn.addEventListener('click', () => {
+      notification.style.opacity = '1';
+      notification.style.transform = 'translateY(0)';
+      
+      // Hide notification after 3 seconds
+      setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateY(-1rem)';
+      }, 3000);
+    });
+  }
+});
+</script>
+<style>
+  
+/* Color Variables */
+:root {
+  /* Primary Colors */
+  --primary: #e60012;
+  --primary-hover: #cc0010;
+  
+  /* Secondary Colors */
+  --secondary: #003566;
+  --secondary-hover: #002852;
+  
+  /* Blues */
+  --gray-100: #e6f0f9;
+  --blue-border: #c5d9e8;
+  --blue-text: #0e4f8b;
+  
+  /* Grays */
+  --gray-100: #f7fafc;
+  --gray-200: #edf2f7;
+  --gray-300: #e2e8f0;
+  --gray-400: #cbd5e0;
+  --gray-500: #a0aec0;
+  --gray-600: #718096;
+  --gray-700: #4a5568;
+  --gray-800: #2d3748;
+  --gray-900: #1a202c;
+  --text-dark: #222831;
+  
+  /* Alert Colors */
+  --success-light: #d1fae5;
+  --success-border: #a7f3d0;
+  --success-text: #065f46;
+  
+  --error-light: #fee2e2;
+  --error-border: #fecaca;
+  --error-text: #991b1b;
+  
+  --info-light: #dbeafe;
+  --info-border: #bfdbfe;
+  --info-text: #1e40af;
+}
+
+/* ==================== 
+   Search Claims Component 
+   ==================== */
+
+/* Component wrapper */
+.cmp-search-claims {
+  margin-bottom: 2rem;
+}
+
+/* Header */
+.cmp-search-claims__header {
+  margin-bottom: 1rem;
+}
+
+.cmp-search-claims__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+/* Alerts */
+.cmp-search-claims__alerts {
+  margin-bottom: 1rem;
+}
+
+.cmp-search-claims__alert {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  display: none;
+}
+
+.cmp-search-claims__alert--success {
+  background-color: var(--success-light);
+  color: var(--success-text);
+  border: 1px solid var(--success-border);
+}
+
+.cmp-search-claims__alert--error {
+  background-color: var(--error-light);
+  color: var(--error-text);
+  border: 1px solid var(--error-border);
+}
+
+.cmp-search-claims__alert--info {
+  background-color: var(--info-light);
+  color: var(--info-text);
+  border: 1px solid var(--info-border);
+}
+
+/* Form */
+.cmp-search-claims__form {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+/* Form Row */
+.cmp-search-claims__form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .cmp-search-claims__form-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Form Group */
+.cmp-search-claims__form-group {
+  margin-bottom: 1rem;
+}
+
+/* Form Label */
+.cmp-search-claims__form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  margin-bottom: 0.25rem;
+}
+
+/* Form Controls */
+.cmp-search-claims__form-control,
+.cmp-search-claims__form-select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--gray-700);
+  background-color: white;
+  border: 1px solid var(--gray-300);
+  border-radius: 0.25rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.cmp-search-claims__form-control:focus,
+.cmp-search-claims__form-select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(230, 0, 18, 0.25);
+}
+
+/* Select Dropdown */
+.cmp-search-claims__form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Error Message */
+.cmp-search-claims__error-message {
+  color: var(--primary);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  display: none;
+}
+
+/* Form Actions */
+.cmp-search-claims__form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+/* Spinner */
+.cmp-search-claims__spinner {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+  margin-right: 0.5rem;
+  display: none;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Console */
+.cmp-search-claims__console {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  border-radius: 0.5rem;
+  font-family: monospace;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 0.875rem;
+}
+
+.cmp-search-claims__console-line {
+  margin: 0.25rem 0;
+  line-height: 1.5;
+}
+
+.cmp-search-claims__console-info {
+  color: #569cd6;
+}
+
+.cmp-search-claims__console-success {
+  color: #6a9955;
+}
+
+.cmp-search-claims__console-error {
+  color: #f14c4c;
+}
+
+.cmp-search-claims__console-debug {
+  color: #dcdcaa;
+}
+
+/* Button Styles */
+.cmp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.cmp-button--primary {
+  color: white;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.cmp-button--primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(230, 0, 18, 0.25);
+}
+
+.cmp-button--primary:disabled {
+  background-color: var(--gray-400);
+  border-color: var(--gray-400);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.cmp-button--outline {
+  color: var(--gray-700);
+  background-color: white;
+  border-color: var(--gray-300);
+}
+
+.cmp-button--outline:hover {
+  background-color: var(--gray-100);
+  transform: translateY(-1px);
+}
+
+.cmp-button--secondary {
+  color: white;
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.cmp-button--secondary:hover {
+  background-color: var(--secondary-hover);
+  border-color: var(--secondary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 53, 102, 0.25);
+}
+
+/* ==================== 
+   Search Results & Toolbar 
+   ==================== */
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 0.25rem 0.25rem 0 0;
+  margin-top: 1.5rem;
+}
+
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Checkbox styling */
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--primary);
+  margin-right: 0.25rem;
+}
+
+.checkbox-label {
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  color: white;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(230, 0, 18, 0.25);
+}
+
+.btn-outline {
+  color: var(--gray-700);
+  background-color: white;
+  border-color: var(--gray-300);
+}
+
+.btn-outline:hover {
+  background-color: var(--gray-100);
+  transform: translateY(-1px);
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.btn-blue {
+  color: var(--blue-text);
+  background-color: var(--gray-100);
+  border-color: var(--blue-border);
+}
+
+.btn-blue:hover {
+  background-color: #d9e8f6;
+}
+
+/* Icons */
+.icon {
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.spin-on-hover:hover {
+  animation: spin 1s linear infinite;
+}
+
+/* Table Styling */
+.table-container {
+  background-color: white;
+  border: 1px solid var(--gray-200);
+  border-top: none;
+  border-radius: 0 0 0.25rem 0.25rem;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.table th {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  text-transform: uppercase;
+  background-color: var(--gray-100);
+}
+
+.table tbody tr {
+  transition: background-color 0.2s;
+}
+
+.table tbody tr:hover {
+  background-color: var(--gray-100);
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.tag-danger {
+  background-color: rgba(230, 0, 18, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(230, 0, 18, 0.2);
+}
+
+.tag-info {
+  background-color: rgba(14, 79, 139, 0.1);
+  color: var(--blue-text);
+  border: 1px solid rgba(14, 79, 139, 0.2);
+}
+
+/* Amount */
+.amount {
+  font-weight: 500;
+  color: var(--gray-800);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--gray-200);
+  background-color: white;
+  color: var(--gray-600);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background-color: var(--gray-100);
+  color: var(--blue-text);
+  border-color: var(--blue-border);
+}
+
+/* Tooltip */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--gray-800);
+  color: white;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--gray-800) transparent transparent transparent;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-top: 1px solid var(--gray-200);
+  background-color: white;
+}
+
+.pagination-info {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+}
+
+.pagination-links {
+  display: flex;
+}
+
+.pagination-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--gray-300);
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+.pagination-link:first-child {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.pagination-link:last-child {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.pagination-link.active {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.pagination-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  border-top: 1px solid var(--gray-300);
+  border-bottom: 1px solid var(--gray-300);
+  font-size: 0.875rem;
+  color: var(--gray-700);
+}
+
+.pagination-number.active {
+  background-color: var(--primary);
+  color: white;
+  border-top-color: var(--primary);
+  border-bottom-color: var(--primary);
+  font-weight: 500;
+}
+
+/* ==================== 
+   Warranty Claims Component 
+   ==================== */
+
+#warranty-claims-component {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Back to Search Button */
+.back-to-search {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: var(--blue-text);
+  background-color: var(--gray-100);
+  border: 1px solid var(--blue-border);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.back-to-search:hover {
+  background-color: #d9e8f6;
+}
+
+.back-to-search svg {
+  margin-right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Success Notification */
+#success-notification {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--success-light);
+  color: var(--success-text);
+  border: 1px solid var(--success-border);
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  transition: all 0.3s;
+  opacity: 0;
+  transform: translateY(-1rem);
+  pointer-events: none;
+}
+
+#success-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Header & Title */
+.header {
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.nav-button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  text-align: center;
+  white-space: nowrap;
+  background-color: var(--gray-100);
+  color: var(--blue-text);
+  border: 1px solid var(--blue-border);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-button:hover {
+  background-color: #d9e8f6;
+}
+
+.nav-button.active {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Panel Styling */
+.panel {
+  border: 1px solid var(--gray-300);
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.panel-header {
+  background-color: var(--gray-100);
+  padding: 1rem;
+  border-bottom: 1px solid var(--gray-300);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--gray-800);
+}
+
+.panel-subtitle {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  margin-top: 0.25rem;
+}
+
+.panel-content {
+  padding: 1rem;
+}
+
+/* Section Headers */
+.section-header {
+  background-color: var(--gray-100);
+  padding: 0.5rem;
+  border: 1px solid var(--blue-border);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-title {
+  font-weight: 500;
+  color: var(--gray-800);
+}
+
+/* Form Elements */
+.form-control {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--gray-800);
+  background-color: white;
+  border: 1px solid var(--gray-300);
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(230, 0, 18, 0.25);
+}
+
+.form-control:read-only {
+  background-color: var(--gray-100);
+  cursor: not-allowed;
+}
+
+/* Form Layout Utilities */
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.w-40 {
+  width: 10rem;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* Text Utilities */
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.text-gray-500 {
+  color: var(--gray-500);
+}
+
+.text-gray-600 {
+  color: var(--gray-600);
+}
+
+.text-gray-700 {
+  color: var(--gray-700);
+}
+
+.text-blue-700 {
+  color: var(--blue-text);
+}
+
+.text-red-600 {
+  color: var(--primary);
+}
+
+/* Spacing Utilities */
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
+/* Visibility */
+.hidden {
+  display: none;
+}
+
+/* CQ Component Placeholder */
+.cq-placeholder {
+  padding: 2rem;
+  border: 1px dashed var(--gray-400);
+  background-color: var(--gray-100);
+  text-align: center;
+  color: var(--gray-500);
+  border-radius: 0.25rem;
+}
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+<script>
+      const warrantyInfoScreen = document.getElementById('warranty-info-screen');
+    const quickClaimScreen = document.getElementById('quick-claim-screen');
+    const nextBtn = document.getElementById('next-btn');
+    const backBtn = document.getElementById('back-btn');
+    const quickBackBtn = document.getElementById('quick-back-btn');
+    const toolbar = document.getElementById('toolbar');
+    const notification = document.getElementById('success-notification');
+    const submitBtns = document.querySelectorAll('.btn.btn-blue');
+    const refreshIcon = document.querySelector('.refresh-icon');
+    
+    nextBtn.addEventListener('click', () => {
+      warrantyInfoScreen.classList.add('hidden');
+      quickClaimScreen.classList.remove('hidden');
+      toolbar.classList.add('hidden');
+    });
+    
+    backBtn.addEventListener('click', () => {
+      quickClaimScreen.classList.add('hidden');
+      warrantyInfoScreen.classList.remove('hidden');
+      toolbar.classList.remove('hidden');
+    });
+    
+    quickBackBtn.addEventListener('click', () => {
+      quickClaimScreen.classList.add('hidden');
+      warrantyInfoScreen.classList.remove('hidden');
+      toolbar.classList.remove('hidden');
+    });
+
+    // Refresh icon hover effect
+    const refreshBtn = refreshIcon.closest('button');
+    refreshBtn.addEventListener('mouseenter', () => {
+      refreshIcon.classList.add('icon-refresh');
+    });
+    
+    refreshBtn.addEventListener('mouseleave', () => {
+      refreshIcon.classList.remove('icon-refresh');
+    });
+    
+    // Submit functionality
+    submitBtns.forEach(btn => {
+      if (btn.textContent.trim() === 'Submit') {
+        btn.addEventListener('click', () => {
+          notification.classList.add('show');
+          setTimeout(() => {
+            notification.classList.remove('show');
+          }, 3000);
+        });
+      }
+    });
+</script>
