@@ -155,13 +155,9 @@ public class EnhancedROIModel {
     private String[] searchOptionsArray;
     
     private String searchOptionsJson;
-    
-    /**
-     * Initialize the model with default values.
-     */
+   
     @PostConstruct
     protected void init() {
-        // Set default search options if not configured
         if (searchOptionsArray == null || searchOptionsArray.length == 0) {
             searchOptionsArray = new String[] {
                 "{\"value\":\"batchNumber\",\"text\":\"Batch Number\"}",
@@ -171,7 +167,6 @@ public class EnhancedROIModel {
             };
         }
         
-        // Convert search options to JSON
         try {
             searchOptionsJson = convertSearchOptionsToJson();
         } catch (JsonProcessingException e) {
