@@ -465,7 +465,7 @@
                     
                     // ID cell
                     html += '<td class="cmp-enhanced-roi__table-cell cmp-enhanced-roi__table-cell--id">';
-                    html += '<span class="cmp-enhanced-roi__id">' + item.id + '</span>';
+                    html += '<span class="cmp-enhanced-roi__date">' + item.id + '</span>';
                     html += '</td>';
                     
                     // Date cell

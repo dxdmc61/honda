@@ -120,7 +120,7 @@ public class EnhancedROIModel {
     private String priceColumnLabel;
     
     @ValueMapValue
-    @Default(values = "ITEM CODE")
+    @Default(values = "MORE ITEMS")
     private String itemCodeColumnLabel;
     
     @ValueMapValue
