@@ -69,7 +69,7 @@ body {
   --radius-full: 9999px;
 }
 
-/* Layout 
+/* Layout
   .container {
     max-width: 1280px;
     margin: 0 auto;
@@ -106,7 +106,7 @@ p {
   font-size: 0.875rem;
 }
 
-/* Header / Navigation 
+/* Header / Navigation
   .header {
     background-color: white;
     box-shadow: var(--shadow-sm);
@@ -683,15 +683,14 @@ p {
 .cmp-breadcrumb__item:not(:last-child)::after {
   content: '›';
   /* or use →, » or an SVG if needed */
-  color: red;
-  margin: 0 0.5rem;
+  color: #e60012;
   font-weight: bold;
   font-size: 1rem;
 }
 
 .cmp-breadcrumb .subnav-link {
   display: block;
-  padding: 1rem 1.25rem;
+  padding: 0.5rem 0.5rem;
   color: #e60012;
   text-decoration: none;
   font-size: 0.9rem;
@@ -707,7 +706,7 @@ p {
 .cmp-breadcrumb .active {
   color: #4a5568;
   font-weight: 600;
-  padding: 1rem 1.25rem;
+  padding: 0.5rem 0.5rem;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
@@ -715,6 +714,11 @@ p {
   position: relative;
 }
 
+/*.g-bg-primary {
+    width: 100%;
+    background-color: #cc1001;
+
+    } */
 .cmp-breadcrumb .subnav-link.active::after {
   content: '';
   position: absolute;
