@@ -201,9 +201,9 @@ public class SearchClaimsModel {
         }
 
         // Enable debug console in author mode unless explicitly disabled
-        if (!showDebugConsole) {
-            showDebugConsole = slingSettingsService.getRunModes().contains("author");
-        }
+        // if (!showDebugConsole) {
+        //     showDebugConsole = slingSettingsService.getRunModes().contains("author");
+        // }
 
         // Log component initialization at appropriate level
         if ("debug".equals(logLevel)) {
