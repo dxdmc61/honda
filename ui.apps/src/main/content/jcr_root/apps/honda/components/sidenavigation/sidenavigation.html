@@ -1,42 +1,45 @@
+<!--Honda Side Navigation-->
 
 <sly data-sly-use.model="com.honda.aem.core.models.SideNavigation"
      data-sly-use.templates="core/wcm/components/commons/v1/templates.html">
     <div data-sly-test.hasConfig="${model.items.size > 0}">
-<div class="component-container vpad-0">
-    <div class="component-offset">
-            <ul class="subnav" aria-label="${model.title}">
-                <!-- Iterate through top level items -->
-                <sly data-sly-list.item="${model.items}">
-                    <li class="subnav-item">
-                        <a href="${item.url}" class="subnav-link ${item.active ? 'active' : ''}">
-                            ${item.title}
-                        </a>                 
-                        <!-- First level dropdown -->
-                        <sly data-sly-test="${item.hasChildren && item.children.size > 0}">
-                            <div class="dropdown">
-                                <sly data-sly-list.childItem="${item.children}">
-                                    <a href="${childItem.url}" class="dropdown-item ${childItem.active ? 'active' : ''} ${childItem.hasChildren ? 'has-children' : ''}">
-                                        ${childItem.title}
-                                    </a>
-                                    
-                                    <!-- Second level dropdown (if needed) -->
-                                    <sly data-sly-test="${childItem.hasChildren && childItem.children.size > 0}">
-                                        <div class="sub-dropdown">
-                                            <sly data-sly-list.grandChildItem="${childItem.children}">
-                                                <a href="${grandChildItem.url}" class="sub-dropdown-item ${grandChildItem.active ? 'active' : ''}">
-                                                    ${grandChildItem.title}
-                                                </a>
-                                            </sly>
-                                        </div>
+        <div class="component-container vpad-0">
+            <div class="component-offset">
+                <ul class="subnav" aria-label="${model.title}">
+                    <!-- Iterate through top level items -->
+                    <sly data-sly-list.item="${model.items}">
+                        <li class="subnav-item">
+                            <a href="${item.url}" class="subnav-link ${item.active ? 'active' : ''}">
+                                ${item.title}
+                            </a>
+                            <!-- First level dropdown -->
+                            <sly data-sly-test="${item.hasChildren && item.children.size > 0}">
+                                <div class="dropdown">
+                                    <sly data-sly-list.childItem="${item.children}">
+                                        <a href="${childItem.url}"
+                                           class="dropdown-item ${childItem.active ? 'active' : ''} ${childItem.hasChildren ? 'has-children' : ''}">
+                                            ${childItem.title}
+                                        </a>
+
+                                        <!-- Second level dropdown (if needed) -->
+                                        <sly data-sly-test="${childItem.hasChildren && childItem.children.size > 0}">
+                                            <div class="sub-dropdown">
+                                                <sly data-sly-list.grandChildItem="${childItem.children}">
+                                                    <a href="${grandChildItem.url=='/content/honda/us/en/service/propeller-selection/propeller-selection-calculator.html' ? 'https://marine.honda.com/parts/propeller-calculator' : grandChildItem.url}"
+                                                       class="sub-dropdown-item ${grandChildItem.active ? 'active' : ''}" x-cq-linkchecker="skip" target="${grandChildItem.url=='/content/honda/us/en/service/propeller-selection/propeller-selection-calculator.html' ? '_blank' : ''}">
+                                                        ${grandChildItem.title}
+                                                    </a>
+                                                </sly>
+                                            </div>
+                                        </sly>
                                     </sly>
-                                </sly>
-                            </div>
-                        </sly>
-                    </li>
-                </sly>
-            </ul>
+                                </div>
+                            </sly>
+                        </li>
+                    </sly>
+                </ul>
             </div>
-</div>
+        </div>
     </div>
 </sly>
 
