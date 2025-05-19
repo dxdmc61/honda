@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     div.innerHTML = `
                         <a href="${item.path}.html">
                             <strong>${item.title}</strong><br>
-                            <small>${item.description || ''}</small>
                         </a>
+                         <small>${item.description || ''}</small>
                     `;
                     resultsContainer.appendChild(div);
                 });
