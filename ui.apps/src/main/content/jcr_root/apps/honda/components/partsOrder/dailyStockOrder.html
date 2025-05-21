@@ -1,0 +1,253 @@
+
+<div class="cmp-search-claims" id="daliy-stock-order">
+
+	<div class="cmp-search-claims__header">
+		<h2 class="cmp-search-claims__title">Daily Stock Order</h2>
+	</div>
+	
+	<div class="mb-6">
+          
+			<div class="section-header">
+				<h2 class="section-title">Order Information</h2>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: auto auto auto; gap: 2rem 1rem;">
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Reference*</div>
+              <div class="flex-1">
+                <select class="cmp-search-claims__form-select" style="width: auto; margin-right: 0.5rem;">
+					<option>S</option>
+					<option>D</option>
+				</select>
+              </div>
+			  <div class="flex-1">
+				  <input type="text" class="form-control" value="0010501">
+              </div>
+			  <div class="flex-1">
+				  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="color: #718096; width:48px; vertical-align: middle;">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+				</svg>
+              </div>  
+            </div>
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Ship Via*</div>
+              <div class="flex-1">
+                <select class="cmp-search-claims__form-select" style="width: auto; margin-right: 0.5rem;">
+					<option>2-2ND DAY DELIVERY</option>
+					<option>3-3RD DAY DELIVERY</option>
+				</select>
+              </div>
+            </div>
+            
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Cross Shipment</div>
+              <div class="flex-1">
+                <select class="form-control" style="width: auto; margin-right: 0.5rem;">
+					<option>YES</option>
+					<option>No</option>
+				  </select>
+              </div>
+            </div>
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Back Order</div>
+              <div class="flex-1">
+                <select class="cmp-search-claims__form-select" style="width: auto; margin-right: 0.5rem;">
+					<option>YES</option>
+					<option>No</option>
+				</select>
+              </div>
+            </div>
+            
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Alt Ship Via*</div>
+              <div class="flex-1">
+                <select class="cmp-search-claims__form-select" style="width: auto; margin-right: 0.5rem;">
+					<option>3-SURFACE</option>
+					<option>4-GROUND</option>
+				</select>
+              </div>
+            </div>
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Alt Ship To*</div>
+              <div class="flex-1">
+                <select class="cmp-search-claims__form-select" style="width: auto; margin-right: 0.5rem;">
+					<option>No</option>
+					<option>YES</option>
+					
+				  </select>
+              </div>
+            </div>
+            
+            <div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Total Price</div>
+              <div class="flex-1 flex" style="gap: 1rem;">
+                <div class="flex items-center">
+                  <input type="text" class="form-control" value="$0.00" readonly="" style="background-color: #f7fafc;">
+                </div>
+                
+              </div>
+            </div>
+			<div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">PO Number</div>
+              <div class="flex-1">
+                <input type="text" class="form-control">
+              </div>
+            </div>
+			<div class="flex">
+              <div class="w-40 text-sm font-medium text-gray-600">Dealer No</div>
+              <div class="flex-1">208774</div>
+            </div>
+          </div>
+        </div>
+			
+	  <!-- Toolbar -->
+          <div class="flex gap-2 mt-6">
+	
+		<div class="toolbar-group">
+			<button id="btn-submit" class="cmp-button cmp-button--primary" >Submit</button>              
+			<button class="cmp-button cmp-button--outline" >Save</button>
+			<button class="cmp-button cmp-button--outline" style="display: flex; align-items: center; gap: 0.25rem;">Confirm</button>
+			<button class="btn btn-blue" style="display: flex; align-items: center; gap: 0.25rem;">Availability</button>
+			<button class="btn btn-blue" style="display: flex; align-items: center; gap: 0.25rem;">Print All</button>
+		</div>
+	
+    
+		<div class="toolbar-group justify-end">
+			<div class="w-40 text-sm font-medium text-gray-600">Search By</div>
+              <div class="flex-1">
+                <select class="cmp-search-claims__form-select" style="width: auto; margin-right: 0.5rem;">
+					<option>PART NUMBER</option>
+					<option>PART NAME</option>
+				</select>
+              </div>
+			<div class="flex-1">
+                <input type="text" class="form-control">
+              </div>
+			<button class="btn btn-blue" style="display: flex; align-items: center; gap: 0.25rem;">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon" style="color: #718096;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>Search</button>
+		</div>
+	
+    </div>
+	  
+	  
+	  <!-- Table -->
+	<div class="table-container mt-6">
+		<table class="table" id="dso-table">
+		  <thead>
+			<tr>
+				<th>Item</th><th>Part*</th><th>Qty*</th><th>Memo</th><th>Description</th><th>Unit Price</th><th></th>
+			  </tr>   
+		  </thead>
+		  <tbody>
+			<tr>
+				<td data-filter="sales">1</td>
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>                              
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>                   
+				<td><div class="flex-1"><input type="text" class="form-control" readonly="" style="background-color: #f7fafc;"></div></td>    
+				<td><div class="flex-1"><input type="text" class="form-control" readonly="" style="background-color: #f7fafc;"></div></td>
+				<td><div class="filter_select_btns">
+					<button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+						<svg class="icon" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+						</svg>
+					</button>
+					<button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+						<svg class="icon" style="width: 1rem; height: 1rem;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M11.25 12.75V18H12.75V12.75H18V11.25H12.75V6H11.25V11.25H6V12.75H11.25Z" fill="#080341"/>
+						</svg>
+					</button>
+					</div>
+				</td>
+			</tr>               
+			<tr>
+				<td data-filter="sales">2</td>
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>                              
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>                   
+				<td><div class="flex-1"><input type="text" class="form-control" readonly="" style="background-color: #f7fafc;"></div></td>    
+				<td><div class="flex-1"><input type="text" class="form-control" readonly="" style="background-color: #f7fafc;"></div></td>
+				<td><div class="filter_select_btns">
+					<button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+						<svg class="icon" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+						</svg>
+					</button>
+					<button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+						<svg class="icon" style="width: 1rem; height: 1rem;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M11.25 12.75V18H12.75V12.75H18V11.25H12.75V6H11.25V11.25H6V12.75H11.25Z" fill="#080341"/>
+						</svg>
+					</button>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td data-filter="sales">3</td>
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>                              
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>                   
+				<td><div class="flex-1"><input type="text" class="form-control" readonly="" style="background-color: #f7fafc;"></div></td>    
+				<td><div class="flex-1"><input type="text" class="form-control" readonly="" style="background-color: #f7fafc;"></div></td>
+				<td><div class="filter_select_btns">
+					<button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+						<svg class="icon" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+						</svg>
+					</button>
+					<button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+						<svg class="icon" style="width: 1rem; height: 1rem;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M11.25 12.75V18H12.75V12.75H18V11.25H12.75V6H11.25V11.25H6V12.75H11.25Z" fill="#080341"/>
+						</svg>
+					</button>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td data-filter="sales">4</td>
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>                              
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>                   
+				<td><div class="flex-1"><input type="text" class="form-control" readonly="" style="background-color: #f7fafc;"></div></td>    
+				<td><div class="flex-1"><input type="text" class="form-control" readonly="" style="background-color: #f7fafc;"></div></td>
+				<td><div class="filter_select_btns">
+					<button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+						<svg class="icon" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+						</svg>
+					</button>
+					<button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+						<svg class="icon" style="width: 1rem; height: 1rem;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M11.25 12.75V18H12.75V12.75H18V11.25H12.75V6H11.25V11.25H6V12.75H11.25Z" fill="#080341"/>
+						</svg>
+					</button>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td data-filter="sales">5</td>
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>                              
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>
+				<td><div class="flex-1"><input type="text" class="form-control"></div></td>                   
+				<td><div class="flex-1"><input type="text" class="form-control" readonly="" style="background-color: #f7fafc;"></div></td>    
+				<td><div class="flex-1"><input type="text" class="form-control" readonly="" style="background-color: #f7fafc;"></div></td>
+				<td><div class="filter_select_btns">
+					<button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+						<svg class="icon" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+						</svg>
+					</button>
+					<button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+						<svg class="icon" style="width: 1rem; height: 1rem;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M11.25 12.75V18H12.75V12.75H18V11.25H12.75V6H11.25V11.25H6V12.75H11.25Z" fill="#080341"/>
+						</svg>
+					</button>
+					</div>
+				</td>
+			</tr>
+
+		  </tbody>
+		</table>
+	</div>					  
+</div>

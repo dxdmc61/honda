@@ -1,0 +1,232 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+<sly data-sly-call="${clientLib.css @ categories='honda.parts'}"/>
+    <div class="cmp-search-claims" id="parts-order" data-cmp-is="transactions">
+		<div class="cmp-search-claims__header success-message hidden">
+            <h1 class="cmp-search-claims__title cmp-search-claims__alert--success" data-alert-success >Thank you!! Parts Order submitted succesfully!!</h1>
+        </div>
+        <div class="cmp-search-claims__header">
+            <h2 class="cmp-search-claims__title">Parts Order</h2>
+        </div>
+		<div class="section-header">
+				<h2 class="section-title">Parts Order Pedning Summary Review</h2>
+          </div>		
+          <!-- Toolbar -->
+		<div class="toolbar ">
+            <div class="toolbar-group">
+              <div class="checkbox-wrapper">
+                <input type="checkbox" id="select-all" style="width: 1rem; height: 1rem; accent-color: #e60012;">
+                <label for="select-all" class="checkbox-label">Select All</label>
+              </div>
+			  <div class="checkbox-wrapper">
+                
+                <label for="select-all" class="checkbox-label">|</label>
+              </div>
+			  <div class="checkbox-wrapper">
+                <label for="select-all" class="checkbox-label">Clear All</label>
+              </div>
+             
+			  <div class="filter_select_btns">
+              <button id="btn-parts-order" class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">Parts Order</button>
+              
+              <button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+                <svg class="icon spin-on-hover" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                Refresh
+              </button>
+			   <button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
+                <svg class="icon" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+                Delete Selected
+              </button>
+			  </div>
+            </div>
+		</div>
+          
+          <!-- Table -->
+          <div class="table-container">
+            <table class="table" id="tns-table">
+              <thead>
+                <tr>
+                  <th style="width: 3rem;" class="no-sort">
+                    <input id="chk0" type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;">
+                  </th>
+				  <th>Order Reference No.<svg id="0" class="icon" style="width: 1rem; height: 1rem;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+						<path d="M11.1924 5.65685C11.5829 5.26633 11.5829 4.63316 11.1924 4.24264L8.36397 1.41421C8.30576 1.356 8.24485 1.30212 8.18165 1.25259C7.50286 0.720577 6.55947 0.689024 5.84929 1.15793C5.73839 1.23115 5.63317 1.31658 5.53554 1.41421L2.70711 4.24264C2.31658 4.63316 2.31658 5.26633 2.70711 5.65685C3.09763 6.04738 3.7308 6.04738 4.12132 5.65685L6.00003 3.77814V18C6.00003 18.5523 6.44775 19 7.00003 19C7.55232 19 8.00003 18.5523 8.00003 18V3.8787L9.77818 5.65685C10.1687 6.04737 10.8019 6.04737 11.1924 5.65685Z" fill="#0F0F0F"/>
+						<path d="M12.7071 18.3432C12.3166 18.7337 12.3166 19.3668 12.7071 19.7574L15.5355 22.5858C15.6332 22.6834 15.7384 22.7689 15.8493 22.8421C16.6256 23.3546 17.6805 23.2692 18.364 22.5858L21.1924 19.7574C21.5829 19.3668 21.5829 18.7337 21.1924 18.3432C20.8019 17.9526 20.1687 17.9526 19.7782 18.3432L18 20.1213L18 6C18 5.44771 17.5523 5 17 5C16.4477 5 16 5.44771 16 6L16 20.2218L14.1213 18.3432C13.7308 17.9526 13.0976 17.9526 12.7071 18.3432Z" fill="#0F0F0F"/>
+						</svg>
+					</th>
+					<th>Dealer Order Reference No. <svg id="1" class="icon" style="width: 1rem; height: 1rem;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+						<path d="M11.1924 5.65685C11.5829 5.26633 11.5829 4.63316 11.1924 4.24264L8.36397 1.41421C8.30576 1.356 8.24485 1.30212 8.18165 1.25259C7.50286 0.720577 6.55947 0.689024 5.84929 1.15793C5.73839 1.23115 5.63317 1.31658 5.53554 1.41421L2.70711 4.24264C2.31658 4.63316 2.31658 5.26633 2.70711 5.65685C3.09763 6.04738 3.7308 6.04738 4.12132 5.65685L6.00003 3.77814V18C6.00003 18.5523 6.44775 19 7.00003 19C7.55232 19 8.00003 18.5523 8.00003 18V3.8787L9.77818 5.65685C10.1687 6.04737 10.8019 6.04737 11.1924 5.65685Z" fill="#0F0F0F"/>
+						<path d="M12.7071 18.3432C12.3166 18.7337 12.3166 19.3668 12.7071 19.7574L15.5355 22.5858C15.6332 22.6834 15.7384 22.7689 15.8493 22.8421C16.6256 23.3546 17.6805 23.2692 18.364 22.5858L21.1924 19.7574C21.5829 19.3668 21.5829 18.7337 21.1924 18.3432C20.8019 17.9526 20.1687 17.9526 19.7782 18.3432L18 20.1213L18 6C18 5.44771 17.5523 5 17 5C16.4477 5 16 5.44771 16 6L16 20.2218L14.1213 18.3432C13.7308 17.9526 13.0976 17.9526 12.7071 18.3432Z" fill="#0F0F0F"/>
+						</svg></th>
+					<th class="no-sort">Order Type</th>
+					<th class="no-sort">Source</th>
+					<th>Time <svg id="3" class="icon" style="width: 1rem; height: 1rem;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+						<path d="M11.1924 5.65685C11.5829 5.26633 11.5829 4.63316 11.1924 4.24264L8.36397 1.41421C8.30576 1.356 8.24485 1.30212 8.18165 1.25259C7.50286 0.720577 6.55947 0.689024 5.84929 1.15793C5.73839 1.23115 5.63317 1.31658 5.53554 1.41421L2.70711 4.24264C2.31658 4.63316 2.31658 5.26633 2.70711 5.65685C3.09763 6.04738 3.7308 6.04738 4.12132 5.65685L6.00003 3.77814V18C6.00003 18.5523 6.44775 19 7.00003 19C7.55232 19 8.00003 18.5523 8.00003 18V3.8787L9.77818 5.65685C10.1687 6.04737 10.8019 6.04737 11.1924 5.65685Z" fill="#0F0F0F"/>
+						<path d="M12.7071 18.3432C12.3166 18.7337 12.3166 19.3668 12.7071 19.7574L15.5355 22.5858C15.6332 22.6834 15.7384 22.7689 15.8493 22.8421C16.6256 23.3546 17.6805 23.2692 18.364 22.5858L21.1924 19.7574C21.5829 19.3668 21.5829 18.7337 21.1924 18.3432C20.8019 17.9526 20.1687 17.9526 19.7782 18.3432L18 20.1213L18 6C18 5.44771 17.5523 5 17 5C16.4477 5 16 5.44771 16 6L16 20.2218L14.1213 18.3432C13.7308 17.9526 13.0976 17.9526 12.7071 18.3432Z" fill="#0F0F0F"/>
+						</svg>
+					</th>
+                  </tr>   
+              </thead>
+              <tbody>
+                <tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P0411118</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">23959</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">11/17/2021 10:55:46 PM</div></td>  
+                </tr>               
+                <tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P0421118</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">23950</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">11/17/2021 10:59:23 PM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P0511017</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P34171</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">10/17/2023 5:49:23 PM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P1120907</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P33867</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">9/7/2023 5:45:58 AM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P1570307</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P56077</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">3/7/2022 6:44:23 AM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P1730308</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P56549</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">3/8/2022 7:01:50 AM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P1740308</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P56552</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">3/8/2022 6:58:00 AM</div></td>                                  
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P1790308</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P56557</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">3/8/2022 8:03:10 AM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P2300422</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P59749</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">4/22/2022 10:59:23 PM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P2300422</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P59749</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">4/25/2022 7:16:23 PM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P2300422</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P59749</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">4/25/2022 7:21:23 PM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P2300422</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P59749</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">4/25/2022 8:55:23 PM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P2300422</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P59749</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">4/25/2022 8:57:23 PM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P2300422</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P59749</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">4/26/2022 8:24:23 PM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P2300422</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P59749</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">4/26/2022 8:28:23 PM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P2300422</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P59749</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">4/26/2022 9:16:23 PM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P2300422</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P59749</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">4/27/2022 6:29:23 PM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P2300422</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P59749</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">4/27/2022 6:59:23 PM</div></td>                                   
+                </tr>
+				<tr>
+					<td data-filter="sales"><input type="checkbox" style="width: 1rem; height: 1rem; accent-color: #e60012;"></td>
+					<td><span style="font-size: 0.75rem; color: var(--gray-500);"><a href="#">P2300422</a></span></td>                              
+					<td style="font-size: 0.75rem; color: var(--gray-500);">P59749</td>
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">Promotional (Suplemental)</div></td>                    
+					<td style="font-size: 0.75rem; color: var(--gray-500);">TEKION</td>    
+					<td><div style="font-size: 0.75rem; color: var(--gray-500);">4/27/2022 8:11:23 PM</div></td>                                   
+                </tr>
+              </tbody>
+            </table>
+		</div>         
+    </div>
+	<sly data-sly-include="dailyStockOrder.html"></sly>
+<sly data-sly-call="${clientLib.js @ categories='honda.parts'}"/>  
+</sly>
