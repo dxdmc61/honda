@@ -47,7 +47,7 @@ public class GlobalSearchServlet extends SlingAllMethodsServlet {
         params.put("path", "/content/honda"); // Limit search to Honda content
         params.put("type", "cq:Page");
         params.put("fulltext", searchTerm);
-        params.put("p.limit", "10");
+        params.put("p.limit", "50");
 
         Query query = queryBuilder.createQuery(PredicateGroup.create(params), session);
         SearchResult result = query.getResult();

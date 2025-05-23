@@ -29,24 +29,34 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (avatarEl) {
-    // Initials: e.g. "Tech Manager" => "TM"
-    const initials = (firstName && lastName)
-      ? firstName.charAt(0) + lastName.charAt(0)
-      : userId ? userId.substring(0, 2).toUpperCase() : '??';
-
-    avatarEl.textContent = initials;
+    // Set profile picture based on user ID
+    let profilePicture = '';
+    
+    if (userId === 'honda-admin') {
+      profilePicture = '<img src="/content/dam/honda/icons/admin-profile.png" alt="Admin Profile">';
+    } else if (userId === 'honda-auto') {
+      profilePicture = '<img src="/content/dam/honda/icons/auto-profile.png" alt="Auto Profile">';
+    } else if (userId === 'honda-mc-pe') {
+      profilePicture = '<img src="/content/dam/honda/icons/mcpe-profile.png" alt="MC-PE Profile">';
+    } else {
+      // Fallback to initials if no specific profile picture
+      const initials = (firstName && lastName)
+        ? firstName.charAt(0) + lastName.charAt(0)
+        : userId ? userId.substring(0, 2).toUpperCase() : '??';
+      profilePicture = `<span class="initials">${initials}</span>`;
+    }
+    
+    avatarEl.innerHTML = profilePicture;
   }
 });
 
-function getCookie(name) {
-  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-  return match ? decodeURIComponent(match[2]) : null;
-}
+// Search overlay functionality remains the same
 document.addEventListener('DOMContentLoaded', () => {
   const searchTrigger = document.getElementById('searchTrigger');
   const searchOverlay = document.getElementById('searchOverlay');
   const searchInput = document.getElementById('searchInputOverlay');
   const closeBtn = document.getElementById('closeSearchOverlay');
+  
   if (window.location.pathname.includes('/search.html')) {
     if (searchTrigger) {
       searchTrigger.style.display = 'none';
@@ -54,15 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Show overlay
-  searchTrigger.addEventListener('click', () => {
-    searchOverlay.classList.add('active');
-    searchInput.focus();
-  });
+  if (searchTrigger) {
+    searchTrigger.addEventListener('click', () => {
+      searchOverlay.classList.add('active');
+      searchInput.focus();
+    });
+  }
 
   // Close overlay
-  closeBtn.addEventListener('click', () => {
-    searchOverlay.classList.remove('active');
-  });
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      searchOverlay.classList.remove('active');
+    });
+  }
 
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
@@ -72,13 +86,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Redirect on Enter
-  searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      const query = searchInput.value.trim();
-      if (query.length >= 3) {
-        window.location.href = `/content/honda/us/en/search.html?q=${encodeURIComponent(query)}`;
+  if (searchInput) {
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const query = searchInput.value.trim();
+        if (query.length >= 3) {
+          window.location.href = `/content/honda/us/en/search.html?q=${encodeURIComponent(query)}`;
+        }
       }
-    }
-  });
+    });
+  }
 });
 
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? decodeURIComponent(match[2]) : null;
+}
