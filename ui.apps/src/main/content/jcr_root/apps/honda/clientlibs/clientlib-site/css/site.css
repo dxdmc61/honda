@@ -243,6 +243,10 @@ p {
 .main {
   padding: 1.5rem 0;
 }
+.trans-col {
+	font-size: 0.875rem; 
+	color: #333;
+}
 
 .page-header {
   display: flex;
@@ -449,7 +453,7 @@ p {
 
 .table tbody tr:hover {
   background-color: rgba(230, 0, 18, 0.05);
-  transform: translateX(4px);
+ /* transform: translateX(4px);*/
 }
 
 /* Toolbar */
@@ -491,6 +495,14 @@ p {
   cursor: pointer;
   position: relative;
   transition: all 0.2s ease;
+} 
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  margin-right: 0.25rem;
+  border: 1px solid var(--gray-600);
 }
 
 .checkbox:checked {

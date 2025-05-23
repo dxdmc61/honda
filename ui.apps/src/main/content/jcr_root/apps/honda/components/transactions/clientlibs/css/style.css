@@ -54,8 +54,9 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: box-shadow 0.3s ease;
-  /* padding: 1.5rem; change: comment*/
+  padding: 1rem;
   border-bottom: 1px solid var(--gray-200);
+  
 }
 
 /* Form Row */
@@ -288,12 +289,6 @@
   align-items: center;
 }
 
-.checkbox {
-  width: 1rem;
-  height: 1rem;
-  accent-color: var(--primary);
-  margin-right: 0.25rem;
-}
 
 .checkbox-label {
   font-size: 0.875rem;
@@ -704,9 +699,9 @@
   background-color: var(--gray-100);
   padding: 0.5rem;
   border: 1px solid var(--blue-border);
-  margin-bottom: 1rem;
+ /* margin-bottom: 1rem; */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -908,17 +903,12 @@
   background: rgba(230, 0, 18, 0.1);
   color: var(--primary);
 }
-.filter_text {
-  background-color: var(--gray-400);
-  margin: 0;
-  padding: 5px 0;
-  font-size: 1rem;
-}
-.filter_radio_btns {
-  background-color: var(--gray-200);
-}
+
 .filter_radio_btns input[type="radio"] {
   accent-color: var(--primary);
+}
+.table-container a {
+  color: #0088a9;
 }
 
 /*new css ends*/

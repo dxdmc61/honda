@@ -1,4 +1,13 @@
 $(document).ready(function () {
+    $(document).on("click", "#select-all", function () {
+		$("input[type=checkbox]").prop('checked', $(this).prop('checked'));
+    });
+    $(document).on("click", "#btn-del-order", function () {
+		$("#tns-table input[type=checkbox]:checked").each(function () {
+                $(this).closest("tr").hide();
+                
+            });
+    });
     function TableComparer(index) {
         return function (a, b) {
             let val_a = TableCellValue(a, index).replace(/\$\,/g, "");

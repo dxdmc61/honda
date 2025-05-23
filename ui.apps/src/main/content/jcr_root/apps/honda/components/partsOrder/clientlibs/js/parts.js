@@ -1,10 +1,20 @@
 $(document).ready(function () {
 	//$('.success-message').hide();
+	const innerHtml = '<select class="cmp-search-claims__form-select" style="width: auto; margin-right: 0.5rem;"><option>S</option>			<option>D</option></select>';
 	$('#daliy-stock-order').hide();
 	$(document).on("click", "#btn-parts-order", function () {
 		$('#parts-order').hide();
         $('#daliy-stock-order').show();
+		console.log("order clicked :"+$(".ref-text").text());
+		
+		$(".ref-text").removeClass("hidden");
+		$(".ref-text").html(innerHtml);
+		$(".ref-text1").show();
+		$(".ref-text2").show();
     });
+	$(document).on("click", "#btn-del-order", function () {
+		$("input[type=checkbox]").prop('checked', $(this).prop('checked'));
+	});	
 	$(document).on("click", "#btn-submit", function () {
 		$('#parts-order').show();
 		$(".success-message").removeClass("hidden");
@@ -14,9 +24,24 @@ $(document).ready(function () {
         $('#daliy-stock-order').hide();
     });
 	$(document).on("click", "#select-all", function () {
-		$("input[type=checkbox]").prop('checked', $(this).prop('checked'));
+		var rows = $("input[type=checkbox]").prop('checked', $(this).prop('checked'));
     });
-	
+	$(document).on("click", ".order-ref", function () {
+		
+		let refText = $(this).text();
+		$('#parts-order').hide();
+        $('#daliy-stock-order').show();
+		$(".ref-text1").hide();
+		$(".ref-text2").hide();
+		$(".ref-text").removeClass("hidden");
+		$(".ref-text").html(refText);
+    });
+	$(document).on("click", "#btn-del-order", function () {
+		$("#parts-table input[type=checkbox]:checked").each(function () {
+                $(this).closest("tr").hide();
+                
+            });
+    });
     function TableComparer(index) {
         return function (a, b) {
             let val_a = TableCellValue(a, index).replace(/\$\,/g, "");
