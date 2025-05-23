@@ -1,0 +1,218 @@
+      <sly
+        data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+        data-sly-use.model="com.honda.aem.core.models.SearchClaimsModel"
+        data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+      >
+        <sly
+          data-sly-call="${clientLib.css @ categories='honda.transactions'}"
+        />
+        <div
+          class="cmp-search-claims"
+          id="${model.id}"
+          data-cmp-is="transactions"
+          data-search-options="${model.searchOptionsJson}"
+          data-sly-test.hasConfig="${model.id}"
+        >
+          <div class="cmp-search-claims__header">
+            <h2 class="cmp-search-claims__title">
+              iN Plus Realtime Activation
+            </h2>
+          </div>
+          <!-- Navigation Tabs -->
+          <div
+            class="nav-tabs"
+            style="
+              display: flex;
+              gap: 0.25rem;
+              overflow-inline: revert;
+              margin-bottom: 1.5rem;
+              padding: 0rem;
+            "
+          >
+            <button
+              class="cmp-button cmp-button--outline nav-button active"
+              style="
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+                text-align: center;
+                white-space: nowrap;
+                background-color: var(--gray-100);
+                color: var(--gray-600);
+                border: 1px solid var(--blue-border, #c5d9e8);
+                border-radius: 0.25rem;
+                cursor: pointer;
+              "
+            >
+              Service
+            </button>
+            <button
+              class="cmp-button cmp-button--outline nav-button"
+              style="
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+                text-align: center;
+                white-space: nowrap;
+                background-color: var(--primary, #e60012);
+                color: white;
+                border: 1px solid var(--primary, #e60012);
+                border-radius: 0.25rem;
+                cursor: pointer;
+              "
+            >
+              Parts
+            </button>
+            <button
+              class="cmp-button cmp-button--outline nav-button"
+              style="
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+                text-align: center;
+                white-space: nowrap;
+                background-color: var(--gray-100);
+                color: var(--gray-600);
+                border: 1px solid var(--blue-border, #c5d9e8);
+                border-radius: 0.25rem;
+                cursor: pointer;
+              "
+            >
+              Sales
+            </button>
+          </div>
+          <div
+            class="panel"
+            style="
+              border: 1px solid var(--gray-300, #e2e8f0);
+              border-radius: 0rem;
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            "
+          >
+            <div class="panel-content">
+              <!-- Parts Order Information -->
+              <div class="mb-6">
+                <div class="section-header">
+                  <h3 class="section-title">Parts Order</h3>
+                </div>
+
+                <div class="grid gap-2 mb-4">
+                  <div
+                    class="flex items-center"
+                    style="justify-content: center"
+                  >
+                    <div
+                      class="text-sm font-medium text-gray-800"
+                      style="font-size: 1rem"
+                    >
+                      The Parts Order transaction is currently not available.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Parts Catalog Availability Inquiry-->
+              <div class="mb-6">
+                <div class="section-header">
+                  <h3 class="section-title">
+                    Parts Catalog Availability Inquiry
+                  </h3>
+                </div>
+
+                <div class="flex" style="padding-top: 1rem; justify-content: center">
+                  <div class="w-40 text-sm font-medium text-gray-800">
+                    Check DMS Inventory
+                  </div>
+                  <div class="flex" style="gap: 1rem">
+                    <div class="flex items-center">
+                      <input
+                        type="radio"
+                        id="no"
+                        name="submitBy"
+                        class="mr-1"
+                        style="accent-color: #e60012"
+                        checked
+                      />
+                      <label for="no" class="text-sm">No</label>
+                    </div>
+                    <div class="flex items-center">
+                      <input
+                        type="radio"
+                        id="yes"
+                        name="submitBy"
+                        class="mr-1"
+                        style="accent-color: #e60012"
+                      />
+                      <label for="yes" class="text-sm">Yes</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Parts Return Information -->
+              <div class="mb-6">
+                <div class="section-header">
+                  <h3 class="section-title">Parts Return</h3>
+                </div>
+
+                <div class="grid gap-2 mb-4">
+                  <div
+                    class="flex items-center"
+                    style="justify-content: center"
+                  >
+                    <div
+                      class="text-sm font-medium text-gray-800"
+                      style="font-size: 1rem; justify-content: center"
+                    >
+                      The Parts Return transaction is currently not available.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Parts Invoice Information -->
+              <div class="mb-6">
+                <div class="section-header">
+                  <h3 class="section-title">Parts Invoice</h3>
+                </div>
+
+                <div class="grid gap-2 mb-4">
+                  <div
+                    class="flex items-center"
+                    style="justify-content: center"
+                  >
+                    <div
+                      class="text-sm font-medium text-gray-800"
+                      style="font-size: 1rem; text-align: center"
+                    >
+                      Your Service Provider has not been setup with AHM to
+                      handle Parts invoice trancsaction handle.
+                      <br />
+                      Please contact your Service Provider for details regarding
+                      this transaction.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Action Buttons -->
+              <div class="flex gap-2 mt-6" style="justify-content: center">
+                <button class="cmp-button cmp-button--primary">Submit</button>
+                <button class="cmp-button cmp-button--outline">Refresh</button>
+              </div>
+
+              <!--copyright-->
+              <div class="grid gap-2 mb-4">
+                <div
+                  class="flex items-center"
+                  style="justify-content: center; padding-top: 2rem"
+                >
+                  <div
+                    class="text-sm font-medium text-gray-800"
+                    style="font-size: 0.8rem"
+                  >
+                    © 2000 - 2005, American Honda Motor Co., Inc. All Rights
+                    Reserved.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <sly
+          data-sly-call="${clientLib.js @ categories='honda.transactions'}"
+        />
+      </sly>
