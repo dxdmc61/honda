@@ -23,20 +23,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const userNameEl = document.querySelector('.user-name');
   const avatarEl = document.querySelector('.avatar');
+  const userrole = document.querySelector('.user-role')  
 
   if (userNameEl && (firstName || lastName)) {
     userNameEl.textContent = `${firstName || ''} ${lastName || ''}`.trim();
   }
 
   if (avatarEl) {
-    // Initials: e.g. "Tech Manager" => "TM"
-    const initials = (firstName && lastName)
-      ? firstName.charAt(0) + lastName.charAt(0)
-      : userId ? userId.substring(0, 2).toUpperCase() : '??';
+    // Set profile picture based on user ID
+    let profilePicture = '';
+	let designation = '';
+    if (userId === 'ch206500') {
+      profilePicture = '<img src="/content/dam/honda/images/charles-profile.png" alt="Admin Profile">';
+      designation = 'iN Administrator';
+    } else if (userId === 'de208774') {
+      profilePicture = '<img src="/content/dam/honda/images/derek-profile.png" alt="Auto Profile">';
+      designation = 'Dealer Principal';  
+    } else if (userId === 'al100095') {
+      profilePicture = '<img src="/content/dam/honda/images/alice-profile.png" alt="MC-PE Profile">';
+      designation = 'Sales & Parts Personnel';  
+    } else {
+      // Fallback to initials if no specific profile picture
+      const initials = (firstName && lastName)
+        ? firstName.charAt(0) + lastName.charAt(0)
+        : userId ? userId.substring(0, 2).toUpperCase() : '??';
+      profilePicture = `<span class="initials">${initials}</span>`;
+    }
 
-    avatarEl.textContent = initials;
-  }
-});
+    avatarEl.innerHTML = profilePicture;
+    userrole.innerHTML = designation;
+  }});
 
 function getCookie(name) {
   const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
