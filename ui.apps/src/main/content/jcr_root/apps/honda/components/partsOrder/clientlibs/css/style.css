@@ -674,7 +674,7 @@
   border: 1px solid var(--blue-border);
   margin-bottom: 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 

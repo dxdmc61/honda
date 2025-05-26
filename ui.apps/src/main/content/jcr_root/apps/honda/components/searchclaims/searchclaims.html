@@ -10,8 +10,11 @@
          data-sly-test.hasConfig="${model.id}">
 
         <div class="cmp-search-claims__header">
-            <h2 class="cmp-search-claims__title">${model.title}</h2>
-        </div>
+				<h2 class="cmp-search-claims__title">Warranty Claim</h2>
+			</div>
+			<div class="section-header">
+				<h2 class="section-title">Claim Interface Transaction Summary</h2>
+			</div>
 
         <!-- Alerts Section -->
         <div class="cmp-search-claims__alerts">
@@ -1175,6 +1178,8 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Header */
 .cmp-search-claims__header {
   margin-bottom: 1rem;
+  justify-content: center;
+  display: flex;
 }
 
 .cmp-search-claims__title {
@@ -1859,8 +1864,7 @@ document.addEventListener('DOMContentLoaded', function() {
 .section-header {
   background-color: var(--gray-100);
   padding: 0.5rem;
-  border: 1px solid var(--blue-border);
-  margin-bottom: 1rem;
+  /*margin-bottom: 1rem;*/
   display: flex;
   justify-content: space-between;
   align-items: center;

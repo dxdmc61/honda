@@ -164,7 +164,7 @@
   right: 20px;
   width: 60px;
   height: 60px;
-  background-color: #fff;
+  background-color:#3b82f6;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -178,7 +178,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #f30000 0, #d51212 100%);
+  /*background: linear-gradient(135deg, #f30000 0, #d51212 100%);*/
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 0 3px rgba(255, 255, 255, 0.8);
   cursor: pointer;
   z-index: 9999;
@@ -226,7 +226,7 @@
 /* Header Styles */
 #chatbot-header {
   padding: 15px;
-  background-color: #f80000;
+  background-color: #3b82f6;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -259,8 +259,8 @@
 }
 
 .active-tab {
-  border-bottom: 2px solid #f80000 !important;
-  color: #f80000 !important;
+  border-bottom: 2px solid #3b82f6 !important;
+  color: #3b82f6 !important;
 }
 
 /* Chat Section Styles */
@@ -319,7 +319,7 @@
   margin-left: 10px;
   padding: 10px 15px;
   border: none;
-  background-color: #f80000;
+  background-color: #3b82f6;
   color: white;
   border-radius: 20px;
   cursor: pointer;
@@ -350,7 +350,7 @@
   margin-left: 10px;
   padding: 10px 15px;
   border: none;
-  background-color: #f80000;
+  background-color: #3b82f6;
   color: white;
   border-radius: 4px;
   cursor: pointer;
