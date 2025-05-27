@@ -141,7 +141,7 @@
                     <input type="checkbox" class="checkbox">
                   </td>
                   <td>
-                    <span style="color: var(--gray-500); font-weight: 500;">570624</span>
+                    <span style="color: var(--blue-text); font-weight: 500; ">570624</span>
                   </td>
                   <td>
                     <div style="font-size: 0.875rem;">04/23/2016</div>
@@ -192,7 +192,7 @@
                     <input type="checkbox" class="checkbox">
                   </td>
                   <td>
-                    <span style="color: var(--gray-500); font-weight: 500;">570625</span>
+                    <span style="color: var(--blue-text); font-weight: 500;">570625</span>
                   </td>
                   <td>
                     <div style="font-size: 0.875rem;">04/23/2016</div>
@@ -243,7 +243,7 @@
                     <input type="checkbox" class="checkbox">
                   </td>
                   <td>
-                    <span style="color: var(--gray-500); font-weight: 500;">570002</span>
+                    <span style="color: var(--blue-text); font-weight: 500;">570002</span>
                   </td>
                   <td>
                     <div style="font-size: 0.875rem;">04/23/2016</div>
@@ -288,6 +288,57 @@
                     </div>
                   </td>
                 </tr>
+
+                <tr>
+                  <td>
+                    <input type="checkbox" class="checkbox">
+                  </td>
+                  <td>
+                    <span style="color: var(--blue-text); font-weight: 500;">570092</span>
+                  </td>
+                  <td>
+                    <div style="font-size: 0.875rem;">01/3/2014</div>
+                    <div style="font-size: 0.75rem; color: var(--gray-500);">Completed: 02/5/2015</div>
+                  </td>
+                  <td>
+                    <div class="tooltip-container">
+                      <span style="font-size: 0.875rem; color: var(--gray-500);">456DFHB59HB232621</span>
+                      <div class="tooltip">2014 Honda Pilot </div>
+                    </div>
+                  </td>
+                  <td style="font-size: 0.875rem; color: var(--gray-500);">
+                    6T7Y8-T2A-65
+                  </td>
+                  <td>
+                    <span class="tag tag-info">SERVICE BULLETIN</span>
+                    <div style="font-size: 0.875rem; margin-top: 0.25rem;">STEERING 67-W</div>
+                  </td>
+                  <td>
+                    <span class="amount">$11.91</span>
+                  </td>
+                  <td>
+                    <div class="actions">
+                      <div class="tooltip-container">
+                        <button class="action-btn">
+                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                        </button>
+                        <div class="tooltip">View</div>
+                      </div>
+                      
+                      <div class="tooltip-container">
+                        <button class="action-btn">
+                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                          </svg>
+                        </button>
+                        <div class="tooltip">Edit</div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -295,7 +346,7 @@
           <!-- Pagination -->
           <div style="padding: 1rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--gray-200);">
             <div style="font-size: 0.875rem; color: var(--gray-500);">
-              Showing 1 to 5 of 37 entries
+              Showing 1 to 4 of 37 entries
             </div>
             
             <div style="display: flex;">
@@ -338,7 +389,7 @@
     Back to Search
   </button>
 
-  <div id="success-notification" style="position: fixed; top: 1rem; right: 1rem; padding: 0.75rem 1rem; background-color: var(--success-light, #d1fae5); color: var(--success-text, #065f46); border: 1px solid var(--success-border, #a7f3d0); border-radius: 0.25rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 50; transition: all 0.3s; opacity: 0; transform: translateY(-1rem); pointer-events: none;">
+  <div id="success-notification">
     Claim submitted successfully!
   </div>
   
@@ -419,7 +470,7 @@
           <h2 class="panel-title">Quick Claim</h2>
           <p class="panel-subtitle">* = Required</p>
         </div>
-        <button id="back-btn" class="text-blue-700">
+        <button id="cmp-button cmp-button--outline" class="cmp-button cmp-button--outline">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
@@ -675,7 +726,7 @@
                     <input type="text" class="form-control" value="0.7" />
                   </td>
                   <td>
-                    <button class="text-blue-700 text-xs">Delete</button>
+                    <button class="cmp-button cmp-button--outline">Delete</button>
                   </td>
                 </tr>
                 <tr>
@@ -690,7 +741,7 @@
                     <input type="text" class="form-control" />
                   </td>
                   <td>
-                    <button class="text-blue-700 text-xs">Delete</button>
+                    <button class="cmp-button cmp-button--outline">Delete</button>
                   </td>
                 </tr>
                 <tr>
@@ -705,7 +756,7 @@
                     <input type="text" class="form-control" />
                   </td>
                   <td>
-                    <button class="text-blue-700 text-xs">Delete</button>
+                    <button class="cmp-button cmp-button--outline">Delete</button>
                   </td>
                 </tr>
                 <tr style="background-color: #f7fafc;">
@@ -760,7 +811,7 @@
                 <input type="text" class="form-control" />
               </div>
               <div style="text-align: right;">
-                <button class="text-blue-700 text-xs">Delete</button>
+                <button class="cmp-button cmp-button--outline">Delete</button>
               </div>
             </div>
             
@@ -776,7 +827,7 @@
                 <input type="text" class="form-control" value="0432181" />
               </div>
               <div style="text-align: right;">
-                <button class="text-blue-700 text-xs">Delete</button>
+                <button class="cmp-button cmp-button--outline">Delete</button>
               </div>
             </div>
             
@@ -858,7 +909,7 @@
                     <input type="text" class="form-control" value="KIT, INFLATOR COMP" />
                   </td>
                   <td>
-                    <button class="text-blue-700 text-xs">Delete</button>
+                    <button class="cmp-button cmp-button--outline">Delete</button>
                   </td>
                 </tr>
                 <tr>
@@ -879,7 +930,7 @@
                     <input type="text" class="form-control" />
                   </td>
                   <td>
-                    <button class="text-blue-700 text-xs">Delete</button>
+                    <button class="cmp-button cmp-button--outline">Delete</button>
                   </td>
                 </tr>
                 <tr>
@@ -900,7 +951,7 @@
                     <input type="text" class="form-control" />
                   </td>
                   <td>
-                    <button class="text-blue-700 text-xs">Delete</button>
+                    <button class="cmp-button cmp-button--outline">Delete</button>
                   </td>
                 </tr>
               </tbody>
@@ -1001,18 +1052,10 @@
         
         <!-- Action Buttons -->
         <div class="flex justify-end gap-2 mt-6">
-          <button class="cmp-button cmp-button--primary">
-            Submit
-          </button>
-          <button class="cmp-button cmp-button--outline">
-            Save
-          </button>
-          <button class="cmp-button cmp-button--outline">
-            View Claim
-          </button>
-          <button id="quick-back-btn" class="btn btn-blue">
-            Back
-          </button>
+          <button id="submit-warrantyclaims" class="btn cmp-button cmp-button--primary">Submit</button>
+          <button class="cmp-button cmp-button--outline">Save</button>
+          <button class="cmp-button cmp-button--outline">View Claim</button>
+          <button id="quick-back-btn" class="btn btn-blue">Back</button>
         </div>
       </div>
     </div>
@@ -1051,35 +1094,31 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Add click event to the claim rows
-  claimTableRows.forEach(row => {
-    const repairOrderCell = row.querySelector('td:nth-child(2)');
-    if (repairOrderCell) {
-      const repairOrderText = repairOrderCell.textContent.trim();
-      if (repairOrderText.includes('570624')) {
-        row.addEventListener('click', function(e) {
-          // Only trigger if the click is not on a checkbox
-          if (!e.target.matches('input[type="checkbox"]')) {
-            showWarrantyClaims();
-          }
-        });
-      }
-    }
-  });
+  // claimTableRows.forEach(row => {
+  //   const repairOrderCell = row.querySelector('td:nth-child(2)');
+  //   if (repairOrderCell) {
+  //     const repairOrderText = repairOrderCell.textContent.trim();
+  //     if (repairOrderText.includes('570624')) {
+  //       row.addEventListener('click', function(e) {
+  //         // Only trigger if the click is not on a checkbox
+  //         if (!e.target.matches('input[type="checkbox"]')) {
+  //           showWarrantyClaims();
+  //         }
+  //       });
+  //     }
+  //   }
+  //   });
   
   // Add click events to view and edit buttons
-  viewButtons.forEach(btn => {
     // Find the row that contains this button
-    const row = btn.closest('tr');
-    if (row) {
-      const repairOrderCell = row.querySelector('td:nth-child(2)');
-      if (repairOrderCell && repairOrderCell.textContent.trim().includes('570624')) {
-        btn.addEventListener('click', function(e) {
+    const row = document.querySelector('.table tbody tr td:nth-child(2)');
+    const rowText = row.textContent.trim();
+    if (rowText) {
+        row.addEventListener('click', function(e) {
           e.stopPropagation(); // Prevent triggering the row click event
           showWarrantyClaims();
         });
       }
-    }
-  });
   
   // Back to search button
   if (backToSearchBtn) {
@@ -1166,6 +1205,10 @@ document.addEventListener('DOMContentLoaded', function() {
   --info-text: #1e40af;
 }
 
+
+tr td:nth-child(2) span:hover{
+  text-decoration: underline var(--blue-text);
+}
 /* ==================== 
    Search Claims Component 
    ==================== */
@@ -2062,41 +2105,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const quickBackBtn = document.getElementById('quick-back-btn');
     const toolbar = document.getElementById('toolbar');
     const notification = document.getElementById('success-notification');
-    const submitBtns = document.querySelectorAll('.btn.btn-blue');
+    const submitBtns = document.querySelectorAll('.btn.cmp-button.cmp-button--primary');
     const refreshIcon = document.querySelector('.refresh-icon');
-    
+    const submitWarrantyClaims = document.getElementById('submit-warrantyclaims');
+
     nextBtn.addEventListener('click', () => {
       warrantyInfoScreen.classList.add('hidden');
       quickClaimScreen.classList.remove('hidden');
-      toolbar.classList.add('hidden');
+      // toolbar.classList.add('hidden');
     });
+    if(backBtn){
+      backBtn.addEventListener('click', () => {
+        quickClaimScreen.classList.add('hidden');
+        warrantyInfoScreen.classList.remove('hidden');
+        // toolbar.classList.remove('hidden');
+      });
+    }
     
-    backBtn.addEventListener('click', () => {
-      quickClaimScreen.classList.add('hidden');
-      warrantyInfoScreen.classList.remove('hidden');
-      toolbar.classList.remove('hidden');
-    });
     
     quickBackBtn.addEventListener('click', () => {
       quickClaimScreen.classList.add('hidden');
       warrantyInfoScreen.classList.remove('hidden');
-      toolbar.classList.remove('hidden');
+      // toolbar.classList.remove('hidden');
     });
 
     // Refresh icon hover effect
-    const refreshBtn = refreshIcon.closest('button');
-    refreshBtn.addEventListener('mouseenter', () => {
-      refreshIcon.classList.add('icon-refresh');
-    });
+    // const refreshBtn = refreshIcon.closest('button');
+    // refreshBtn.addEventListener('mouseenter', () => {
+    //   refreshIcon.classList.add('icon-refresh');
+    // });
     
-    refreshBtn.addEventListener('mouseleave', () => {
-      refreshIcon.classList.remove('icon-refresh');
-    });
-    
+    // refreshBtn.addEventListener('mouseleave', () => {
+    //   refreshIcon.classList.remove('icon-refresh');
+    // });
+
     // Submit functionality
     submitBtns.forEach(btn => {
       if (btn.textContent.trim() === 'Submit') {
         btn.addEventListener('click', () => {
+          console.log("test");
           notification.classList.add('show');
           setTimeout(() => {
             notification.classList.remove('show');
