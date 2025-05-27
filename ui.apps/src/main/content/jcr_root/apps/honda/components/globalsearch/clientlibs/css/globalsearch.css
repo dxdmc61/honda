@@ -54,7 +54,7 @@
 #search-results {
   margin-top: 2rem;
   padding: 0 1rem;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
 }
 
 /* Each individual search result */

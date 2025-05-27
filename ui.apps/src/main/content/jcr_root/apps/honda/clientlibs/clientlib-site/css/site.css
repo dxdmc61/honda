@@ -12,7 +12,7 @@
   padding-bottom: .25rem;
   padding-top: .25rem;
   position: relative;
-  width: calc(100% - 2rem)
+  width: calc(100% - 2rem);
 }
 
 .component-offset {
