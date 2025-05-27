@@ -356,10 +356,10 @@
   cursor: pointer;
 }
 
-#search-results {
+/* #search-results {
   flex: 1;
   overflow-y: auto;
-}
+} */
 
 .search-suggestion {
   padding: 10px;
