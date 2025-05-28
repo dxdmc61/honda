@@ -1,5 +1,160 @@
 <div class="global-search">
-    <input type="text" id="search-input" placeholder="Search site..." />
-    <button id="search-btn">Search</button>
+   <input class="form-control" type="text" id="search-input" placeholder="Search site...">
+    <div class="search-trigger ripple" id="searchTrigger">
+        <i class="fas fa-microphone"></i>
+    </div>
+    <button id="search-btn" class="cmp-button cmp-button--primary">Search</button>
     <div id="search-results"></div>
 </div>
+<style>   .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 5rem;
+    margin-top: 1rem;
+}
+
+
+.search-expanded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: scale(0.8);
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 350px;
+}
+
+.search-expanded.active {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    background: transparent;
+    padding: 0 15px;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.search-mic {
+    width: 40px;
+    height: 40px;
+    background: #f8f9fa;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.search-mic:hover {
+    background: #e9ecef;
+    transform: scale(1.1);
+}
+
+.search-mic i {
+    font-size: 16px;
+    color: #667eea;
+}
+
+.search-close {
+    width: 40px;
+    height: 40px;
+    background: #f8f9fa;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-close:hover {
+    background: #ff4757;
+    transform: scale(1.1);
+}
+
+.search-close:hover i {
+    color: white;
+}
+
+.search-close i {
+    font-size: 16px;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+/* Animation for the search trigger when expanded */
+.search-trigger.hidden {
+    opacity: 0;
+    transform: scale(0.5);
+    visibility: hidden;
+}
+
+/* Ripple effect */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(102, 126, 234, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+    .search-expanded {
+        min-width: 280px;
+    }
+    
+    .search-trigger {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .search-trigger i {
+        font-size: 20px;
+    }
+    
+    .search-expanded {
+        height: 50px;
+        border-radius: 25px;
+    }
+}</style>

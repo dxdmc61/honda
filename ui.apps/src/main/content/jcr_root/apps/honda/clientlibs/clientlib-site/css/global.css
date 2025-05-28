@@ -1,0 +1,65 @@
+
+/* Button Styles */
+.cmp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .cmp-button--primary {
+    color: white;
+    background-color: var(--primary);
+    border-color: var(--primary);
+  }
+  
+  .cmp-button--primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(230, 0, 18, 0.25);
+  }
+  
+  .cmp-button--primary:disabled {
+    background-color: var(--gray-400);
+    border-color: var(--gray-400);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .cmp-button--outline {
+    color: var(--gray-700);
+    background-color: white;
+    border-color: var(--gray-300);
+  }
+  
+  .cmp-button--outline:hover {
+    background-color: var(--gray-100);
+    transform: translateY(-1px);
+  }
+  
+  .cmp-button--secondary {
+    color: white;
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+  }
+  
+  .cmp-button--secondary:hover {
+    background-color: var(--secondary-hover);
+    border-color: var(--secondary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 53, 102, 0.25);
+  }
+  

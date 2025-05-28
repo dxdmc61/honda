@@ -122,7 +122,7 @@
   border-radius: 4px;
   outline: none;
 }
-
+/* 
 #search-btn {
   margin-left: 10px;
   padding: 10px 15px;
@@ -131,7 +131,7 @@
   color: white;
   border-radius: 4px;
   cursor: pointer;
-}
+} */
 
 #search-results {
   height: 350px;
@@ -346,7 +346,7 @@
   outline: none;
 }
 
-#search-btn {
+/* #search-btn {
   margin-left: 10px;
   padding: 10px 15px;
   border: none;
@@ -354,7 +354,7 @@
   color: white;
   border-radius: 4px;
   cursor: pointer;
-}
+} */
 
 /* #search-results {
   flex: 1;
