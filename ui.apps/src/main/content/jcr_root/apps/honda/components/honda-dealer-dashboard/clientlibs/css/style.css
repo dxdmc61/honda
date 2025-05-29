@@ -66,6 +66,54 @@
   text-align: center;
 }
 
+/* Dealer Network Summary Card Styling */
+.dashboard-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0c4da2;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 6px;
+}
+
+/* KPI Group Container */
+.dealer-network-summary .kpi-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* Individual KPI Block */
+.dealer-network-summary .kpi {
+  background-color: #f7f9fc;
+  border-radius: 10px;
+  padding: 12px 14px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Value inside KPI */
+.dealer-network-summary .kpi-value {
+  font-size: 22px;
+  font-weight: bold;
+  color: #0c4da2;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Label inside KPI */
+.dealer-network-summary .kpi-label {
+  font-size: 13px;
+  color: #666;
+}
+
+/* Chart container spacing */
+#userStatusChart {
+  height: 250px;
+}
+
+
 @media (max-width: 768px) {
   .dashboard-grid {
       grid-template-columns: 1fr;

@@ -1,6 +1,6 @@
 <div class="honda-dealer-dashboard" data-component="honda-dealer-dashboard">
     <h2>Honda Dealer Portal Dashboard</h2>
-    
+
     <div class="dashboard-grid">
         <!-- Parts Orders Section -->
         <div class="dashboard-card">
@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Service Metrics Section -->
         <div class="dashboard-card">
             <h3>Service Metrics</h3>
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Customer Feedback Section -->
         <div class="dashboard-card">
             <h3>Customer Feedback</h3>
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Dealer Performance Section -->
         <div class="dashboard-card">
             <h3>Dealer Performance</h3>
@@ -50,6 +50,30 @@
                     <span class="kpi-value">${properties.customerRetention || '90'}%</span>
                     <span class="kpi-label">Customer Retention</span>
                 </div>
+            </div>
+        </div>
+        <div class="dashboard-card">
+            <h3>Dealer Network Summary</h3>
+            <div class="chart-container">
+                <div class="kpi-group">
+                    <div class="kpi">
+                        <span class="kpi-value" id="totalDealers">--</span>
+                        <span class="kpi-label">Total Dealers</span>
+                    </div>
+                    <div class="kpi">
+                        <span class="kpi-value" id="totalUsers">--</span>
+                        <span class="kpi-label">Total Users</span>
+                    </div>
+                    <div class="kpi">
+                        <span class="kpi-value" id="activeUsers">--</span>
+                        <span class="kpi-label">Active Users</span>
+                    </div>
+                    <div class="kpi">
+                        <span class="kpi-value" id="inactiveUsers">--</span>
+                        <span class="kpi-label">Inactive Users</span>
+                    </div>
+                </div>
+                <div id="userStatusChart" class="chart"></div>
             </div>
         </div>
     </div>
