@@ -1,5 +1,5 @@
 /* Reset & Base Styles */
-/* .component-container {
+.component-container {
   -ms-grid-columns: (1fr)[12];
   -ms-grid-rows: auto;
   display: -ms-grid;
@@ -13,7 +13,7 @@
   padding-top: .25rem;
   position: relative;
   width: calc(100% - 2rem);
-} */
+}
 
 .component-offset {
   -ms-grid-column-span: 12;
