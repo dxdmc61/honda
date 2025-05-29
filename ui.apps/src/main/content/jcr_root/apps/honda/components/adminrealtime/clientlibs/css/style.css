@@ -30,9 +30,9 @@
 }
 
 .cmp-search-claims__alert--success {
-  background-color: var(--success-light);
-  color: var(--success-text);
-  border: 1px solid var(--success-border);
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
 }
 
 .cmp-search-claims__alert--error {
@@ -708,7 +708,7 @@
 .section-title {
   font-weight: 500;
   color: var(--gray-800);
-  font-size: 1.25rem;
+  font-size: large;
 }
 
 /* Form Elements */

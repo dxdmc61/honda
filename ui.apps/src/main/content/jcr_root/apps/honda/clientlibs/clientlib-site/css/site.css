@@ -244,10 +244,17 @@ p {
   padding: 1.5rem 0;
 }
 .trans-col {
-	font-size: 0.875rem; 
+	font-size: 0.875rem;
 	color: #333;
 }
-
+.trans-col a{
+	font-weight:500;
+	text-decoration:none;
+	color: #0e4f8b !important;
+}
+.trans-col a:hover{
+	text-decoration:underline;
+}
 .page-header {
   display: flex;
   justify-content: space-between;
@@ -495,7 +502,7 @@ p {
   cursor: pointer;
   position: relative;
   transition: all 0.2s ease;
-} 
+}
 
 .checkbox {
   width: 18px;
