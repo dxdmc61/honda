@@ -77,16 +77,16 @@ const initCharts = function (data) {
         colors: ["#0066B3", "#00A0E1"],
         title: "Sales Performance vs Target"
     });
-    
-    createDonutChart("userStatusChart", {
-    data: [
-        { category: "Active Users", value: data.dealerNetwork.activeUsers },
-        { category: "Inactive Users", value: data.dealerNetwork.inactiveUsers }
-    ],
-    categoryField: "category",
-    valueField: "value",
-    title: "User Status Distribution"
-});
+
+    /*createDonutChart("userStatusChart", {
+        data: [
+            { category: "Active Users", value: data.dealerNetwork.activeUsers },
+            { category: "Inactive Users", value: data.dealerNetwork.inactiveUsers }
+        ],
+        categoryField: "category",
+        valueField: "value",
+        title: "User Status Distribution"
+    });*/
 
 };
 
@@ -552,7 +552,7 @@ const createGroupedColumnChart = function (containerId, config) {
     });
 };
 
-const createDonutChart = function(containerId, config) {
+const createDonutChart = function (containerId, config) {
     am5.ready(function () {
         const root = am5.Root.new(containerId);
         root.setThemes([am5themes_Animated.new(root)]);

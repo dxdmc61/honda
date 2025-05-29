@@ -6,6 +6,25 @@
 <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
 <div class="honda-dealer-dashboard" data-component="honda-dealer-dashboard">
     <h2>Honda Dealer Portal Dashboard</h2>
+    <div class="kpi-row">
+        <div class="dealer-kpi total-dealers">
+            <span class="kpi-value" id="totalDealers">--</span>
+            <span class="kpi-label">Total Dealers</span>
+        </div>
+        <div class="dealer-kpi total-users">
+            <span class="kpi-value" id="totalUsers">--</span>
+            <span class="kpi-label">Total Users</span>
+        </div>
+        <div class="dealer-kpi active-users">
+            <span class="kpi-value" id="activeUsers">--</span>
+            <span class="kpi-label">Active Users</span>
+        </div>
+        <div class="dealer-kpi inactive-users">
+            <span class="kpi-value" id="inactiveUsers">--</span>
+            <span class="kpi-label">Inactive Users</span>
+        </div>
+    </div>
+
 
     <div class="dashboard-grid">
         <!-- Parts Orders Section -->
@@ -58,6 +77,7 @@
                 </div>
             </div>
         </div>
+        <!--
         <div class="dashboard-card">
             <h3>Dealer Network Summary</h3>
             <div class="chart-container dealer-network-summary">
@@ -81,6 +101,6 @@
                 </div>
                 <div id="userStatusChart" class="chart"></div>
             </div>
-        </div>
+        </div>  -->
     </div>
 </div>
