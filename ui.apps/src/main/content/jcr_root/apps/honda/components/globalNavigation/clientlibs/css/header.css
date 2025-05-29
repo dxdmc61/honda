@@ -49,6 +49,55 @@
   cursor: pointer;
   padding: 0.5rem;
 }
+.search-trigger {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+}
+
+.search-trigger:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.search-trigger i {
+  font-size: 24px;
+  color: #667eea;
+  transition: all 0.3s ease;
+}
+
+  /* Ripple effect */
+  .ripple {
+      position: relative;
+      overflow: hidden;
+  }
+
+  .ripple::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(102, 126, 234, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+  }
+
+  .ripple:active::before {
+      width: 300px;
+      height: 300px;
+  }
+
 
 .search-icon {
   width: 1.5rem;

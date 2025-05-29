@@ -11,13 +11,13 @@
   margin-right: 10px;
 }
 
-.global-search button {
+/* .global-search button {
   padding: 10px 15px;
   background-color: #e65100;
   color: white;
   border: none;
   cursor: pointer;
-}
+} */
 
 .global-search .search-result {
   margin-top: 10px;
@@ -54,7 +54,7 @@
 #search-results {
   margin-top: 2rem;
   padding: 0 1rem;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
 }
 
 /* Each individual search result */

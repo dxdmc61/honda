@@ -1,30 +1,170 @@
+<style>
+    .search-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 5rem;
+        margin-top: 1rem;
+    }
 
-<div class="component-container vpad-0">
-    <div class="component-offset">
 
-        <div class="header-container">
-            <div class="brand">
+    .search-expanded {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: white;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        transform: scale(0.8);
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        min-width: 350px;
+    }
 
-            </div>
-            <!-- Search Icon Trigger -->
-            <div class="search-trigger" id="searchTrigger">
-                <svg class="icon search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                     stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
-                </svg>
-            </div>
+    .search-expanded.active {
+        opacity: 1;
+        transform: scale(1);
+        visibility: visible;
+    }
 
-            <!-- Expanding Search Bar -->
-            <div class="search-overlay" id="searchOverlay">
-                <input type="text" id="searchInputOverlay" placeholder="Search......" />
-                <div class="XDyW0e">
-                    <svg class="goxjub" focusable="false" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="var(--bbQxAb)" d="M480-400q-50 0-85-35t-35-85v-240q0-50 35-85t85-35q50 0 85 35t35 85v240q0 50-35 85t-85 35Zm-40 280v-123q-104-14-172-93t-68-184h80q0 83 58.5 141.5T480-320q83 0 141.5-58.5T680-520h80q0 105-68 184t-172 93v123h-80Z">
-                        </path></svg>
-                </div>
-                <button id="closeSearchOverlay" title="Close">✕</button>
-            </div>
-        </div>
+    .search-input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        color: #333;
+        background: transparent;
+        padding: 0 15px;
+    }
+
+    .search-input::placeholder {
+        color: #999;
+    }
+
+    .search-mic {
+        width: 40px;
+        height: 40px;
+        background: #f8f9fa;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .search-mic:hover {
+        background: #e9ecef;
+        transform: scale(1.1);
+    }
+
+    .search-mic i {
+        font-size: 16px;
+        color: #667eea;
+    }
+
+    .search-close {
+        width: 40px;
+        height: 40px;
+        background: #f8f9fa;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .search-close:hover {
+        background: #ff4757;
+        transform: scale(1.1);
+    }
+
+    .search-close:hover i {
+        color: white;
+    }
+
+    .search-close i {
+        font-size: 16px;
+        color: #666;
+        transition: color 0.3s ease;
+    }
+
+    /* Animation for the search trigger when expanded */
+    .search-trigger.hidden {
+        opacity: 0;
+        transform: scale(0.5);
+        visibility: hidden;
+    }
+
+    /* Ripple effect */
+    .ripple {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ripple::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(102, 126, 234, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    .ripple:active::before {
+        width: 300px;
+        height: 300px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 480px) {
+        .search-expanded {
+            min-width: 280px;
+        }
+        
+        .search-trigger {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .search-trigger i {
+            font-size: 20px;
+        }
+        
+        .search-expanded {
+            height: 50px;
+            border-radius: 25px;
+        }
+    }
+</style>
+<div class="search-container">
+    <div class="search-trigger ripple" id="searchTrigger">
+        <i class="fas fa-search"></i>
+    </div>
+    
+    <div class="search-expanded" id="searchExpanded">
+        <input type="text" class="search-input" placeholder="Search anything..." id="searchInput">
+        <button class="search-mic" id="searchMic" title="Voice search">
+            <i class="fas fa-microphone"></i>
+        </button>
+        <button class="search-close" id="searchClose" title="Close search">
+            <i class="fas fa-times"></i>
+        </button>
     </div>
 </div>
+  

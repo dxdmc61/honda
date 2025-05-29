@@ -82,34 +82,54 @@ document.addEventListener("DOMContentLoaded", function () {
       // Show a loading message
       const loadingId = Date.now();
       appendMessage("bot", "Thinking...");
-      
-      try {
-          const response = await fetch(apiUrl, {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json",
-                  Authorization: `Bearer ${apiKey}`,
-              },
-              body: JSON.stringify({
-                  model: "gpt-3.5-turbo",
-                  messages: [{ role: "user", content: userMessage }],
-                  max_tokens: 150,
-              }),
-          });
-          
-          const data = await response.json();
-          const botMessage = data.choices[0].message.content;
-          
-          // Replace the loading message with the actual response
-          const loadingElement = chatbotMessages.lastChild;
-          loadingElement.textContent = botMessage;
-      } catch (error) {
-          console.error("Error fetching bot response:", error);
-          
-          // Replace loading message with error message
-          const loadingElement = chatbotMessages.lastChild;
-          loadingElement.textContent = "Sorry, something went wrong. Please try again.";
+      if(userMessage == "provide search results for warranty"){
+        // const query = userMessage.value.trim();
+        if (debounce) clearTimeout(debounce);
+        if (userMessage.length < 3) {
+            resultsContainer.innerHTML = '';
+            return;
+        }
+        debounce = setTimeout(() => performSearch("warranty"), 300);
+      }if(userMessage == "provide me the parts order"){
+            // const query = userMessage.value.trim();
+            if (debounce) clearTimeout(debounce);
+            if (userMessage.length < 3) {
+                resultsContainer.innerHTML = '';
+                return;
+            }
+            debounce = setTimeout(() => performSearch("parts order"), 300);
+      }else {
+        try {
+            const response = await fetch(apiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${apiKey}`,
+                },
+                body: JSON.stringify({
+                    model: "gpt-3.5-turbo",
+                    messages: [{ role: "user", content: userMessage }],
+                    max_tokens: 150,
+                }),
+            });
+            
+            const data = await response.json();
+            const botMessage = data.choices[0].message.content;
+            
+            // Replace the loading message with the actual response
+            const loadingElement = chatbotMessages.lastChild;
+            loadingElement.textContent = botMessage;
+        } catch (error) {
+            console.error("Error fetching bot response:", error);
+            
+            // Replace loading message with error message
+            const loadingElement = chatbotMessages.lastChild;
+            loadingElement.textContent = "Sorry, something went wrong. Please try again.";
+        }
+
       }
+      
+      
   }
   
   // ======== SEARCH FUNCTIONALITY ========
@@ -134,9 +154,10 @@ document.addEventListener("DOMContentLoaded", function () {
               
               data.results.forEach(item => {
                   const div = document.createElement('div');
-                  div.classList.add('search-suggestion');
+                  div.classList.add('message');
+                  div.classList.add('bot');
                   div.innerHTML = `
-                      <a href="${item.path}.html">
+                      <a href="${item.path}.html" style="color: white;">
                           <strong>${item.title}</strong><br>
                       </a>
                       <small>${item.description || ''}</small>
