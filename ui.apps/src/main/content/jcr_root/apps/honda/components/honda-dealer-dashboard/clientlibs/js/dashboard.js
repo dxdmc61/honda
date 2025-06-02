@@ -9,7 +9,12 @@ const initCharts = function (data) {
         yFields: ["orders", "fulfilled"],
         seriesNames: ["Total Orders", "Fulfilled"],
         colors: ["#0066B3", "#00A0E1"],
-        title: "Monthly Parts Order Trend"
+        title: "Monthly Parts Order Trend",
+        fontSize: 14,                     // Base font size
+        titleFontSize: 16,                // Title font size
+        legendFontSize: 13,               // Legend font size
+        axisLabelFontSize: 12,            // Axis label font size
+        tooltipFontSize: 14               // Tooltip font size
     });
 
     // Top Parts (Bar Chart)
