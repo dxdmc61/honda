@@ -6,7 +6,7 @@
 /* Header */
 /*change: comment*/
 /* .cmp-search-claims__header {
-  margin-bottom: 1rem ; 
+  margin-bottom: 1rem ;
 } */
 
 .cmp-search-claims__title {
@@ -97,7 +97,7 @@
   /* width: 100%; change: comment */
   margin: 0 5px 0 0; /* change: add the css*/
   padding: 0.5rem 0.75rem;
-  font-size: 1rem;
+  font-size: .85rem;
   line-height: 1.5;
   color: var(--gray-700);
   background-color: white;
@@ -259,8 +259,8 @@
   box-shadow: 0 4px 6px rgba(0, 53, 102, 0.25);
 }
 
-/* ==================== 
-   Search Results & Toolbar 
+/* ====================
+   Search Results & Toolbar
    ==================== */
 
 /* Toolbar */
@@ -687,7 +687,7 @@
 .form-control {
   width: 100%;
   padding: 0.5rem 0.75rem;
-  font-size: 1rem;
+  font-size: .85rem;
   line-height: 1.5;
   color: var(--gray-800);
   background-color: white;
@@ -725,7 +725,7 @@
 }
 
 .gap-2 {
-  gap: 0.5rem;
+  gap: 10rem;
 }
 
 .gap-3 {
