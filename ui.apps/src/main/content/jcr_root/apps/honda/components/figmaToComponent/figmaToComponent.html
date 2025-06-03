@@ -1,0 +1,21 @@
+<div class="figma-to-component" data-component="figma-to-component">
+    <h2>Figma to AEM Component Generator</h2>
+    <div class="ai-form" data-sly-use.model="com.honda.aem.core.models.FigmaToComponentModel">
+        <form action="${model.servletPath}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Figma File</label>
+                <input type="file" name="figmaFile" accept=".fig,.json" required>
+            </div>
+            <div class="form-group">
+                <label>Component Name</label>
+                <input type="text" name="componentName" required>
+            </div>
+            <input type="hidden" name="aiProvider" value="${properties.aiProvider}">
+            <input type="hidden" name="apiKey" value="${properties.apiKey}">
+            <input type="hidden" name="prompt" value="${properties.prompt}">
+            <input type="hidden" name="projectDirectory" value="${properties.projectDirectory}">
+            <input type="hidden" name="jenkinsUrl" value="${properties.jenkinsUrl}">
+            <button type="submit">Generate Component</button>
+        </form>
+    </div>
+</div>

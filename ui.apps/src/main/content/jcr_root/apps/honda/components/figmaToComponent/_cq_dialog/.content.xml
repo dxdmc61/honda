@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" 
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0" 
+          xmlns:cq="http://www.day.com/jcr/cq/1.0" 
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" 
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Figma to Component Generator"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured"
+             sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs jcr:primaryType="nt:unstructured"
+                  sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                  maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <aiSettings jcr:primaryType="nt:unstructured"
+                               jcr:title="AI Settings"
+                               sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <aiProvider jcr:primaryType="nt:unstructured"
+                                      sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                      fieldLabel="AI Provider"
+                                      name="./aiProvider">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <deepseek jcr:primaryType="nt:unstructured"
+                                              text="DeepSeek"
+                                              value="deepseek"/>
+                                    <chatgpt jcr:primaryType="nt:unstructured"
+                                             text="ChatGPT"
+                                             value="chatgpt"/>
+                                    <gemini jcr:primaryType="nt:unstructured"
+                                            text="Gemini"
+                                            value="gemini"/>
+                                </items>
+                            </aiProvider>
+                            <apiKey jcr:primaryType="nt:unstructured"
+                                   sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                   fieldLabel="API Key"
+                                   name="./apiKey"
+                                   required="{Boolean}true"/>
+                            <prompt jcr:primaryType="nt:unstructured"
+                                   sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                   fieldLabel="Prompt"
+                                   name="./prompt"
+                                   required="{Boolean}true"
+                                   rows="5"/>
+                            <projectDirectory jcr:primaryType="nt:unstructured"
+                                             sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                             fieldLabel="Project Directory"
+                                             name="./projectDirectory"
+                                             required="{Boolean}true"
+                                             rootPath="/apps"/>
+                            <jenkinsUrl jcr:primaryType="nt:unstructured"
+                                      sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                      fieldLabel="Jenkins URL"
+                                      name="./jenkinsUrl"
+                                      required="{Boolean}false"/>
+                        </items>
+                    </aiSettings>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
