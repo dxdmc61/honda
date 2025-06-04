@@ -2,383 +2,383 @@
      data-sly-use.model="com.honda.aem.core.models.SearchClaimsModel"
      data-sly-use.templates="core/wcm/components/commons/v1/templates.html">
 
-    <div class="cmp-search-claims"
-         id="${model.id}"
-         data-cmp-is="searchClaims"
-         data-api-endpoint="${model.apiEndpoint}"
-         data-search-options="${model.searchOptionsJson}"
-         data-sly-test.hasConfig="${model.id}">
+  <div class="cmp-search-claims"
+       id="${model.id}"
+       data-cmp-is="searchClaims"
+       data-api-endpoint="${model.apiEndpoint}"
+       data-search-options="${model.searchOptionsJson}"
+       data-sly-test.hasConfig="${model.id}">
 
-        <div class="cmp-search-claims__header">
-				<h2 class="cmp-search-claims__title">Warranty Claim</h2>
-			</div>
-			<div class="section-header">
-				<h2 class="section-title">Claim Interface Transaction Summary</h2>
-			</div>
+    <div class="cmp-search-claims__header">
+      <h2 class="cmp-search-claims__title">Warranty Claim</h2>
+    </div>
+    <div class="section-header">
+      <h2 class="section-title">Claim Interface Transaction Summary</h2>
+    </div>
 
-        <!-- Alerts Section -->
-        <div class="cmp-search-claims__alerts">
-            <div class="cmp-search-claims__alert cmp-search-claims__alert--success" data-alert-success>
-                ${model.successMessage}
-            </div>
-            <div class="cmp-search-claims__alert cmp-search-claims__alert--error" data-alert-error>
-                ${model.errorMessage}
-            </div>
-            <div class="cmp-search-claims__alert cmp-search-claims__alert--info" data-alert-no-results>
-                ${model.noResultsMessage}
-            </div>
+    <!-- Alerts Section -->
+    <div class="cmp-search-claims__alerts">
+      <div class="cmp-search-claims__alert cmp-search-claims__alert--success" data-alert-success>
+        ${model.successMessage}
+      </div>
+      <div class="cmp-search-claims__alert cmp-search-claims__alert--error" data-alert-error>
+        ${model.errorMessage}
+      </div>
+      <div class="cmp-search-claims__alert cmp-search-claims__alert--info" data-alert-no-results>
+        ${model.noResultsMessage}
+      </div>
+    </div>
+
+    <!-- Search Form leveraging AEM 6.5 form foundation -->
+    <form class="cmp-search-claims__form"
+          action="${model.apiEndpoint}"
+          method="POST"
+          id="${model.id}-form"
+          data-search-form>
+
+      <div class="cmp-search-claims__form-row">
+        <!-- Search Type Field -->
+        <div class="cmp-search-claims__form-group">
+          <label for="${model.id}-searchType" class="cmp-search-claims__form-label">${model.searchTypeLabel}</label>
+          <select id="${model.id}-searchType" name="searchType" class="cmp-search-claims__form-select" data-field="searchType">
+            <option value="">&lt;&lt; SELECT &gt;&gt;</option>
+            <sly data-sly-list.option="${model.searchOptions}">
+              <option value="${option.value}" data-sly-attribute.selected="${option.default}">${option.text}</option>
+            </sly>
+          </select>
+          <div class="cmp-search-claims__error-message" data-error-message="searchType"></div>
         </div>
 
-        <!-- Search Form leveraging AEM 6.5 form foundation -->
-        <form class="cmp-search-claims__form"
-              action="${model.apiEndpoint}"
-              method="POST"
-              id="${model.id}-form"
-              data-search-form>
+        <!-- Search Value Field -->
+        <div class="cmp-search-claims__form-group">
+          <label for="${model.id}-searchValue" class="cmp-search-claims__form-label">${model.searchValueLabel}</label>
+          <input type="text" id="${model.id}-searchValue" name="searchValue" class="cmp-search-claims__form-control"
+                 placeholder="${model.searchValuePlaceholder}" data-field="searchValue">
+          <div class="cmp-search-claims__error-message" data-error-message="searchValue"></div>
+        </div>
 
-            <div class="cmp-search-claims__form-row">
-                <!-- Search Type Field -->
-                <div class="cmp-search-claims__form-group">
-                    <label for="${model.id}-searchType" class="cmp-search-claims__form-label">${model.searchTypeLabel}</label>
-                    <select id="${model.id}-searchType" name="searchType" class="cmp-search-claims__form-select" data-field="searchType">
-                        <option value="">&lt;&lt; SELECT &gt;&gt;</option>
-                        <sly data-sly-list.option="${model.searchOptions}">
-                            <option value="${option.value}" data-sly-attribute.selected="${option.default}">${option.text}</option>
-                        </sly>
-                    </select>
-                    <div class="cmp-search-claims__error-message" data-error-message="searchType"></div>
-                </div>
+        <!-- Date From Field -->
+        <div class="cmp-search-claims__form-group">
+          <label for="${model.id}-dateFrom" class="cmp-search-claims__form-label">${model.dateFromLabel}</label>
+          <input type="date" id="${model.id}-dateFrom" name="dateFrom" class="cmp-search-claims__form-control" data-field="dateFrom">
+          <div class="cmp-search-claims__error-message" data-error-message="dateFrom"></div>
+        </div>
 
-                <!-- Search Value Field -->
-                <div class="cmp-search-claims__form-group">
-                    <label for="${model.id}-searchValue" class="cmp-search-claims__form-label">${model.searchValueLabel}</label>
-                    <input type="text" id="${model.id}-searchValue" name="searchValue" class="cmp-search-claims__form-control"
-                           placeholder="${model.searchValuePlaceholder}" data-field="searchValue">
-                    <div class="cmp-search-claims__error-message" data-error-message="searchValue"></div>
-                </div>
+        <!-- Date To Field -->
+        <div class="cmp-search-claims__form-group">
+          <label for="${model.id}-dateTo" class="cmp-search-claims__form-label">${model.dateToLabel}</label>
+          <input type="date" id="${model.id}-dateTo" name="dateTo" class="cmp-search-claims__form-control" data-field="dateTo">
+          <div class="cmp-search-claims__error-message" data-error-message="dateTo"></div>
+        </div>
+      </div>
 
-                <!-- Date From Field -->
-                <div class="cmp-search-claims__form-group">
-                    <label for="${model.id}-dateFrom" class="cmp-search-claims__form-label">${model.dateFromLabel}</label>
-                    <input type="date" id="${model.id}-dateFrom" name="dateFrom" class="cmp-search-claims__form-control" data-field="dateFrom">
-                    <div class="cmp-search-claims__error-message" data-error-message="dateFrom"></div>
-                </div>
+      <!-- Form Actions -->
+      <div class="cmp-search-claims__form-actions">
+        <button type="button" class="cmp-button cmp-button--${model.clearButtonType}" data-action="clear">
+          ${model.clearButtonText}
+        </button>
+        <button type="submit" class="cmp-button cmp-button--${model.searchButtonType}" data-action="search">
+          <span class="cmp-search-claims__spinner" data-sly-test="${model.showSpinner}"></span>
+          ${model.searchButtonText}
+        </button>
+      </div>
+    </form>
 
-                <!-- Date To Field -->
-                <div class="cmp-search-claims__form-group">
-                    <label for="${model.id}-dateTo" class="cmp-search-claims__form-label">${model.dateToLabel}</label>
-                    <input type="date" id="${model.id}-dateTo" name="dateTo" class="cmp-search-claims__form-control" data-field="dateTo">
-                    <div class="cmp-search-claims__error-message" data-error-message="dateTo"></div>
-                </div>
-            </div>
+    <!-- Debug Console (visible only in author mode or if explicitly enabled) -->
+    <div class="cmp-search-claims__console" data-sly-test="${model.showDebugConsole}"></div>
 
-            <!-- Form Actions -->
-            <div class="cmp-search-claims__form-actions">
-                <button type="button" class="cmp-button cmp-button--${model.clearButtonType}" data-action="clear">
-                    ${model.clearButtonText}
-                </button>
-                <button type="submit" class="cmp-button cmp-button--${model.searchButtonType}" data-action="search">
-                    <span class="cmp-search-claims__spinner" data-sly-test="${model.showSpinner}"></span>
-                    ${model.searchButtonText}
-                </button>
-            </div>
-        </form>
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="toolbar-group">
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="select-all" class="checkbox">
+          <label for="select-all" class="checkbox-label">Select All</label>
+        </div>
 
-        <!-- Debug Console (visible only in author mode or if explicitly enabled) -->
-        <div class="cmp-search-claims__console" data-sly-test="${model.showDebugConsole}"></div>
-                  
-          <!-- Toolbar -->
-          <div class="toolbar">
-            <div class="toolbar-group">
-              <div class="checkbox-wrapper">
-                <input type="checkbox" id="select-all" class="checkbox">
-                <label for="select-all" class="checkbox-label">Select All</label>
-              </div>
-              
-              <button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
-                <svg class="icon" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                </svg>
-                Delete
-              </button>
-              
-              <button class="btn btn-outline btn-sm" style="display: flex; align-items: center; gap: 0.25rem;">
-                <svg class="icon spin-on-hover" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-                Refresh
-              </button>
-            </div>
-            
-            <button class="btn btn-primary" style="display: flex; align-items: center; gap: 0.5rem;">
-              <svg class="icon" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-              </svg>
-              Skip to Claim Entry
-            </button>
-          </div>
-          
-          <!-- Table -->
-          <div class="table-container">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th style="width: 3rem;">
-                    <input type="checkbox" class="checkbox">
-                  </th>
-                  <th>Repair Order No.</th>
-                  <th>Repair Order Date</th>
-                  <th>VIN</th>
-                  <th>Failed Part No.</th>
-                  <th>Customer Complaint / Service</th>
-                  <th>Dealer Requested Claim Amount</th>
-                  <th style="width: 6rem;">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <input type="checkbox" class="checkbox">
-                  </td>
-                  <td>
-                    <span style="color: var(--blue-text); font-weight: 500; ">570624</span>
-                  </td>
-                  <td>
-                    <div style="font-size: 0.875rem;">04/23/2016</div>
-                    <div style="font-size: 0.75rem; color: var(--gray-500);">Completed: 04/23/2016</div>
-                  </td>
-                  <td>
-                    <div class="tooltip-container">
-                      <span style="font-size: 0.875rem; color: var(--gray-500);">1HGCR2F31FA242364</span>
-                      <div class="tooltip">2016 Honda Accord EX</div>
-                    </div>
-                  </td>
-                  <td style="font-size: 0.875rem; color: var(--gray-500);">
-                    36920-T2A-A04
-                  </td>
-                  <td>
-                    <span class="tag tag-danger">SAFETY RECALL</span>
-                    <div style="font-size: 0.875rem; margin-top: 0.25rem;">INSPECT AND REPLACE BATTERY SENSOR</div>
-                  </td>
-                  <td>
-                    <span class="amount" style="font-size: 0.875rem;">$100.89</span>
-                  </td>
-                  <td>
-                    <div class="actions">
-                      <div class="tooltip-container">
-                        <button class="action-btn">
-                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                        </button>
-                        <div class="tooltip">View</div>
-                      </div>
-                      
-                      <div class="tooltip-container">
-                        <button class="action-btn">
-                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                          </svg>
-                        </button>
-                        <div class="tooltip">Edit</div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td>
-                    <input type="checkbox" class="checkbox">
-                  </td>
-                  <td>
-                    <span style="color: var(--blue-text); font-weight: 500;">570625</span>
-                  </td>
-                  <td>
-                    <div style="font-size: 0.875rem;">04/23/2016</div>
-                    <div style="font-size: 0.75rem; color: var(--gray-500);">Completed: 04/23/2016</div>
-                  </td>
-                  <td>
-                    <div class="tooltip-container">
-                      <span style="font-size: 0.875rem; color: var(--gray-500);">1HGCR2F76CA236218</span>
-                      <div class="tooltip">2015 Honda Accord LX</div>
-                    </div>
-                  </td>
-                  <td style="font-size: 0.875rem; color: var(--gray-500);">
-                    36920-T2A-A04
-                  </td>
-                  <td>
-                    <span class="tag tag-danger">SAFETY RECALL</span>
-                    <div style="font-size: 0.875rem; margin-top: 0.25rem;">INSPECT AND REPLACE BATTERY SENSOR</div>
-                  </td>
-                  <td>
-                    <span class="amount" style="font-size: 0.875rem;">$100.89</span>
-                  </td>
-                  <td>
-                    <div class="actions">
-                      <div class="tooltip-container">
-                        <button class="action-btn">
-                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                        </button>
-                        <div class="tooltip">View</div>
-                      </div>
-                      
-                      <div class="tooltip-container">
-                        <button class="action-btn">
-                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                          </svg>
-                        </button>
-                        <div class="tooltip">Edit</div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                
-                <tr>
-                  <td>
-                    <input type="checkbox" class="checkbox">
-                  </td>
-                  <td>
-                    <span style="color: var(--blue-text); font-weight: 500;">570002</span>
-                  </td>
-                  <td>
-                    <div style="font-size: 0.875rem;">04/23/2016</div>
-                    <div style="font-size: 0.75rem; color: var(--gray-500);">Completed: 04/23/2016</div>
-                  </td>
-                  <td>
-                    <div class="tooltip-container">
-                      <span style="font-size: 0.875rem; color: var(--gray-500);">5FPYK3F59HB032621</span>
-                      <div class="tooltip">2017 Honda Pilot EX-L</div>
-                    </div>
-                  </td>
-                  <td style="font-size: 0.875rem; color: var(--gray-500);">
-                    81310-T2A-305
-                  </td>
-                  <td>
-                    <span class="tag tag-info">SERVICE BULLETIN</span>
-                    <div style="font-size: 0.875rem; margin-top: 0.25rem;">INSTALL BRACKET TO STRIKER OF SECOND SEAT S/B 16-021</div>
-                  </td>
-                  <td>
-                    <span class="amount" style="font-size: 0.875rem;">$72.91</span>
-                  </td>
-                  <td>
-                    <div class="actions">
-                      <div class="tooltip-container">
-                        <button class="action-btn">
-                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                        </button>
-                        <div class="tooltip">View</div>
-                      </div>
-                      
-                      <div class="tooltip-container">
-                        <button class="action-btn">
-                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                          </svg>
-                        </button>
-                        <div class="tooltip">Edit</div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
+        <button class="btn-outline btn-sm cmp-button cmp-button--outline nav-button" style="display: flex; align-items: center; gap: 0.25rem;">
+          <svg class="icon" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+          </svg>
+          Delete
+        </button>
 
-                <tr>
-                  <td>
-                    <input type="checkbox" class="checkbox">
-                  </td>
-                  <td>
-                    <span style="color: var(--blue-text); font-weight: 500;">570092</span>
-                  </td>
-                  <td>
-                    <div style="font-size: 0.875rem;">01/3/2014</div>
-                    <div style="font-size: 0.75rem; color: var(--gray-500);">Completed: 02/5/2015</div>
-                  </td>
-                  <td>
-                    <div class="tooltip-container">
-                      <span style="font-size: 0.875rem; color: var(--gray-500);">456DFHB59HB232621</span>
-                      <div class="tooltip">2014 Honda Pilot </div>
-                    </div>
-                  </td>
-                  <td style="font-size: 0.875rem; color: var(--gray-500);">
-                    6T7Y8-T2A-65
-                  </td>
-                  <td>
-                    <span class="tag tag-info">SERVICE BULLETIN</span>
-                    <div style="font-size: 0.875rem; margin-top: 0.25rem;">STEERING 67-W</div>
-                  </td>
-                  <td>
-                    <span class="amount" style="font-size: 0.875rem;">$11.91</span>
-                  </td>
-                  <td>
-                    <div class="actions">
-                      <div class="tooltip-container">
-                        <button class="action-btn">
-                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                          </svg>
-                        </button>
-                        <div class="tooltip">View</div>
-                      </div>
-                      
-                      <div class="tooltip-container">
-                        <button class="action-btn">
-                          <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                          </svg>
-                        </button>
-                        <div class="tooltip">Edit</div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-                    
-          <!-- Pagination -->
-          <div style="padding: 1rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--gray-200);">
-            <div style="font-size: 0.875rem; color: var(--gray-500);">
-              Showing 1 to 4 of 37 entries
-            </div>
-            
-            <div style="display: flex;">
-              <a href="#" style="display: flex; align-items: center; padding: 0.25rem 0.5rem; border: 1px solid var(--gray-300); border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem; font-size: 0.875rem; color: var(--gray-500);">
-                <svg style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-                Prev
-              </a>
-              
-              <a href="#" style="display: flex; align-items: center; justify-content: center; width: 2rem; border-top: 1px solid var(--primary); border-bottom: 1px solid var(--primary); background-color: var(--primary); color: white; font-size: 0.875rem; font-weight: 500;">1</a>
-              
-              <a href="#" style="display: flex; align-items: center; justify-content: center; width: 2rem; border-top: 1px solid var(--gray-300); border-bottom: 1px solid var(--gray-300); font-size: 0.875rem; color: var(--gray-700);">2</a>
-              
-              <a href="#" style="display: flex; align-items: center; justify-content: center; width: 2rem; border-top: 1px solid var(--gray-300); border-bottom: 1px solid var(--gray-300); font-size: 0.875rem; color: var(--gray-700);">3</a>
-              
-              <a href="#" style="display: flex; align-items: center; justify-content: center; width: 2rem; border-top: 1px solid var(--gray-300); border-bottom: 1px solid var(--gray-300); font-size: 0.875rem; color: var(--gray-700);">4</a>
-              
-              <a href="#" style="display: flex; align-items: center; padding: 0.25rem 0.5rem; border: 1px solid var(--gray-300); border-top-right-radius: 0.25rem; border-bottom-right-radius: 0.25rem; font-size: 0.875rem; color: var(--gray-500);">
-                Next
-                <svg style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
-          </div>
+        <button class="btn-outline btn-sm cmp-button cmp-button--outline nav-button" style="display: flex; align-items: center; gap: 0.25rem;">
+          <svg class="icon spin-on-hover" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          Refresh
+        </button>
+      </div>
+
+      <button class="btn btn-primary" style="display: flex; align-items: center; gap: 0.5rem;">
+        <svg class="icon" style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        Skip to Claim Entry
+      </button>
     </div>
-    <sly data-sly-call="${clientlib.all @ categories='honda.searchclaims'}"></sly>
 
-    <sly data-sly-test="${!hasConfig}">
-        <div class="cmp-search-claims cq-placeholder" data-emptytext="Search Claims Component"></div>
-    </sly>
+    <!-- Table -->
+    <div class="table-container">
+      <table class="table">
+        <thead>
+        <tr>
+          <th style="width: 3rem;">
+            <input type="checkbox" class="checkbox">
+          </th>
+          <th>Repair Order No.</th>
+          <th>Repair Order Date</th>
+          <th>VIN</th>
+          <th>Failed Part No.</th>
+          <th>Customer Complaint / Service</th>
+          <th>Dealer Requested Claim Amount</th>
+          <th style="width: 6rem;">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <input type="checkbox" class="checkbox">
+          </td>
+          <td>
+            <span style="color: var(--blue-text); font-weight: 500; ">570624</span>
+          </td>
+          <td>
+            <div style="font-size: 0.875rem;">04/23/2016</div>
+            <div style="font-size: 0.75rem; color: var(--gray-500);">Completed: 04/23/2016</div>
+          </td>
+          <td>
+            <div class="tooltip-container">
+              <span style="font-size: 0.875rem; color: var(--gray-500);">1HGCR2F31FA242364</span>
+              <div class="tooltip">2016 Honda Accord EX</div>
+            </div>
+          </td>
+          <td style="font-size: 0.875rem; color: var(--gray-500);">
+            36920-T2A-A04
+          </td>
+          <td>
+            <span class="tag tag-danger">SAFETY RECALL</span>
+            <div style="font-size: 0.875rem; margin-top: 0.25rem;">INSPECT AND REPLACE BATTERY SENSOR</div>
+          </td>
+          <td>
+            <span class="amount" style="font-size: 0.875rem;">$100.89</span>
+          </td>
+          <td>
+            <div class="actions">
+              <div class="tooltip-container">
+                <button class="action-btn">
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </button>
+                <div class="tooltip">View</div>
+              </div>
+
+              <div class="tooltip-container">
+                <button class="action-btn">
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                </button>
+                <div class="tooltip">Edit</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <input type="checkbox" class="checkbox">
+          </td>
+          <td>
+            <span style="color: var(--blue-text); font-weight: 500;">570625</span>
+          </td>
+          <td>
+            <div style="font-size: 0.875rem;">04/23/2016</div>
+            <div style="font-size: 0.75rem; color: var(--gray-500);">Completed: 04/23/2016</div>
+          </td>
+          <td>
+            <div class="tooltip-container">
+              <span style="font-size: 0.875rem; color: var(--gray-500);">1HGCR2F76CA236218</span>
+              <div class="tooltip">2015 Honda Accord LX</div>
+            </div>
+          </td>
+          <td style="font-size: 0.875rem; color: var(--gray-500);">
+            36920-T2A-A04
+          </td>
+          <td>
+            <span class="tag tag-danger">SAFETY RECALL</span>
+            <div style="font-size: 0.875rem; margin-top: 0.25rem;">INSPECT AND REPLACE BATTERY SENSOR</div>
+          </td>
+          <td>
+            <span class="amount" style="font-size: 0.875rem;">$100.89</span>
+          </td>
+          <td>
+            <div class="actions">
+              <div class="tooltip-container">
+                <button class="action-btn">
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </button>
+                <div class="tooltip">View</div>
+              </div>
+
+              <div class="tooltip-container">
+                <button class="action-btn">
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                </button>
+                <div class="tooltip">Edit</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <input type="checkbox" class="checkbox">
+          </td>
+          <td>
+            <span style="color: var(--blue-text); font-weight: 500;">570002</span>
+          </td>
+          <td>
+            <div style="font-size: 0.875rem;">04/23/2016</div>
+            <div style="font-size: 0.75rem; color: var(--gray-500);">Completed: 04/23/2016</div>
+          </td>
+          <td>
+            <div class="tooltip-container">
+              <span style="font-size: 0.875rem; color: var(--gray-500);">5FPYK3F59HB032621</span>
+              <div class="tooltip">2017 Honda Pilot EX-L</div>
+            </div>
+          </td>
+          <td style="font-size: 0.875rem; color: var(--gray-500);">
+            81310-T2A-305
+          </td>
+          <td>
+            <span class="tag tag-info">SERVICE BULLETIN</span>
+            <div style="font-size: 0.875rem; margin-top: 0.25rem;">INSTALL BRACKET TO STRIKER OF SECOND SEAT S/B 16-021</div>
+          </td>
+          <td>
+            <span class="amount" style="font-size: 0.875rem;">$72.91</span>
+          </td>
+          <td>
+            <div class="actions">
+              <div class="tooltip-container">
+                <button class="action-btn">
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </button>
+                <div class="tooltip">View</div>
+              </div>
+
+              <div class="tooltip-container">
+                <button class="action-btn">
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                </button>
+                <div class="tooltip">Edit</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <input type="checkbox" class="checkbox">
+          </td>
+          <td>
+            <span style="color: var(--blue-text); font-weight: 500;">570092</span>
+          </td>
+          <td>
+            <div style="font-size: 0.875rem;">01/3/2014</div>
+            <div style="font-size: 0.75rem; color: var(--gray-500);">Completed: 02/5/2015</div>
+          </td>
+          <td>
+            <div class="tooltip-container">
+              <span style="font-size: 0.875rem; color: var(--gray-500);">456DFHB59HB232621</span>
+              <div class="tooltip">2014 Honda Pilot </div>
+            </div>
+          </td>
+          <td style="font-size: 0.875rem; color: var(--gray-500);">
+            6T7Y8-T2A-65
+          </td>
+          <td>
+            <span class="tag tag-info">SERVICE BULLETIN</span>
+            <div style="font-size: 0.875rem; margin-top: 0.25rem;">STEERING 67-W</div>
+          </td>
+          <td>
+            <span class="amount" style="font-size: 0.875rem;">$11.91</span>
+          </td>
+          <td>
+            <div class="actions">
+              <div class="tooltip-container">
+                <button class="action-btn">
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </button>
+                <div class="tooltip">View</div>
+              </div>
+
+              <div class="tooltip-container">
+                <button class="action-btn">
+                  <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  </svg>
+                </button>
+                <div class="tooltip">Edit</div>
+              </div>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div style="padding: 1rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--gray-200);">
+      <div style="font-size: 0.875rem; color: var(--gray-500);">
+        Showing 1 to 4 of 37 entries
+      </div>
+
+      <div style="display: flex;">
+        <a href="#" style="display: flex; align-items: center; padding: 0.25rem 0.5rem; border: 1px solid var(--gray-300); border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem; font-size: 0.875rem; color: var(--gray-500);">
+          <svg style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Prev
+        </a>
+
+        <a href="#" style="display: flex; align-items: center; justify-content: center; width: 2rem; border-top: 1px solid var(--primary); border-bottom: 1px solid var(--primary); background-color: var(--primary); color: white; font-size: 0.875rem; font-weight: 500;">1</a>
+
+        <a href="#" style="display: flex; align-items: center; justify-content: center; width: 2rem; border-top: 1px solid var(--gray-300); border-bottom: 1px solid var(--gray-300); font-size: 0.875rem; color: var(--gray-700);">2</a>
+
+        <a href="#" style="display: flex; align-items: center; justify-content: center; width: 2rem; border-top: 1px solid var(--gray-300); border-bottom: 1px solid var(--gray-300); font-size: 0.875rem; color: var(--gray-700);">3</a>
+
+        <a href="#" style="display: flex; align-items: center; justify-content: center; width: 2rem; border-top: 1px solid var(--gray-300); border-bottom: 1px solid var(--gray-300); font-size: 0.875rem; color: var(--gray-700);">4</a>
+
+        <a href="#" style="display: flex; align-items: center; padding: 0.25rem 0.5rem; border: 1px solid var(--gray-300); border-top-right-radius: 0.25rem; border-bottom-right-radius: 0.25rem; font-size: 0.875rem; color: var(--gray-500);">
+          Next
+          <svg style="width: 1rem; height: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <sly data-sly-call="${clientlib.all @ categories='honda.searchclaims'}"></sly>
+
+  <sly data-sly-test="${!hasConfig}">
+    <div class="cmp-search-claims cq-placeholder" data-emptytext="Search Claims Component"></div>
+  </sly>
 </sly>
 <!-- Warranty Claims Component (initially hidden) -->
 <div id="warranty-claims-component" style="display: none;">
@@ -392,11 +392,11 @@
   <div id="success-notification">
     Claim submitted successfully!
   </div>
-  
+
   <div class="header" style="margin-bottom: 1rem;">
     <h1 class="title" style="font-size: 1.25rem; font-weight: 600; color: var(--gray-800, #2d3748);">Warranty Claims</h1>
   </div>
-  
+
   <!-- Navigation Tabs -->
   <div class="nav-tabs" style="display: flex; gap: 0.25rem; overflow-inline: revert; margin-bottom: 1.5rem; padding: 0.5rem;flex-wrap: wrap;">
     <button class="cmp-button cmp-button--outline nav-button active" style="padding: 0.5rem 1rem; font-size: 0.875rem; text-align: center; white-space: nowrap; background-color: var(--primary, #e60012); color: white; border: 1px solid var(--primary, #e60012); border-radius: 0.25rem; cursor: pointer;">Create Claim</button>
@@ -428,11 +428,11 @@
           <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1rem;">
             <div style="margin-bottom: 1rem;">
               <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--gray-600, #718096); margin-bottom: 0.25rem;">Claim No. *</label>
-              <input 
-                type="text" 
-                id="claim-no"
-                style="width: 100%; padding: 0.5rem 0.75rem; font-size: 1rem; line-height: 1.5; color: var(--gray-800, #2d3748); background-color: white; border: 1px solid var(--gray-300, #e2e8f0); border-radius: 0.25rem;"
-                value="232323" 
+              <input
+                      type="text"
+                      id="claim-no"
+                      style="width: 100%; padding: 0.5rem 0.75rem; font-size: 1rem; line-height: 1.5; color: var(--gray-800, #2d3748); background-color: white; border: 1px solid var(--gray-300, #e2e8f0); border-radius: 0.25rem;"
+                      value="232323"
               />
             </div>
             <div style="margin-bottom: 1rem;">
@@ -445,10 +445,10 @@
             </div>
             <div style="margin-bottom: 1rem;">
               <label style="display: block; font-size: 0.875rem; font-weight: 500; color: var(--gray-600, #718096); margin-bottom: 0.25rem;">Radio/CD Type</label>
-              <input 
-                type="text"
-                id="radio-type"
-                style="width: 100%; padding: 0.5rem 0.75rem; font-size: 1rem; line-height: 1.5; color: var(--gray-800, #2d3748); background-color: white; border: 1px solid var(--gray-300, #e2e8f0); border-radius: 0.25rem;"
+              <input
+                      type="text"
+                      id="radio-type"
+                      style="width: 100%; padding: 0.5rem 0.75rem; font-size: 1rem; line-height: 1.5; color: var(--gray-800, #2d3748); background-color: white; border: 1px solid var(--gray-300, #e2e8f0); border-radius: 0.25rem;"
               />
             </div>
           </div>
@@ -462,7 +462,7 @@
           <div class="section-header">
             <h3 class="section-title">Repair Order Detail Information</h3>
           </div>
-          
+
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 1rem;">
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">VIN</div>
@@ -476,7 +476,7 @@
                 <input type="text" class="form-control" value="09/13/2017">
               </div>
             </div>
-        
+
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">Mileage</div>
               <div class="flex-1">
@@ -489,7 +489,7 @@
                 <input type="text" class="form-control" value="549305">
               </div>
             </div>
-        
+
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">Repair Order Date</div>
               <div class="flex-1">
@@ -502,7 +502,7 @@
                 <input type="text" class="form-control" value="Fire Related">
               </div>
             </div>
-        
+
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">Symptom Code</div>
               <div class="flex-1">
@@ -515,7 +515,7 @@
                 <input type="text" class="form-control" value="Perform Safety Recall 16-048 Takata Front Passengers Airbag Inflator">
               </div>
             </div>
-        
+
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">Cause</div>
               <div class="flex-1">
@@ -543,7 +543,7 @@
               </div>
             </div>
           </div>
-        
+
           <!-- Section: Customer Information -->
           <div class="section-header mt-6">
             <h3 class="section-title">Customer Information</h3>
@@ -580,7 +580,7 @@
               </div>
             </div>
           </div>
-        
+
           <!-- Section: Repair Information -->
           <div class="section-header mt-6">
             <h3 class="section-title">Repair Information</h3>
@@ -605,7 +605,7 @@
               </div>
             </div>
           </div>
-        
+
           <!-- Section: Personnel Information -->
           <div class="section-header mt-6">
             <h3 class="section-title">Personnel Information</h3>
@@ -656,7 +656,7 @@
               </div>
             </div>
           </div>
-        
+
           <!-- Section: Radio/CD Information -->
           <div class="section-header mt-6">
             <h3 class="section-title">Radio/CD Information</h3>
@@ -681,7 +681,7 @@
               </div>
             </div>
           </div>
-        
+
           <!-- Section: Sublet Information -->
           <div class="section-header mt-6">
             <h3 class="section-title">Sublet Information</h3>
@@ -718,7 +718,7 @@
               </div>
             </div>
           </div>
-        
+
           <!-- Section: Freight Information -->
           <div class="section-header mt-6">
             <h3 class="section-title">Freight Information</h3>
@@ -749,7 +749,7 @@
               </div>
             </div>
           </div>
-        
+
           <!-- Section: Authorization Information -->
           <div class="section-header mt-6">
             <h3 class="section-title">Authorization Information</h3>
@@ -768,7 +768,7 @@
               </div>
             </div>
           </div>
-        
+
           <!-- Section: Claim Totals -->
           <div class="section-header mt-6">
             <h3 class="section-title">Claim Totals</h3>
@@ -836,12 +836,13 @@
           <h2 class="panel-title">Quick Claim</h2>
           <p class="panel-subtitle">* = Required</p>
         </div>
-        <button id="back-to-search-2 cmp-button cmp-button--outline" class="cmp-button cmp-button--outline">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-          BACK
-        </button>
+        <!-- Action Buttons -->
+        <div class="flex justify-end gap-2 mt-6">
+          <button id="submit-warrantyclaims" class="btn cmp-button cmp-button--primary">Submit</button>
+          <button class="cmp-button cmp-button--outline">Save</button>
+          <button class="cmp-button cmp-button--outline">View Claim</button>
+          <button id="quick-back-btn" class="btn btn-blue">Back</button>
+        </div>
       </div>
 
       <div class="panel-content">
@@ -850,7 +851,7 @@
           <div class="section-header">
             <h3 class="section-title">Repair Order Information</h3>
           </div>
-          
+
           <div class="grid grid-cols-1 gap-2 mb-4">
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">Claim No.*</div>
@@ -858,28 +859,28 @@
                 <input type="text" class="form-control" value="232323" />
               </div>
             </div>
-            
+
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">Claim Type</div>
               <div class="flex-1 text-sm">
                 <input type="text" class="form-control" value="Quick" readonly style="background-color: #f7fafc;" />
               </div>
             </div>
-            
+
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">Radio/CD Type</div>
               <div class="flex-1 text-sm">
                 <input type="text" class="form-control" />
               </div>
             </div>
-            
+
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">Repair Order No.*</div>
               <div class="flex-1 text-sm">
                 <input type="text" class="form-control" value="570624" />
               </div>
             </div>
-            
+
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">VIN*</div>
               <div class="flex-1 text-sm flex items-center">
@@ -890,7 +891,7 @@
                 </svg>
               </div>
             </div>
-            
+
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">Repair Order Date*</div>
               <div class="flex-1 text-sm flex">
@@ -903,14 +904,14 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">Mileage*</div>
               <div class="flex-1 text-sm">
                 <input type="text" class="form-control" value="119255" />
               </div>
             </div>
-            
+
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">Work Completed Date*</div>
               <div class="flex-1 text-sm flex">
@@ -923,7 +924,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">Fire Related</div>
               <div class="flex-1 text-sm">
@@ -941,7 +942,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </div>
-          
+
           <div class="grid grid-cols-1 gap-2">
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">Contention/Symptom Code*</div>
@@ -953,21 +954,21 @@
                 <span class="text-xs">(Exclude Dash)</span>
               </div>
             </div>
-            
+
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">Customer Contention /Symptom Description*</div>
               <div class="flex-1 text-sm">
                 <textarea class="form-control" style="height: 5rem;">Perform Safety Recall 16-048: Takata Front Passengers Airbag Inflator</textarea>
               </div>
             </div>
-            
+
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">Cause*</div>
               <div class="flex-1 text-sm">
                 <textarea class="form-control" style="height: 5rem;">KA500 aka Front Passengers Airbag Inflator</textarea>
               </div>
             </div>
-            
+
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">Correction*</div>
               <div class="flex-1 text-sm">
@@ -982,7 +983,7 @@
           <div class="section-header">
             <h3 class="section-title">Customer Information</h3>
           </div>
-          
+
           <div class="grid grid-cols-1 gap-2">
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">Customer Type*</div>
@@ -993,7 +994,7 @@
                 </select>
               </div>
             </div>
-            
+
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">Name*</div>
               <div class="flex-1 text-sm" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
@@ -1011,35 +1012,35 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">Address*</div>
               <div class="flex-1 text-sm">
                 <input type="text" class="form-control" value="186 HEADSBURG AVE #D" />
               </div>
             </div>
-            
+
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">City*</div>
               <div class="flex-1 text-sm">
                 <input type="text" class="form-control" value="CLOVERDALE" />
               </div>
             </div>
-            
+
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">State*</div>
               <div class="flex-1 text-sm">
                 <input type="text" class="form-control" style="width: 5rem;" value="CA" />
               </div>
             </div>
-            
+
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">Zip*</div>
               <div class="flex-1 text-sm">
                 <input type="text" class="form-control" style="width: 6rem;" value="95425" />
               </div>
             </div>
-            
+
             <div class="flex items-center">
               <div class="w-40 text-sm font-medium text-gray-600">Telephone*</div>
               <div class="flex-1 text-sm">
@@ -1054,89 +1055,89 @@
           <div class="section-header">
             <h3 class="section-title">Repair Information</h3>
           </div>
-          
+
           <div class="grid grid-cols-1 gap-3">
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">Defect Code (Exclude Dash)*</div>
               <div class="flex-1 text-sm">
                 <input type="text" class="form-control" style="width: 6rem;" value="6EA00" />
               </div>
-              
+
               <div class="w-24 text-sm font-medium text-gray-600 ml-4">Test Code</div>
               <div class="flex-1 text-sm">
                 <input type="text" class="form-control" />
               </div>
             </div>
-            
+
             <!-- Labor Operations Table -->
             <table class="table">
               <thead>
-                <tr>
-                  <th style="width: 4rem;">Item</th>
-                  <th>Labor Operation No.*</th>
-                  <th>Labor Description</th>
-                  <th style="width: 5rem;">Time*</th>
-                  <th style="width: 4rem;"></th>
-                </tr>
+              <tr>
+                <th style="width: 4rem;">Item</th>
+                <th>Labor Operation No.*</th>
+                <th>Labor Description</th>
+                <th style="width: 5rem;">Time*</th>
+                <th style="width: 4rem;"></th>
+              </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>
-                    <input type="text" class="form-control" value="7541C3" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" value="SAFETY RECALL CAMPAIGN (6EA): REPLACE FRONT PASSENGER AIRBAG INFLATOR (PHASE 1)" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" value="0.7" />
-                  </td>
-                  <td>
-                    <button class="cmp-button cmp-button--outline">Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <button class="cmp-button cmp-button--outline">Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <button class="cmp-button cmp-button--outline">Delete</button>
-                  </td>
-                </tr>
-                <tr style="background-color: #f7fafc;">
-                  <td style="font-weight: 500;">Total Time</td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <input type="text" class="form-control" value="0.7" />
-                  </td>
-                  <td></td>
-                </tr>
+              <tr>
+                <td>1</td>
+                <td>
+                  <input type="text" class="form-control" value="7541C3" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" value="SAFETY RECALL CAMPAIGN (6EA): REPLACE FRONT PASSENGER AIRBAG INFLATOR (PHASE 1)" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" value="0.7" />
+                </td>
+                <td>
+                  <button class="cmp-button cmp-button--outline">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <button class="cmp-button cmp-button--outline">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <button class="cmp-button cmp-button--outline">Delete</button>
+                </td>
+              </tr>
+              <tr style="background-color: #f7fafc;">
+                <td style="font-weight: 500;">Total Time</td>
+                <td></td>
+                <td></td>
+                <td>
+                  <input type="text" class="form-control" value="0.7" />
+                </td>
+                <td></td>
+              </tr>
               </tbody>
             </table>
-            
+
             <div class="flex mt-2">
               <div class="w-40 text-sm font-medium text-gray-600">M.I.L. On</div>
               <div class="flex-1 text-sm">
@@ -1145,7 +1146,7 @@
                   <option value="YES">YES</option>
                 </select>
               </div>
-              
+
               <div class="w-40 text-sm font-medium text-gray-600">Diagnostic Trouble Codes</div>
               <div class="flex-1 text-sm" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.25rem;">
                 <input type="text" class="form-control" />
@@ -1157,13 +1158,13 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Personnel Information Section -->
         <div class="mb-6">
           <div class="section-header">
             <h3 class="section-title">Personnel Information</h3>
           </div>
-          
+
           <div class="grid grid-cols-1 gap-3">
             <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; align-items: center;">
               <div class="text-sm font-medium text-gray-600">Service Advisor*</div>
@@ -1180,7 +1181,7 @@
                 <button class="cmp-button cmp-button--outline">Delete</button>
               </div>
             </div>
-            
+
             <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; align-items: center;">
               <div class="text-sm font-medium text-gray-600">Technician*</div>
               <div>
@@ -1196,11 +1197,11 @@
                 <button class="cmp-button cmp-button--outline">Delete</button>
               </div>
             </div>
-            
+
             <div class="mt-2 text-xs text-red-600">* AHM Recall Technical Specialists</div>
           </div>
         </div>
-        
+
         <!-- Parts Search Bar -->
         <div class="flex items-center mb-4 justify-end">
           <div class="mr-2 text-sm font-medium text-gray-600">Search by</div>
@@ -1209,17 +1210,17 @@
             <option>DESCRIPTION</option>
           </select>
           <input type="text" class="form-control" style="width: 12rem; margin-right: 0.5rem;" />
-          <button class="btn btn-blue">
+          <button class="cmp-button cmp-button--outline">
             Search
           </button>
         </div>
-        
+
         <!-- Parts Information -->
         <div class="mb-6">
           <div class="section-header">
             <h3 class="section-title">Parts Information</h3>
           </div>
-          
+
           <div class="grid grid-cols-1 gap-3">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
               <div class="flex">
@@ -1235,96 +1236,96 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">Replacement Serial No.</div>
               <div class="flex-1">
                 <input type="text" class="form-control" />
               </div>
             </div>
-            
+
             <!-- Parts Table -->
             <table class="table">
               <thead>
-                <tr>
-                  <th style="width: 3rem;">Item</th>
-                  <th>Replacement Part No.*</th>
-                  <th style="width: 5rem;">Quantity*</th>
-                  <th style="width: 6rem;">Unit Price</th>
-                  <th style="width: 6rem;">Unit Total</th>
-                  <th>Description</th>
-                  <th style="width: 4rem;"></th>
-                </tr>
+              <tr>
+                <th style="width: 3rem;">Item</th>
+                <th>Replacement Part No.*</th>
+                <th style="width: 5rem;">Quantity*</th>
+                <th style="width: 6rem;">Unit Price</th>
+                <th style="width: 6rem;">Unit Total</th>
+                <th>Description</th>
+                <th style="width: 4rem;"></th>
+              </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>
-                    <input type="text" class="form-control" value="04790-SWA-407" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" value="1" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" value="61.21" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" value="61.21" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" value="KIT, INFLATOR COMP" />
-                  </td>
-                  <td>
-                    <button class="cmp-button cmp-button--outline">Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <button class="cmp-button cmp-button--outline">Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <input type="text" class="form-control" />
-                  </td>
-                  <td>
-                    <button class="cmp-button cmp-button--outline">Delete</button>
-                  </td>
-                </tr>
+              <tr>
+                <td>1</td>
+                <td>
+                  <input type="text" class="form-control" value="04790-SWA-407" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" value="1" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" value="61.21" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" value="61.21" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" value="KIT, INFLATOR COMP" />
+                </td>
+                <td>
+                  <button class="cmp-button cmp-button--outline">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <button class="cmp-button cmp-button--outline">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <input type="text" class="form-control" />
+                </td>
+                <td>
+                  <button class="cmp-button cmp-button--outline">Delete</button>
+                </td>
+              </tr>
               </tbody>
             </table>
           </div>
         </div>
-        
+
         <!-- File Attachments -->
         <div class="mb-6">
           <div class="flex justify-between items-center mb-4">
@@ -1337,13 +1338,13 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Goodwill Information -->
         <div class="mb-6">
           <div class="section-header">
             <h3 class="section-title">Goodwill Information</h3>
           </div>
-          
+
           <div class="grid grid-cols-1 gap-3">
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">Goodwill</div>
@@ -1353,13 +1354,13 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Claim Totals -->
         <div class="mb-6">
           <div class="section-header">
             <h3 class="section-title">Claim Totals</h3>
           </div>
-          
+
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 1rem;">
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">Parts Cost</div>
@@ -1373,7 +1374,7 @@
                 <input type="text" class="form-control" value="161.85" />
               </div>
             </div>
-            
+
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">Parts Handling undefined</div>
               <div class="flex-1">
@@ -1386,7 +1387,7 @@
                 <input type="text" class="form-control" value="153.86" />
               </div>
             </div>
-            
+
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">Labor Amount</div>
               <div class="flex-1">
@@ -1399,7 +1400,7 @@
                 <input type="text" class="form-control" />
               </div>
             </div>
-            
+
             <div class="flex">
               <div class="w-40 text-sm font-medium text-gray-600">Submitted By:</div>
               <div class="flex-1 flex" style="gap: 1rem;">
@@ -1415,14 +1416,6 @@
             </div>
           </div>
         </div>
-        
-        <!-- Action Buttons -->
-        <div class="flex justify-end gap-2 mt-6">
-          <button id="submit-warrantyclaims" class="btn cmp-button cmp-button--primary">Submit</button>
-          <button class="cmp-button cmp-button--outline">Save</button>
-          <button class="cmp-button cmp-button--outline">View Claim</button>
-          <button id="quick-back-btn" class="btn btn-blue">Back</button>
-        </div>
       </div>
     </div>
   </div>
@@ -1435,7 +1428,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchClaimsComponent = document.querySelector('.cmp-search-claims');
   const claimTableRows = document.querySelectorAll('.table tbody tr');
   const viewButtons = document.querySelectorAll('.action-btn');
-  
+
   // Get DOM elements from the warranty claims component
   const warrantyClaimsComponent = document.getElementById('warranty-claims-component');
   const warrantyInfoScreen = document.getElementById('warranty-info-screen');
@@ -1447,19 +1440,19 @@ document.addEventListener('DOMContentLoaded', function() {
   const quickBackBtn = document.getElementById('quick-back-btn');
   const notification = document.getElementById('success-notification');
   const submitBtn = document.getElementById('submit-btn');
-  
+
   // Function to show the warranty claims form
   function showWarrantyClaims() {
     searchClaimsComponent.style.display = 'none';
     warrantyClaimsComponent.style.display = 'block';
   }
-  
+
   // Function to go back to the search interface
   function showSearchClaims() {
     warrantyClaimsComponent.style.display = 'none';
     searchClaimsComponent.style.display = 'block';
   }
-  
+
   // Add click event to the claim rows
   // claimTableRows.forEach(row => {
   //   const repairOrderCell = row.querySelector('td:nth-child(2)');
@@ -1475,7 +1468,7 @@ document.addEventListener('DOMContentLoaded', function() {
   //     }
   //   }
   //   });
-  
+
   // Add click events to view and edit buttons
     // Find the row that contains this button
     const row = document.querySelector('.table tbody tr td:nth-child(2)');
@@ -1486,7 +1479,7 @@ document.addEventListener('DOMContentLoaded', function() {
           showWarrantyClaims();
         });
       }
-  
+
   // Back to search button
   if (backToSearchBtn) {
     backToSearchBtn.addEventListener('click', showSearchClaims);
@@ -1494,7 +1487,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if(backToSearchBtn2){
     backToSearchBtn2.addEventListener('click', showSearchClaims);
   }
-  
+
   // Toggle between warranty info and quick claim screens
   if (nextBtn) {
     nextBtn.addEventListener('click', () => {
@@ -1502,27 +1495,27 @@ document.addEventListener('DOMContentLoaded', function() {
       quickClaimScreen.style.display = 'block';
     });
   }
-  
+
   if (backBtn) {
     backBtn.addEventListener('click', () => {
       quickClaimScreen.style.display = 'none';
       warrantyInfoScreen.style.display = 'block';
     });
   }
-  
+
   if (quickBackBtn) {
     quickBackBtn.addEventListener('click', () => {
       quickClaimScreen.style.display = 'none';
       warrantyInfoScreen.style.display = 'block';
     });
   }
-  
+
   // Submit button with notification
   if (submitBtn) {
     submitBtn.addEventListener('click', () => {
       notification.style.opacity = '1';
       notification.style.transform = 'translateY(0)';
-      
+
       // Hide notification after 3 seconds
       setTimeout(() => {
         notification.style.opacity = '0';
@@ -1557,8 +1550,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // toolbar.classList.remove('hidden');
       });
     }
-    
-    
+
+
     quickBackBtn.addEventListener('click', () => {
       quickClaimScreen.classList.add('hidden');
       warrantyInfoScreen.classList.remove('hidden');
@@ -1570,7 +1563,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // refreshBtn.addEventListener('mouseenter', () => {
     //   refreshIcon.classList.add('icon-refresh');
     // });
-    
+
     // refreshBtn.addEventListener('mouseleave', () => {
     //   refreshIcon.classList.remove('icon-refresh');
     // });
