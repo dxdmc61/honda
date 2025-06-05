@@ -10,6 +10,9 @@ import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 @Component(
     service = Servlet.class,
@@ -21,6 +24,18 @@ import java.io.IOException;
 )
 public class LogoutServlet extends SlingSafeMethodsServlet {
 
+    /**
+     * Cookies added during login that should be cleared on logout.
+     */
+    private static final Set<String> LOGIN_COOKIES = new HashSet<>(Arrays.asList(
+            "hondaUserId",
+            "hondaGroups",
+            "currentGroup",
+            "hondaFirstName",
+            "hondaLastName",
+            "hondaEmail"
+    ));
+
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response)
             throws ServletException, IOException {
@@ -31,10 +46,12 @@ public class LogoutServlet extends SlingSafeMethodsServlet {
         }
 
         // Remove "hondaUserId" and other cookies
+        // Remove cookies that were added during login
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if ("hondaUserId".equals(cookie.getName()) || true) { // remove all cookies
+                if (LOGIN_COOKIES.contains(cookie.getName())) {
                     cookie.setValue("");
                     cookie.setMaxAge(0);
                     cookie.setPath("/");
@@ -47,4 +64,4 @@ public class LogoutServlet extends SlingSafeMethodsServlet {
         response.sendRedirect("/content/honda/us/en/login.html");
     }
 }
-
+}
