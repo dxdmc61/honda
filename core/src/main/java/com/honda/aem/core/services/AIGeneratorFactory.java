@@ -1,5 +1,6 @@
 package com.honda.aem.core.services;
 
+import com.honda.aem.core.services.imp.ChatGPTGenerator;
 import com.honda.aem.core.services.imp.DeepSeekGenerator;
 
 public class AIGeneratorFactory {
@@ -8,7 +9,7 @@ public class AIGeneratorFactory {
             case "deepseek":
                 return new DeepSeekGenerator(apiKey);
             case "chatgpt":
-               // return new ChatGPTGenerator(apiKey);
+                return new ChatGPTGenerator(apiKey);
             case "gemini":
                 //return new GeminiGenerator(apiKey);
             default:

@@ -1,6 +1,5 @@
 package com.honda.aem.core.util;
 
-
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.osgi.service.component.annotations.Component;
@@ -59,54 +58,37 @@ public class FileSaver {
 
         // Save all generated files
         for (Map.Entry<String, String> entry : generatedFiles.entrySet()) {
-            String fileType = entry.getKey();
+            String filename = entry.getKey();
             String content = entry.getValue();
+            String path;
 
             try {
-                switch (fileType) {
-                    case "html":
-                        saveFile(projectRoot, String.format("/components/%s/%s.html", componentName, componentName),
-                                content);
-                        break;
-                    case "dialog":
-                        saveFile(projectRoot, String.format("/components/%s/_cq_dialog/.content.xml", componentName),
-                                content);
-                        break;
-                    case "editConfig":
-                        saveFile(projectRoot, String.format("/components/%s/_cq_editConfig.xml", componentName),
-                                content);
-                        break;
-                    case "css":
-                        saveFile(projectRoot, String.format("/components/%s/%s.css", componentName, componentName),
-                                content);
-                        break;
-                    case "js":
-                        saveFile(projectRoot, String.format("/components/%s/%s.js", componentName, componentName),
-                                content);
-                        break;
-                    case "componentDefinition":
-                        saveFile(projectRoot, String.format("/components/%s/.content.xml", componentName), content);
-                        break;
-                    case "model":
-                        saveFile(projectRoot,
-                                String.format("/core/src/main/java/com/honda/core/models/%sModel.java",
-                                        capitalizeFirstLetter(componentName)),
-                                content);
-                        break;
-                    case "clientlibCss":
-                        saveFile(projectRoot, String.format("/clientlibs/%s/css.txt", componentName), content);
-                        break;
-                    case "clientlibJs":
-                        saveFile(projectRoot, String.format("/clientlibs/%s/js.txt", componentName), content);
-                        break;
-                    case "clientlibDefinition":
-                        saveFile(projectRoot, String.format("/clientlibs/%s/.content.xml", componentName), content);
-                        break;
-                    default:
-                        LOG.warn("Unknown file type: {}", fileType);
+                if (filename.endsWith(".html")) {
+                    path = String.format("/components/%s/%s", componentName, filename);
+                } else if (filename.endsWith(".java")) {
+                    path = String.format("/core/src/main/java/com/honda/core/models/%s", filename);
+                } else if (filename.equals("_cq_dialog/.content.xml")) {
+                    path = String.format("/components/%s/_cq_dialog/.content.xml", componentName);
+                } else if (filename.equals("_cq_editConfig.xml")) {
+                    path = String.format("/components/%s/_cq_editConfig.xml", componentName);
+                } else if (filename.equals(".content.xml")) {
+                    path = String.format("/components/%s/.content.xml", componentName);
+                } else if (filename.endsWith(".css")) {
+                    path = String.format("/clientlibs/%s/%s", componentName, filename);
+                } else if (filename.endsWith(".js")) {
+                    path = String.format("/clientlibs/%s/%s", componentName, filename);
+                } else if (filename.contains("clientlib") && filename.endsWith(".xml")) {
+                    path = String.format("/clientlibs/%s/.content.xml", componentName);
+                } else if (filename.endsWith(".txt")) {
+                    path = String.format("/clientlibs/%s/%s", componentName, filename);
+                } else {
+                    LOG.warn("Unknown file: {}", filename);
+                    continue;
                 }
+
+                saveFile(projectRoot, path, content);
             } catch (IOException e) {
-                LOG.error("Failed to save {} for component {}", fileType, componentName, e);
+                LOG.error("Failed to save {} for component {}", filename, componentName, e);
                 throw e;
             }
         }
