@@ -12,13 +12,13 @@
               <button id="close-btn">&times;</button>
           </div>
           
-          <div style="display: none;" id="chatbot-tabs">
+          <div id="chatbot-tabs" style="display: none;">
               <button id="chat-tab" class="active-tab">Chat</button>
               <button id="search-tab">Search</button>
           </div>
           
           <div id="chat-section">
-              <div id="search-results"></div>
+              <div id="chatbot-messages"></div>
 
               <div id="chatbot-input-container">
                   <input type="text" id="chatbot-input" placeholder="Type a message..." />
@@ -26,14 +26,12 @@
               </div>
           </div>
           
-          <div style="display: none;"  id="search-section" class="hidden">
+          <div id="search-section" class="hidden">
               <div id="search-container">
                   <div id="search-input-container">
                       <input type="text" id="search-input" placeholder="Search..." />
                       <button id="search-btn">Search</button>
                   </div>
-              <div id="chatbot-messages"></div>
-
                   <div id="search-results"></div>
               </div>
           </div>
