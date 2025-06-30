@@ -1,0 +1,184 @@
+<!-- AMCharts CDN Scripts -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+<div class="honda-dealer-dashboard" data-component="honda-dealer-dashboard">
+    <div class="dashboard-header">
+        <h2 class="dashboard-title">Honda Dealer Portal Dashboard</h2>
+        <div class="dashboard-actions">
+            <button class="btn btn-outline btn-sm">
+                <i class="fas fa-sync-alt spin-on-hover mr-1"></i>
+                Refresh
+            </button>
+            <button class="btn btn-primary">
+                <i class="fas fa-download mr-1"></i>
+                Export Data
+            </button>
+        </div>
+    </div>
+    <div class="kpi-row">
+        <div class="dealer-kpi total-dealers">
+            <i class="fas fa-store kpi-icon"></i>
+            <div class="kpi-content">
+                <span class="kpi-value" id="totalDealers">1120</span>
+                <span class="kpi-label">Total Dealers</span>
+            </div>
+        </div>
+        <div class="dealer-kpi total-users">
+            <i class="fas fa-users kpi-icon"></i>
+            <div class="kpi-content">
+                <span class="kpi-value" id="totalUsers">11450</span>
+                <span class="kpi-label">Total Users</span>
+            </div>
+        </div>
+        <div class="dealer-kpi active-users">
+            <i class="fas fa-user-check kpi-icon"></i>
+            <div class="kpi-content">
+                <span class="kpi-value" id="activeUsers">11000</span>
+                <span class="kpi-label">Active Users</span>
+            </div>
+        </div>
+        <div class="dealer-kpi inactive-users">
+            <i class="fas fa-user-times kpi-icon"></i>
+            <div class="kpi-content">
+                <span class="kpi-value" id="inactiveUsers">450</span>
+                <span class="kpi-label">Inactive Users</span>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard-grid">
+        <!-- Parts Orders Section -->
+        <div class="dashboard-card">
+            <div class="card-header">
+                <h3><i class="fas fa-cogs mr-2"></i>Parts Orders</h3>
+                <div class="card-actions">
+                    <button class="action-btn tooltip-container" title="View Details">
+                        <i class="fas fa-eye"></i>
+                        <span class="tooltip">View Details</span>
+                    </button>
+                    <button class="action-btn tooltip-container" title="Refresh">
+                        <i class="fas fa-sync-alt spin-on-hover"></i>
+                        <span class="tooltip">Refresh</span>
+                    </button>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-group">
+                    <div id="partsTrendChart" class="chart"></div>
+                    <div id="topPartsChart" class="chart"></div>
+                </div>
+                <div class="kpi">
+                    <span class="kpi-value">${properties.fulfillmentRate || '80'}%</span>
+                    <span class="kpi-label">Fulfillment Rate</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Metrics Section -->
+        <div class="dashboard-card">
+            <div class="card-header">
+                <h3><i class="fas fa-wrench mr-2"></i>Service Metrics</h3>
+                <div class="card-actions">
+                    <button class="action-btn tooltip-container" title="View Details">
+                        <i class="fas fa-eye"></i>
+                        <span class="tooltip">View Details</span>
+                    </button>
+                    <button class="action-btn tooltip-container" title="Refresh">
+                        <i class="fas fa-sync-alt spin-on-hover"></i>
+                        <span class="tooltip">Refresh</span>
+                    </button>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-group">
+                    <div id="serviceAppointmentsChart" class="chart"></div>
+                    <div id="serviceTypesChart" class="chart"></div>
+                </div>
+                <div class="kpi">
+                    <span class="kpi-value">${properties.averageCompletionTime || '2.5'}h</span>
+                    <span class="kpi-label">Avg. Completion Time</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Feedback Section -->
+        <div class="dashboard-card">
+            <div class="card-header">
+                <h3><i class="fas fa-comments mr-2"></i>Customer Feedback</h3>
+                <div class="card-actions">
+                    <button class="action-btn tooltip-container" title="View Details">
+                        <i class="fas fa-eye"></i>
+                        <span class="tooltip">View Details</span>
+                    </button>
+                    <button class="action-btn tooltip-container" title="Refresh">
+                        <i class="fas fa-sync-alt spin-on-hover"></i>
+                        <span class="tooltip">Refresh</span>
+                    </button>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-group">
+                    <div id="csiTrendChart" class="chart"></div>
+                    <div id="feedbackCategoriesChart" class="chart"></div>
+                </div>
+                <div class="kpi">
+                    <span class="kpi-value">${properties.currentCsiScore || '90'}</span>
+                    <span class="kpi-label">Current CSI Score</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dealer Performance Section -->
+        <div class="dashboard-card">
+            <div class="card-header">
+                <h3><i class="fas fa-chart-line mr-2"></i>Sales Performance vs Target</h3>
+                <div class="card-actions">
+                    <button class="action-btn tooltip-container" title="View Details">
+                        <i class="fas fa-eye"></i>
+                        <span class="tooltip">View Details</span>
+                    </button>
+                    <button class="action-btn tooltip-container" title="Refresh">
+                        <i class="fas fa-sync-alt spin-on-hover"></i>
+                        <span class="tooltip">Refresh</span>
+                    </button>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-group">
+                    <div id="salesTargetChart" class="chart"></div>
+                </div>
+                <div class="kpi">
+                    <span class="kpi-value">${properties.customerRetention || '90'}%</span>
+                    <span class="kpi-label">Sales Performance</span>
+                </div>
+            </div>
+        </div>
+        <!--
+        <div class="dashboard-card">
+            <h3>Dealer Network Summary</h3>
+            <div class="chart-container dealer-network-summary">
+                <div class="kpi-group">
+                    <div class="kpi">
+                        <span class="kpi-value" id="totalDealers">--</span>
+                        <span class="kpi-label">Total Dealers</span>
+                    </div>
+                    <div class="kpi">
+                        <span class="kpi-value" id="totalUsers">--</span>
+                        <span class="kpi-label">Total Users</span>
+                    </div>
+                    <div class="kpi">
+                        <span class="kpi-value" id="activeUsers">--</span>
+                        <span class="kpi-label">Active Users</span>
+                    </div>
+                    <div class="kpi">
+                        <span class="kpi-value" id="inactiveUsers">--</span>
+                        <span class="kpi-label">Inactive Users</span>
+                    </div>
+                </div>
+                <div id="userStatusChart" class="chart"></div>
+            </div>
+        </div>  -->
+    </div>
+</div>

@@ -46,7 +46,7 @@ public class PostLoginRedirectServlet extends SlingAllMethodsServlet {
             }
 
             Iterator<Group> groups = authorizable.memberOf();
-            String redirectPath = "/content/honda/us/en.html"; // default
+            String redirectPath = "/content/honda/us/en.html";// default
 
             StringBuilder groupIds = new StringBuilder();
 
@@ -61,15 +61,18 @@ public class PostLoginRedirectServlet extends SlingAllMethodsServlet {
                 switch (groupId) {
                     case "honda-admin":
                         createCookie(response, "currentGroup", "honda-admin");
+                        redirectPath = "/content/honda/us/en/home.html";
                         break;
                     case "honda-auto":
                         createCookie(response, "currentGroup", "honda-auto");
+                        redirectPath = "/content/honda/us/en/auto-dealer-dashboard.html";
                         break;
                     case "honda-mc-pe":
                         createCookie(response, "currentGroup", "honda-mc-pe");
+                        redirectPath = "/content/honda/us/en/mc-pe-dashboard.html";
                         break;
                 }
-                redirectPath = "/content/honda/us/en/home.html";
+                //redirectPath = "/content/honda/us/en/home.html";
             }
 
             // Create cookies

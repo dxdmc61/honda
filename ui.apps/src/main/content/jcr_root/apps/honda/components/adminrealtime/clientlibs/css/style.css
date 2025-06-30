@@ -6,7 +6,7 @@
 /* Header */
 /*change: comment*/
 /* .cmp-search-claims__header {
-  margin-bottom: 1rem ; 
+  margin-bottom: 1rem ;
 } */
 
 .cmp-search-claims__title {
@@ -30,9 +30,9 @@
 }
 
 .cmp-search-claims__alert--success {
-  background-color: var(--success-light);
-  color: var(--success-text);
-  border: 1px solid var(--success-border);
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
 }
 
 .cmp-search-claims__alert--error {
@@ -56,7 +56,7 @@
   transition: box-shadow 0.3s ease;
   padding: 1rem;
   border-bottom: 1px solid var(--gray-200);
-  
+
 }
 
 /* Form Row */
@@ -260,8 +260,8 @@
   box-shadow: 0 4px 6px rgba(0, 53, 102, 0.25);
 }
 
-/* ==================== 
-   Search Results & Toolbar 
+/* ====================
+   Search Results & Toolbar
    ==================== */
 
 /* Toolbar */
@@ -559,8 +559,8 @@
   font-weight: 500;
 }
 
-/* ==================== 
-   Warranty Claims Component 
+/* ====================
+   Warranty Claims Component
    ==================== */
 
 #warranty-claims-component {
@@ -708,6 +708,7 @@
 .section-title {
   font-weight: 500;
   color: var(--gray-800);
+  font-size: large;
 }
 
 /* Form Elements */
